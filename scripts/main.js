@@ -55,6 +55,8 @@ jQuery(function ($) {
 
     function makeOptions(x) {
         return $.extend({
+            $StartIndex: 1,
+            $FillMode: 2,                                                   //  [Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
             $AutoPlay: false,                                               //  [Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
             $DragOrientation: 1,                                            //  [Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0),
 
@@ -85,9 +87,9 @@ jQuery(function ($) {
         }, x || {});
     }
 
-    jssor_slider1 = new $JssorSlider$('slider1_container', makeOptions());
-    jssor_slider2 = new $JssorSlider$('slider2_container', makeOptions());
-    jssor_slider3 = new $JssorSlider$('slider3_container', makeOptions());
+    jssor_slider1 = new $JssorSlider$('slider1_container', makeOptions({$StartIndex: slideIndex1}));
+    jssor_slider2 = new $JssorSlider$('slider2_container', makeOptions({$StartIndex: slideIndex2}));
+    jssor_slider3 = new $JssorSlider$('slider3_container', makeOptions({$StartIndex: slideIndex3}));
 
     //responsive code begin
     //you can remove responsive code if you don't want the slider scales while window resizes
