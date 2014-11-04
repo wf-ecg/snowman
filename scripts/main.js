@@ -7,21 +7,21 @@
 function loadjscssfile(filename, filetype) {
     var fileref;
 
-    if (filetype == "js") { //if filename is a external JavaScript file
+    if (filetype == 'js') { //if filename is a external JavaScript file
         // alert('called');
         fileref = document.createElement('script');
-        fileref.setAttribute("type", "text/javascript");
-        fileref.setAttribute("src", filename);
+        fileref.setAttribute('type', 'text/javascript');
+        fileref.setAttribute('src', filename);
         console.warn('called');
     }
-    else if (filetype == "css") { //if filename is an external CSS file
-        fileref = document.createElement("link");
-        fileref.setAttribute("rel", "stylesheet");
-        fileref.setAttribute("type", "text/css");
-        fileref.setAttribute("href", filename);
+    else if (filetype == 'css') { //if filename is an external CSS file
+        fileref = document.createElement('link');
+        fileref.setAttribute('rel', 'stylesheet');
+        fileref.setAttribute('type', 'text/css');
+        fileref.setAttribute('href', filename);
     }
-    if (typeof fileref != "undefined") {
-        document.getElementsByTagName("head")[0].appendChild(fileref);
+    if (typeof fileref != 'undefined') {
+        document.getElementsByTagName('head')[0].appendChild(fileref);
     }
 }
 
@@ -29,31 +29,31 @@ jQuery(document).ready(function ($) {
     //Reference http://www.jssor.com/development/tip-make-responsive-slider.html
 
     function getParameterByName(name) {
-        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
         results = regex.exec(location.search);
-        return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        return results == null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
-    var qscheck = parseInt(getParameterByName("a"), 10);
-    var slideIndex1 = parseInt(getParameterByName("a") || "0", 10);
-    var slideIndex2 = parseInt(getParameterByName("b") || "0", 10);
-    var slideIndex3 = parseInt(getParameterByName("c") || "0", 10);
+    var qscheck = parseInt(getParameterByName('a'), 10);
+    var slideIndex1 = parseInt(getParameterByName('a') || '0', 10);
+    var slideIndex2 = parseInt(getParameterByName('b') || '0', 10);
+    var slideIndex3 = parseInt(getParameterByName('c') || '0', 10);
 
     if (qscheck>=0) {
-        loadjscssfile("css/shared.css", "css");
+        loadjscssfile('css/shared.css', 'css');
     } else {
-        loadjscssfile("css/create.css", "css");
+        loadjscssfile('css/create.css', 'css');
     }
 
 
     var _CaptionTransitions = [];
-    _CaptionTransitions["CLIP|L"] = {
+    _CaptionTransitions['CLIP|L'] = {
         $Duration: 600,
         $Clip: 1,
         $Easing: $JssorEasing$.$EaseInOutCubic
     };
-    _CaptionTransitions["RTT|10"] = {
+    _CaptionTransitions['RTT|10'] = {
         $Duration: 600,
         $Zoom: 11,
         $Rotate: 1,
@@ -67,7 +67,7 @@ jQuery(document).ready(function ($) {
             $Rotate: 0.8
         }
     };
-_CaptionTransitions["ZMF|10"] = {
+_CaptionTransitions['ZMF|10'] = {
     $Duration: 600,
     $Zoom: 11,
     $Easing: {
@@ -76,7 +76,7 @@ _CaptionTransitions["ZMF|10"] = {
     },
     $Opacity: 2
 };
-_CaptionTransitions["FLTTR|R"] = {
+_CaptionTransitions['FLTTR|R'] = {
     $Duration: 600,
     x: -0.2,
     y: -0.1,
@@ -126,9 +126,9 @@ var options2 = makeOptions();
 var options3 = makeOptions();
 
 
-window.jssor_slider1 = new $JssorSlider$("slider1_container", options1);
-    window.jssor_slider2 = new $JssorSlider$("slider2_container", options2);
-    window.jssor_slider3 = new $JssorSlider$("slider3_container", options3);
+window.jssor_slider1 = new $JssorSlider$('slider1_container', options1);
+    window.jssor_slider2 = new $JssorSlider$('slider2_container', options2);
+    window.jssor_slider3 = new $JssorSlider$('slider3_container', options3);
 
     //responsive code begin
     //you can remove responsive code if you don't want the slider scales while window resizes
@@ -158,7 +158,7 @@ window.jssor_slider1 = new $JssorSlider$("slider1_container", options1);
 
             //slider width is minimum 200
             sliderWidth = Math.max(sliderWidth, 200);
-            var clearFix = "none";
+            var clearFix = 'none';
 
             //evaluate free width for text, if the width is less than minReserveWidth then fill parent container
             if (availableWidth - sliderWidth < minReserveWidth) {
@@ -169,7 +169,7 @@ window.jssor_slider1 = new $JssorSlider$("slider1_container", options1);
                 //slider width is minimum 200
                 sliderWidth = Math.max(sliderWidth, 200);
 
-                clearFix = "both";
+                clearFix = 'both';
             }
 
             //clear fix for safari 3.1, chrome 3
@@ -190,7 +190,7 @@ window.jssor_slider1 = new $JssorSlider$("slider1_container", options1);
     }
 
 //if (navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
-//    $(window).bind("orientationchange", ScaleSlider);
+//    $(window).bind('orientationchange', ScaleSlider);
 //}
 //responsive code end
 
@@ -202,13 +202,13 @@ function scramble() {
     rand = Math.random() * 9 + 1;
 
     for (i = 0; i < rand; i++) {
-        window.setTimeout($.fn.click.bind($("#btnRight1")), i * 99);
+        window.setTimeout($.fn.click.bind($('#btnRight1')), i * 99);
     }
     for (i = 0; i < rand; i++) {
-        window.setTimeout($.fn.click.bind($("#btnLeft2")), i * 99);
+        window.setTimeout($.fn.click.bind($('#btnLeft2')), i * 99);
     }
     for (i = 0; i < rand; i++) {
-        window.setTimeout($.fn.click.bind($("#btnRight3")), i * 99);
+        window.setTimeout($.fn.click.bind($('#btnRight3')), i * 99);
     }
 }
 
@@ -220,22 +220,22 @@ function createShareLink() {
     currentSlideIndex1 = jssor_slider1.$CurrentIndex();
     currentSlideIndex2 = jssor_slider2.$CurrentIndex();
     currentSlideIndex3 = jssor_slider3.$CurrentIndex();
-    shareLink = window.location.href + "?a=" + currentSlideIndex1 + "&b=" + currentSlideIndex2 + "&c=" + currentSlideIndex3;
+    shareLink = window.location.href + '?a=' + currentSlideIndex1 + '&b=' + currentSlideIndex2 + '&c=' + currentSlideIndex3;
 
     console.debug(shareLink);
-    $("#previewDiv").show();
-    $("#printCorners").show();
+    $('#previewDiv').show();
+    $('#printCorners').show();
 
     //duplicate snowman div
     original = document.getElementById('snowman');
-    clone = original.cloneNode(true); // "deep" clone
+    clone = original.cloneNode(true); // 'deep' clone
 
-    clone.id = "snowman1";
-    $("#previewDiv").append(clone);
+    clone.id = 'snowman1';
+    $('#previewDiv').append(clone);
 }
 
 function closePreview() {
-    $("#snowman1").remove();
-    $("#previewDiv").hide();
-    $("#printCorners").hide();
+    $('#snowman1').remove();
+    $('#previewDiv').hide();
+    $('#printCorners').hide();
 }
