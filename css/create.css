@@ -2,14 +2,14 @@
 /* CSS Document */
 
 .instructions {
-	display:block;
+    display:block;
 }
 .cta_created {
-	display:inline-block;
+    display:inline-block;
 }
 .cta_shared {
-	display:none;
+    display:none;
 }
 .greeting {
-	display:none;
+    display:none;
 }
