@@ -161,7 +161,7 @@ function createShareLink() {
 
     console.debug(shareLink);
     $('#Preview').show();
-    $('#printCorners').show();
+    $('#Corners').show();
 
     //duplicate snowman div
     original = document.getElementById('Snowman');
@@ -178,5 +178,5 @@ function sharePreview() {
 function closePreview() {
     $('#Snowman1').remove();
     $('#Preview').hide();
-    $('#printCorners').hide();
+    $('#Corners').hide();
 }

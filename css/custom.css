@@ -48,7 +48,7 @@ div[u="slides"] {
         box-shadow: none;
         -webkit-box-shadow: none;
     }
-    #Snowman, #introCopy, #introLogo {
+    #Snowman, #Copy, #Logo {
         float: none;
         width: 96%;
         text-align: center;

@@ -22,7 +22,7 @@
     max-width: 650px;
     float: right;
 }
-#introCopy, #introLogo {
+#Copy, #Logo {
     width: 42%;
     min-width: 200px;
     float: left;
@@ -82,7 +82,7 @@
     top: 350px;
     z-index: 1000;
 }
-#printCorners {
+#Corners {
     display: none;
 }
 
