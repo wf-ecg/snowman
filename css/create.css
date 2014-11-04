@@ -1,0 +1,15 @@
+@charset "UTF-8";
+/* CSS Document */
+
+.instructions {
+	display:block;
+}
+.cta_created {
+	display:inline-block;
+}
+.cta_shared {
+	display:none;
+}
+.greeting {
+	display:none;
+}
