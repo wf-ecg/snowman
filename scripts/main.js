@@ -87,9 +87,9 @@ jQuery(function ($) {
         }, x || {});
     }
 
-    jssor_slider1 = new $JssorSlider$('slider1_container', makeOptions({$StartIndex: slideIndex1}));
-    jssor_slider2 = new $JssorSlider$('slider2_container', makeOptions({$StartIndex: slideIndex2}));
-    jssor_slider3 = new $JssorSlider$('slider3_container', makeOptions({$StartIndex: slideIndex3}));
+    jssor_slider1 = new $JssorSlider$('Slider1', makeOptions({$StartIndex: slideIndex1}));
+    jssor_slider2 = new $JssorSlider$('Slider2', makeOptions({$StartIndex: slideIndex2}));
+    jssor_slider3 = new $JssorSlider$('Slider3', makeOptions({$StartIndex: slideIndex3}));
 
     //responsive code begin
     //you can remove responsive code if you don't want the slider scales while window resizes
@@ -158,15 +158,15 @@ function createShareLink() {
     shareLink = W.location.href + currentIndexes.join('');
 
     console.debug(shareLink);
-    $('#previewDiv').show();
+    $('#Preview').show();
     $('#printCorners').show();
 
     //duplicate snowman div
-    original = document.getElementById('snowman');
+    original = document.getElementById('Snowman');
     clone = original.cloneNode(true); // 'deep' clone
 
-    clone.id = 'snowman1';
-    $('#previewDiv').append(clone);
+    clone.id = 'Snowman1';
+    $('#Preview').append(clone);
 }
 
 function sharePreview() {
@@ -174,7 +174,7 @@ function sharePreview() {
 }
 
 function closePreview() {
-    $('#snowman1').remove();
-    $('#previewDiv').hide();
+    $('#Snowman1').remove();
+    $('#Preview').hide();
     $('#printCorners').hide();
 }

@@ -17,7 +17,7 @@ body {
     height:97%;
 }
 
-#container {
+#Container {
     display: block;
     overflow: hidden;
     margin: 20px auto 0 auto;
@@ -30,7 +30,7 @@ body {
     -webkit-box-shadow: 0px 0px 5px 5px #0095c8;
     font-size: .8em; line-height: 1.5em;
 }
-#snowman {
+#Snowman {
     width:56%;
     min-width:200px;
     max-width:650px;
@@ -72,7 +72,7 @@ ul {
 
 
 
-#slider1_container, #slider2_container, #slider3_container {
+#Slider1, #Slider2, #Slider3 {
     position: relative;
     margin: 0px 5px 0px 0px;
     float: right;
@@ -82,7 +82,7 @@ ul {
     overflow: hidden;
 }
 
-#previewDiv {
+#Preview {
     position: fixed !important;
     position:absolute;
     top:0;
@@ -94,7 +94,7 @@ ul {
     z-index:100;
     display:none;
 }
-#snowman1 {
+#Snowman1 {
     position:absolute;
     text-align:center;
     top:50px; left:0; bottom:0; right:0;
@@ -111,9 +111,9 @@ ul {
     border-image: url(../img/frame/borderFrame.png) 30 30 stretch;
 }
 
-
-#snowman1 #btnLeft1, #snowman1 #btnLeft2, #snowman1 #btnLeft3 {visibility: hidden}
-#snowman1 #btnRight1, #snowman1 #btnRight2, #snowman1 #btnRight3 {visibility: hidden}
+#Snowman1 .arrow {
+    visibility: hidden;
+}
 
 #printLogo {
     display:block;
@@ -427,13 +427,13 @@ a:active {
 
 @media print {
     body { background-color:#ffffff; background-image:none; height:100%;}
-    #container, #snowman, #previewNav {display:none;}
-    #previewDiv {height:100%;}
+    #Container, #Snowman, #previewNav {display:none;}
+    #Preview {height:100%;}
 
 }
 
 @media (max-width: 639px) {
-    #container {
+    #Container {
         width:100%;
         overflow:hidden;
         margin:0px;
@@ -442,14 +442,14 @@ a:active {
         box-shadow:none;
         -webkit-box-shadow:none;
     }
-    #snowman, #introCopy, #introLogo {
+    #Snowman, #introCopy, #introLogo {
         float:none;
         width:96%;
         text-align:center;
         padding:0px;
         margin:10px auto 0 auto;
     }
-    #slider1_container, #slider2_container, #slider3_container {
+    #Slider1, #Slider2, #Slider3 {
         margin-right:10px;
     }
     .cta_created {
