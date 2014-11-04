@@ -133,18 +133,20 @@ jQuery(function ($) {
 });
 
 function scramble() {
-    var rand, i;
+    var i;
 
-    rand = Math.random() * 9 + 1;
+    function rando() {
+        return (Math.random() * 9 + 1) | 0;
+    }
 
-    for (i = 0; i < rand; i++) {
-        W.setTimeout($.fn.click.bind($('#btnRight1')), i * 99);
+    for (i = 0; i < rando(); i++) {
+        W.setTimeout($.fn.click.bind($('#Slider1 .right')), i * 99);
     }
-    for (i = 0; i < rand; i++) {
-        W.setTimeout($.fn.click.bind($('#btnLeft2')), i * 99);
+    for (i = 0; i < rando(); i++) {
+        W.setTimeout($.fn.click.bind($('#Slider2 .left')), i * 99);
     }
-    for (i = 0; i < rand; i++) {
-        W.setTimeout($.fn.click.bind($('#btnRight3')), i * 99);
+    for (i = 0; i < rando(); i++) {
+        W.setTimeout($.fn.click.bind($('#Slider3 .right')), i * 99);
     }
 }
 
