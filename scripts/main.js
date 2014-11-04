@@ -1,44 +1,51 @@
 /*jslint white:false */
-/*globals console, document, jQuery, location, navigator, window, $,
+/*globals console, document, jQuery, window, $,
     $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$, $JssorEasing$, $JssorSlider$,
 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+var jssor_slider1, jssor_slider2, jssor_slider3, W = window;
 
 function loadjscssfile(filename, filetype) {
     var fileref;
 
-    if (filetype == 'js') { //if filename is a external JavaScript file
+    if (filetype === 'js') { //if filename is a external JavaScript file
         // alert('called');
         fileref = document.createElement('script');
         fileref.setAttribute('type', 'text/javascript');
         fileref.setAttribute('src', filename);
         console.warn('called');
     }
-    else if (filetype == 'css') { //if filename is an external CSS file
+    else if (filetype === 'css') { //if filename is an external CSS file
         fileref = document.createElement('link');
         fileref.setAttribute('rel', 'stylesheet');
         fileref.setAttribute('type', 'text/css');
         fileref.setAttribute('href', filename);
     }
-    if (typeof fileref != 'undefined') {
+    if (typeof fileref !== 'undefined') {
         document.getElementsByTagName('head')[0].appendChild(fileref);
     }
 }
 
-jQuery(document).ready(function ($) {
+jQuery(function ($) {
+
+    var qscheck, slideIndex1, slideIndex2, slideIndex3;
+
     //Reference http://www.jssor.com/development/tip-make-responsive-slider.html
 
     function getParameterByName(name) {
+        var regex, results;
+
         name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
-            results = regex.exec(location.search);
-        return results == null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        results = regex.exec(W.location.search);
+
+        return (results == null) ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
-    var qscheck = parseInt(getParameterByName('a'), 10);
-    var slideIndex1 = parseInt(getParameterByName('a') || '0', 10);
-    var slideIndex2 = parseInt(getParameterByName('b') || '0', 10);
-    var slideIndex3 = parseInt(getParameterByName('c') || '0', 10);
+    qscheck = parseInt(getParameterByName('a'), 10);
+    slideIndex1 = parseInt(getParameterByName('a') || '0', 10);
+    slideIndex2 = parseInt(getParameterByName('b') || '0', 10);
+    slideIndex3 = parseInt(getParameterByName('c') || '0', 10);
 
     if (qscheck >= 0) {
         loadjscssfile('css/shared.css', 'css');
@@ -46,58 +53,14 @@ jQuery(document).ready(function ($) {
         loadjscssfile('css/create.css', 'css');
     }
 
-
-    var _CaptionTransitions = [];
-    _CaptionTransitions['CLIP|L'] = {
-        $Duration: 600,
-        $Clip: 1,
-        $Easing: $JssorEasing$.$EaseInOutCubic
-    };
-    _CaptionTransitions['RTT|10'] = {
-        $Duration: 600,
-        $Zoom: 11,
-        $Rotate: 1,
-        $Easing: {
-            $Zoom: $JssorEasing$.$EaseInExpo,
-            $Opacity: $JssorEasing$.$EaseLinear,
-            $Rotate: $JssorEasing$.$EaseInExpo
-        },
-        $Opacity: 2,
-        $Round: {
-            $Rotate: 0.8
-        }
-    };
-    _CaptionTransitions['ZMF|10'] = {
-        $Duration: 600,
-        $Zoom: 11,
-        $Easing: {
-            $Zoom: $JssorEasing$.$EaseInExpo,
-            $Opacity: $JssorEasing$.$EaseLinear
-        },
-        $Opacity: 2
-    };
-    _CaptionTransitions['FLTTR|R'] = {
-        $Duration: 600,
-        x: - 0.2,
-        y: - 0.1,
-        $Easing: {
-            $Left: $JssorEasing$.$EaseLinear,
-            $Top: $JssorEasing$.$EaseInWave
-        },
-        $Opacity: 2,
-        $Round: {
-            $Top: 1.3
-        }
-    };
-
-    function makeOptions() {
-        return {
+    function makeOptions(x) {
+        return $.extend({
             $AutoPlay: false,                                               //  [Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
             $DragOrientation: 1,                                            //  [Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0),
 
             $CaptionSliderOptions: {                                        //  [Optional] Options which specifies how to animate caption
                 $Class: $JssorCaptionSlider$,                               //  [Required] Class to create instance to animate caption
-                $CaptionTransitions: _CaptionTransitions,                   //  [Required] An array of caption transitions to play caption, see caption transition section at jssor slideshow transition builder
+                $CaptionTransitions: [],                                    //  [Required] An array of caption transitions to play caption, see caption transition section at jssor slideshow transition builder
                 $PlayInMode: 1,                                             //  [Optional] 0 None (no play), 1 Chain (goes after main slide), 3 Chain Flatten (goes after main slide and flatten all caption animations), default value is 1
                 $PlayOutMode: 3                                             //  [Optional] 0 None (no play), 1 Chain (goes before main slide), 3 Chain Flatten (goes before main slide and flatten all caption animations), default value is 1
             },
@@ -119,34 +82,30 @@ jQuery(document).ready(function ($) {
                 $AutoCenter: 2,                                             //  [Optional] Auto center arrows in parent container, 0 No, 1 Horizontal, 2 Vertical, 3 Both, default value is 0
                 $Steps: 1                                                   //  [Optional] Steps to go for each navigation request, default value is 1
             }
-        };
+        }, x || {});
     }
 
-    var options1 = makeOptions();
-    var options2 = makeOptions();
-    var options3 = makeOptions();
-
-    window.jssor_slider1 = new $JssorSlider$('slider1_container', options1);
-    window.jssor_slider2 = new $JssorSlider$('slider2_container', options2);
-    window.jssor_slider3 = new $JssorSlider$('slider3_container', options3);
+    jssor_slider1 = new $JssorSlider$('slider1_container', makeOptions());
+    jssor_slider2 = new $JssorSlider$('slider2_container', makeOptions());
+    jssor_slider3 = new $JssorSlider$('slider3_container', makeOptions());
 
     //responsive code begin
     //you can remove responsive code if you don't want the slider scales while window resizes
 
     function ScaleSlider() {
+        var paddingWidth, minReserveWidth, parentElement, parentWidth, availableWidth, sliderWidth, clearFix;
 
-        var paddingWidth = 20; //                                               reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
-        var minReserveWidth = 325; //                                           minimum width should reserve for text
-        var parentElement = jssor_slider2.$Elmt.parentNode;
+        paddingWidth = 20; //                                                   reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
+        minReserveWidth = 325; //                                               minimum width should reserve for text
+        parentElement = jssor_slider2.$Elmt.parentNode;
+        parentWidth = parentElement.clientWidth; //                             evaluate parent container width
 
-        var parentWidth = parentElement.clientWidth; //                         evaluate parent container width
         if (parentWidth) {
-
-            var availableWidth = parentWidth - paddingWidth; //                 exclude blank width
-            var sliderWidth = availableWidth * 0.5; //                          calculate slider width as 70% of available width
+            availableWidth = parentWidth - paddingWidth; //                     exclude blank width
+            sliderWidth = availableWidth * 0.5; //                              calculate slider width as 70% of available width
             sliderWidth = Math.min(sliderWidth, 851); //                        slider width is maximum 600
             sliderWidth = Math.max(sliderWidth, 200); //                        slider width is minimum 200
-            var clearFix = 'none';
+            clearFix = 'none';
 
             if (availableWidth - sliderWidth < minReserveWidth) { //            evaluate free width for text, if the width is less than minReserveWidth then fill parent container
                 sliderWidth = availableWidth; //                                set slider width to available width
@@ -159,20 +118,16 @@ jQuery(document).ready(function ($) {
             jssor_slider2.$ScaleWidth(sliderWidth);
             jssor_slider3.$ScaleWidth(sliderWidth);
         } else {
-            window.setTimeout(ScaleSlider, 30);
+            W.setTimeout(ScaleSlider, 30);
         }
     }
 
     ScaleSlider();
 
-    if (!navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) {
-        $(window).bind('resize', ScaleSlider);
+    if (!W.navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) {
+        $(W).on('resize orientationchange', ScaleSlider);
     }
-
-    //if (navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
-    //    $(window).bind('orientationchange', ScaleSlider);
-    //}
-    //responsive code end
+    /* responsive code end */
 });
 
 function scramble() {
@@ -181,25 +136,24 @@ function scramble() {
     rand = Math.random() * 9 + 1;
 
     for (i = 0; i < rand; i++) {
-        window.setTimeout($.fn.click.bind($('#btnRight1')), i * 99);
+        W.setTimeout($.fn.click.bind($('#btnRight1')), i * 99);
     }
     for (i = 0; i < rand; i++) {
-        window.setTimeout($.fn.click.bind($('#btnLeft2')), i * 99);
+        W.setTimeout($.fn.click.bind($('#btnLeft2')), i * 99);
     }
     for (i = 0; i < rand; i++) {
-        window.setTimeout($.fn.click.bind($('#btnRight3')), i * 99);
+        W.setTimeout($.fn.click.bind($('#btnRight3')), i * 99);
     }
 }
 
 function createShareLink() {
-    var currentSlideIndex1, currentSlideIndex2, currentSlideIndex3, shareLink,
-    original, destination, clone;
+    var currentIndexes = [], shareLink, original, clone;
 
     //generate link based of current slides positions
-    currentSlideIndex1 = jssor_slider1.$CurrentIndex();
-    currentSlideIndex2 = jssor_slider2.$CurrentIndex();
-    currentSlideIndex3 = jssor_slider3.$CurrentIndex();
-    shareLink = window.location.href + '?a=' + currentSlideIndex1 + '&b=' + currentSlideIndex2 + '&c=' + currentSlideIndex3;
+    currentIndexes.push('?a=' + jssor_slider1.$CurrentIndex());
+    currentIndexes.push('&b=' + jssor_slider2.$CurrentIndex());
+    currentIndexes.push('&c=' + jssor_slider3.$CurrentIndex());
+    shareLink = W.location.href + currentIndexes.join('');
 
     console.debug(shareLink);
     $('#previewDiv').show();
@@ -211,6 +165,10 @@ function createShareLink() {
 
     clone.id = 'snowman1';
     $('#previewDiv').append(clone);
+}
+
+function sharePreview() {
+    createShareLink();
 }
 
 function closePreview() {
