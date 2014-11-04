@@ -1,3 +1,10 @@
+/*jslint white:false */
+/*globals document, jQuery, location, navigator, window,
+    loadjscssfile,
+    $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$, $JssorEasing$, $JssorSlider$,
+*/
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
 jQuery(document).ready(function ($) {
     //Reference http://www.jssor.com/development/tip-make-responsive-slider.html
 
@@ -8,10 +15,10 @@ jQuery(document).ready(function ($) {
         return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
 
-    var qscheck = parseInt(getParameterByName("a"));
-    var slideIndex1 = parseInt(getParameterByName("a") || "0");
-    var slideIndex2 = parseInt(getParameterByName("b") || "0");
-    var slideIndex3 = parseInt(getParameterByName("c") || "0");
+    var qscheck = parseInt(getParameterByName("a"), 10);
+    var slideIndex1 = parseInt(getParameterByName("a") || "0", 10);
+    var slideIndex2 = parseInt(getParameterByName("b") || "0", 10);
+    var slideIndex3 = parseInt(getParameterByName("c") || "0", 10);
 
     if (qscheck>=0) {
         loadjscssfile("css/shared.css", "css");
@@ -205,9 +212,9 @@ window.jssor_slider1 = new $JssorSlider$("slider1_container", options1);
             jssor_slider1.$ScaleWidth(sliderWidth);
             jssor_slider2.$ScaleWidth(sliderWidth);
             jssor_slider3.$ScaleWidth(sliderWidth);
-        }
-        else
+        } else {
             window.setTimeout(ScaleSlider, 30);
+        }
     }
 
     ScaleSlider();
@@ -224,21 +231,23 @@ window.jssor_slider1 = new $JssorSlider$("slider1_container", options1);
 });
 
 function scramble() {
-    var scramble1 = Math.floor(Math.random() * 20) + 1;
-    var scramble2 = Math.floor(Math.random() * 20) + 1;
-    var scramble3 = Math.floor(Math.random() * 20) + 1;
+    var scramble1, scramble2, scramble3, i;
 
-    for (var i=0; i<scramble1; i++) {
+    scramble1 = Math.floor(Math.random() * 20) + 1;
+    scramble2 = Math.floor(Math.random() * 20) + 1;
+    scramble3 = Math.floor(Math.random() * 20) + 1;
+
+    for (i=0; i<scramble1; i++) {
         setTimeout(function() {
             $("#btnRight1").click()
             }, (i*20));
     }
-    for (var i=0; i<scramble2; i++) {
+    for (i=0; i<scramble2; i++) {
         setTimeout(function() {
             $("#btnLeft2").click()
             }, (i*20));
     }
-    for (var i=0; i<scramble3; i++) {
+    for (i=0; i<scramble3; i++) {
         setTimeout(function() {
             $("#btnRight3").click()
             }, (i*20));
@@ -246,47 +255,51 @@ function scramble() {
 }
 
 function createShareLink() {
+    var currentSlideIndex1, currentSlideIndex2, currentSlideIndex3, shareLink,
+    original, destination, clone;
+
     //generate link based of current slides positions
-    var currentSlideIndex1 = jssor_slider1.$CurrentIndex();
-    var currentSlideIndex2 = jssor_slider2.$CurrentIndex();
-    var currentSlideIndex3 = jssor_slider3.$CurrentIndex();
-    var shareLink = window.location.href + "?a=" + currentSlideIndex1 + "&b=" + currentSlideIndex2 + "&c=" + currentSlideIndex3;
-    //alert (shareLink);
+    currentSlideIndex1 = jssor_slider1.$CurrentIndex();
+    currentSlideIndex2 = jssor_slider2.$CurrentIndex();
+    currentSlideIndex3 = jssor_slider3.$CurrentIndex();
+    shareLink = window.location.href + "?a=" + currentSlideIndex1 + "&b=" + currentSlideIndex2 + "&c=" + currentSlideIndex3;
+    console.debug(shareLink);
     document.getElementById("previewDiv").style.display="block";
     document.getElementById("printCorners").style.display="block";
 
     //duplicate snowman div
-    var original = document.getElementById('snowman');
-    var destination = document.getElementById("previewDiv");
-    var clone = original.cloneNode(true); // "deep" clone
+    original = document.getElementById('snowman');
+    destination = document.getElementById("previewDiv");
+    clone = original.cloneNode(true); // "deep" clone
+    //
     clone.id = "snowman1";
     destination.appendChild(clone);
-
 }
+
 function closePreview() {
     var snowman1 = document.getElementById("snowman1");
+
     snowman1.parentNode.removeChild(snowman1);
     document.getElementById("previewDiv").style.display="none";
     document.getElementById("printCorners").style.display="none";
-
 }
 
-
 function loadjscssfile(filename, filetype) {
+    var fileref;
     if (filetype == "js") { //if filename is a external JavaScript file
         // alert('called');
-        var fileref = document.createElement('script')
-        fileref.setAttribute("type", "text/javascript")
-        fileref.setAttribute("src", filename)
+        fileref = document.createElement('script');
+        fileref.setAttribute("type", "text/javascript");
+        fileref.setAttribute("src", filename);
         alert('called');
     }
     else if (filetype == "css") { //if filename is an external CSS file
-        var fileref = document.createElement("link")
-        fileref.setAttribute("rel", "stylesheet")
-        fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", filename)
+        fileref = document.createElement("link");
+        fileref.setAttribute("rel", "stylesheet");
+        fileref.setAttribute("type", "text/css");
+        fileref.setAttribute("href", filename);
     }
     if (typeof fileref != "undefined") {
-        document.getElementsByTagName("head")[0].appendChild(fileref)
+        document.getElementsByTagName("head")[0].appendChild(fileref);
     }
 }
