@@ -3,14 +3,14 @@ html, body {
     height: 100%;
 }
 h1, h2, h3, p, ul, li {
-    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
+    font-family: Archer, 'Archer SSm A', 'Archer SSm B', Georgia, serif;
     -webkit-font-smoothing: antialiased; }
 
 body {
     margin: 0px;
     padding: 0px;
     background-color:#9eb6ce;
-    background-image: url(../img/irt/background.jpg);
+    background-image: url(../img/background.jpg);
     background-position: top;
     background-repeat:repeat-x;
     font-family: Arial, Verdana;
@@ -106,9 +106,9 @@ ul {
     border-width:10px;
     border-style:solid;
     border-color:#021a40;
-    -webkit-border-image: url(../img/borderFrame.png) 30 30 stretch; /* Safari 3.1-5 */
-    -o-border-image: url(../img/borderFrame.png) 30 30 stretch; /* Opera 11-12.1 */
-    border-image: url(../img/borderFrame.png) 30 30 stretch;
+    -webkit-border-image: url(../img/frame/borderFrame.png) 30 30 stretch; /* Safari 3.1-5 */
+    -o-border-image: url(../img/frame/borderFrame.png) 30 30 stretch; /* Opera 11-12.1 */
+    border-image: url(../img/frame/borderFrame.png) 30 30 stretch;
 }
 
 
@@ -149,25 +149,25 @@ ul {
     position:relative;
     top:10px;
     left:10px;
-    background-image:url(../img/cornerFrame_TL1.png);
+    background-image:url(../img/frame/cornerFrame_TL1.png);
 }
 #corner_TL {
     position:relative;
     top:10px;
     right:10px;
-    background-image:url(../img/cornerFrame_TL1.png);
+    background-image:url(../img/frame/cornerFrame_TL1.png);
 }
 #corner_BL {
     position:relative;
     bottom:10px;
     left:10px;
-    background-image:url(../img/cornerFrame_TL1.png);
+    background-image:url(../img/frame/cornerFrame_TL1.png);
 }
 #corner_BR {
     position:relative;
     bottom:10px;
     right:10px;
-    background-image:url(../img/cornerFrame_TL1.png);
+    background-image:url(../img/frame/cornerFrame_TL1.png);
 }
 
 .share-icon {
@@ -178,7 +178,7 @@ ul {
     height: 32px;
     cursor: pointer;
     vertical-align: middle;
-    background-image: url(../img/share/share-icons.png);
+    background-image: url(../img/icons/share-icons.png);
 }
 
 .share-facebook {
@@ -248,7 +248,7 @@ ul {
 */
 .jssorb21 div, .jssorb21 div:hover, .jssorb21 .av
 {
-    background: url(../img/b21.png) no-repeat;
+    /*                background: url(../img/b21.png) no-repeat;*/
     overflow:hidden;
     cursor: pointer;
 }
@@ -271,7 +271,7 @@ ul {
     position: absolute;
     cursor: pointer;
     display: block;
-    background: url(../img/a13.png) no-repeat;
+    background: url(../img/buttons/a13.png) no-repeat;
     overflow:hidden;
     z-index:999;
 }
