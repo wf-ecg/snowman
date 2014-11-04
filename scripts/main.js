@@ -31,7 +31,7 @@ jQuery(document).ready(function ($) {
     function getParameterByName(name) {
         name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
         var regex = new RegExp('[\\?&]' + name + '=([^&#]*)'),
-        results = regex.exec(location.search);
+            results = regex.exec(location.search);
         return results == null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
@@ -40,7 +40,7 @@ jQuery(document).ready(function ($) {
     var slideIndex2 = parseInt(getParameterByName('b') || '0', 10);
     var slideIndex3 = parseInt(getParameterByName('c') || '0', 10);
 
-    if (qscheck>=0) {
+    if (qscheck >= 0) {
         loadjscssfile('css/shared.css', 'css');
     } else {
         loadjscssfile('css/create.css', 'css');
@@ -67,28 +67,28 @@ jQuery(document).ready(function ($) {
             $Rotate: 0.8
         }
     };
-_CaptionTransitions['ZMF|10'] = {
-    $Duration: 600,
-    $Zoom: 11,
-    $Easing: {
-        $Zoom: $JssorEasing$.$EaseInExpo,
-        $Opacity: $JssorEasing$.$EaseLinear
-    },
-    $Opacity: 2
-};
-_CaptionTransitions['FLTTR|R'] = {
-    $Duration: 600,
-    x: -0.2,
-    y: -0.1,
-    $Easing: {
-        $Left: $JssorEasing$.$EaseLinear,
-        $Top: $JssorEasing$.$EaseInWave
-    },
-    $Opacity: 2,
-    $Round: {
-        $Top: 1.3
-    }
-};
+    _CaptionTransitions['ZMF|10'] = {
+        $Duration: 600,
+        $Zoom: 11,
+        $Easing: {
+            $Zoom: $JssorEasing$.$EaseInExpo,
+            $Opacity: $JssorEasing$.$EaseLinear
+        },
+        $Opacity: 2
+    };
+    _CaptionTransitions['FLTTR|R'] = {
+        $Duration: 600,
+        x: - 0.2,
+        y: - 0.1,
+        $Easing: {
+            $Left: $JssorEasing$.$EaseLinear,
+            $Top: $JssorEasing$.$EaseInWave
+        },
+        $Opacity: 2,
+        $Round: {
+            $Top: 1.3
+        }
+    };
 
 function makeOptions() {
     return {
@@ -121,60 +121,40 @@ function makeOptions() {
         }
     };
 }
-var options1 = makeOptions();
-var options2 = makeOptions();
-var options3 = makeOptions();
 
+    var options1 = makeOptions();
+    var options2 = makeOptions();
+    var options3 = makeOptions();
 
-window.jssor_slider1 = new $JssorSlider$('slider1_container', options1);
+    window.jssor_slider1 = new $JssorSlider$('slider1_container', options1);
     window.jssor_slider2 = new $JssorSlider$('slider2_container', options2);
     window.jssor_slider3 = new $JssorSlider$('slider3_container', options3);
 
     //responsive code begin
     //you can remove responsive code if you don't want the slider scales while window resizes
+
     function ScaleSlider() {
 
-        //reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
-        var paddingWidth = 20;
-
-        //minimum width should reserve for text
-        var minReserveWidth = 325;
-
+        var paddingWidth = 20; //                                               reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
+        var minReserveWidth = 325; //                                           minimum width should reserve for text
         var parentElement = jssor_slider2.$Elmt.parentNode;
 
-        //evaluate parent container width
-        var parentWidth = parentElement.clientWidth;
-
+        var parentWidth = parentElement.clientWidth; //                         evaluate parent container width
         if (parentWidth) {
 
-            //exclude blank width
-            var availableWidth = parentWidth - paddingWidth;
-
-            //calculate slider width as 70% of available width
-            var sliderWidth = availableWidth * 0.5;
-
-            //slider width is maximum 600
-            sliderWidth = Math.min(sliderWidth, 851);
-
-            //slider width is minimum 200
-            sliderWidth = Math.max(sliderWidth, 200);
+            var availableWidth = parentWidth - paddingWidth; //                 exclude blank width
+            var sliderWidth = availableWidth * 0.5; //                          calculate slider width as 70% of available width
+            sliderWidth = Math.min(sliderWidth, 851); //                        slider width is maximum 600
+            sliderWidth = Math.max(sliderWidth, 200); //                        slider width is minimum 200
             var clearFix = 'none';
 
-            //evaluate free width for text, if the width is less than minReserveWidth then fill parent container
-            if (availableWidth - sliderWidth < minReserveWidth) {
-
-                //set slider width to available width
-                sliderWidth = availableWidth;
-
-                //slider width is minimum 200
-                sliderWidth = Math.max(sliderWidth, 200);
-
+            if (availableWidth - sliderWidth < minReserveWidth) { //            evaluate free width for text, if the width is less than minReserveWidth then fill parent container
+                sliderWidth = availableWidth; //                                set slider width to available width
+                sliderWidth = Math.max(sliderWidth, 200); //                    slider width is minimum 200
                 clearFix = 'both';
             }
 
-            //clear fix for safari 3.1, chrome 3
-            $('#clearFixDiv').css('clear', clearFix);
-
+            $('#clearFixDiv').css('clear', clearFix); //                        clear fix for safari 3.1, chrome 3
             jssor_slider1.$ScaleWidth(sliderWidth);
             jssor_slider2.$ScaleWidth(sliderWidth);
             jssor_slider3.$ScaleWidth(sliderWidth);
@@ -189,11 +169,10 @@ window.jssor_slider1 = new $JssorSlider$('slider1_container', options1);
         $(window).bind('resize', ScaleSlider);
     }
 
-//if (navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
-//    $(window).bind('orientationchange', ScaleSlider);
-//}
-//responsive code end
-
+    //if (navigator.userAgent.match(/(iPhone|iPod|iPad)/)) {
+    //    $(window).bind('orientationchange', ScaleSlider);
+    //}
+    //responsive code end
 });
 
 function scramble() {
