@@ -1,0 +1,54 @@
+@import url(base.css);
+@import url(custom.css);
+@import url(jssor.css);
+@import url(buttons.css);
+@import url(sharing.css);
+
+
+@media print {
+    body {
+        background-color: #ffffff;
+        background-image: none;
+        height: 100%;
+    }
+    #Container, #Snowman, #previewNav {
+        display: none;
+    }
+    #Preview {
+        height: 100%;
+    }
+}
+
+@media (max-width: 639px) {
+    #Container {
+        width: 100%;
+        overflow: hidden;
+        margin: 0px;
+        padding: 5px 0 0 0;
+        border: none;
+        box-shadow: none;
+        -webkit-box-shadow: none;
+    }
+    #Snowman, #Copy, #Logo {
+        float: none;
+        width: 96%;
+        text-align: center;
+        padding: 0px;
+        margin: 10px auto 0 auto;
+    }
+    #Slider1, #Slider2, #Slider3 {
+        margin-right: 10px;
+    }
+    .cta_created {
+        display: inline-block;
+        text-align: center;
+    }
+    .cta_shared {
+        display: inline-block;
+        text-align: center;
+    }
+    .share, .print, .scramble, .preview {
+        display: inline-block;
+        float: none;
+    }
+}
