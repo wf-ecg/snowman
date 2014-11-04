@@ -1,9 +1,29 @@
 /*jslint white:false */
-/*globals document, jQuery, location, navigator, window,
-    loadjscssfile,
+/*globals console, document, jQuery, location, navigator, window, $,
     $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$, $JssorEasing$, $JssorSlider$,
 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+function loadjscssfile(filename, filetype) {
+    var fileref;
+
+    if (filetype == "js") { //if filename is a external JavaScript file
+        // alert('called');
+        fileref = document.createElement('script');
+        fileref.setAttribute("type", "text/javascript");
+        fileref.setAttribute("src", filename);
+        console.warn('called');
+    }
+    else if (filetype == "css") { //if filename is an external CSS file
+        fileref = document.createElement("link");
+        fileref.setAttribute("rel", "stylesheet");
+        fileref.setAttribute("type", "text/css");
+        fileref.setAttribute("href", filename);
+    }
+    if (typeof fileref != "undefined") {
+        document.getElementsByTagName("head")[0].appendChild(fileref);
+    }
+}
 
 jQuery(document).ready(function ($) {
     //Reference http://www.jssor.com/development/tip-make-responsive-slider.html
@@ -218,25 +238,4 @@ function closePreview() {
     $("#snowman1").remove();
     $("#previewDiv").hide();
     $("#printCorners").hide();
-}
-
-function loadjscssfile(filename, filetype) {
-    var fileref;
-
-    if (filetype == "js") { //if filename is a external JavaScript file
-        // alert('called');
-        fileref = document.createElement('script');
-        fileref.setAttribute("type", "text/javascript");
-        fileref.setAttribute("src", filename);
-        alert('called');
-    }
-    else if (filetype == "css") { //if filename is an external CSS file
-        fileref = document.createElement("link");
-        fileref.setAttribute("rel", "stylesheet");
-        fileref.setAttribute("type", "text/css");
-        fileref.setAttribute("href", filename);
-    }
-    if (typeof fileref != "undefined") {
-        document.getElementsByTagName("head")[0].appendChild(fileref);
-    }
 }
