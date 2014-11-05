@@ -1,6 +1,8 @@
 /* jssor */
 
 .slider {
+    @include middify();
+    clear: both;
     float: right;
     height: $slideH;
     overflow: hidden;

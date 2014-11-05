@@ -2,18 +2,8 @@
 
 #Clone {
     $size: 30;
-    border-width: 10px;
-    border-style: solid;
-    border-color: #021a40;
-    border: ($size * 1px) solid transparent;
     @include border-image( url('../img/frame/borderFrame.png') $size stretch );
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    min-width: 480px;
-    overflow: hidden;
     position: absolute;
-    right: 0;
     top: 50px;
 
     .arrow {
@@ -22,16 +12,13 @@
 }
 
 #Preview {
+    @include middify();
     background: rgba(255, 255, 255, 0.8);
     bottom: 0;
     display: none;
-    left: 0;
-    position: fixed !important;
     position: absolute;
-    right: 0;
     top: 0;
     z-index: 100;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 
     .logo {
         display: block;
@@ -70,8 +57,7 @@
 
 .corners {
     background-color: rgba(55,55,255,0.3);
-    height: 100%;
-    width: 100em;
+    width: 10em;
 
     .tl, .tr, .bl, .br {
         background-color: red;

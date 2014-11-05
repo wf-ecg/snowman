@@ -21,9 +21,18 @@
 }
 #Toy {
     float: right;
-    max-width: $slideW + 100;
+    max-width: $slideW;
     min-width: $slideH;
     width: 55%;
+
+    .snowmen {
+        position: relative;
+    }
+}
+.snowmen {
+    @include middify();
+    max-width: $slideW;
+    min-width: $slideH;
 }
 
 #disclosure {
