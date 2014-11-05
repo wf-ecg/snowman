@@ -46,7 +46,6 @@ module.exports = {
     },
     libs: {
         files: {
-            'app/build/bootstrap.js': [ 'libs/bootstrap/*.js'],
             'app/build/poly.js': [ 'libs/poly/*.js'],
             'app/build/xtend.js': [ 'libs/xtend/*.js'],
         },
