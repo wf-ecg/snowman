@@ -1,8 +1,8 @@
-@charset "UTF-8";
-/* CSS Document */
+/* shared */
 
-.instructions {display: none;}
-
+.instructions {
+    display: none;
+}
 .cta_shared {
-    display:block;
+    display: block;
 }

@@ -3,7 +3,7 @@
     $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$, $JssorEasing$, $JssorSlider$,
 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var jssor_slider1, jssor_slider2, jssor_slider3, W = window;
+var jssor_slider1, jssor_slider2, jssor_slider3, sliders, W = window;
 
 function loadjscssfile(filename, filetype) {
     var fileref;
@@ -87,9 +87,20 @@ jQuery(function ($) {
         }, x || {});
     }
 
-    jssor_slider1 = new $JssorSlider$('slider1_container', makeOptions({$StartIndex: slideIndex1}));
-    jssor_slider2 = new $JssorSlider$('slider2_container', makeOptions({$StartIndex: slideIndex2}));
-    jssor_slider3 = new $JssorSlider$('slider3_container', makeOptions({$StartIndex: slideIndex3}));
+    // EXTEND jquery
+    $.fn.idem = function () {
+        this.each(function (i, e) {
+            e.id = 'Random_' + (Math.random() * 1e9 | 0); // force an ID on it
+        });
+        return this;
+    };
+
+    sliders = $('.container').idem();
+    console.warn(sliders);
+
+    jssor_slider1 = new $JssorSlider$(sliders[0].id, makeOptions({$StartIndex: slideIndex1}));
+    jssor_slider2 = new $JssorSlider$(sliders[1].id, makeOptions({$StartIndex: slideIndex2}));
+    jssor_slider3 = new $JssorSlider$(sliders[2].id, makeOptions({$StartIndex: slideIndex3}));
 
     //responsive code begin
     //you can remove responsive code if you don't want the slider scales while window resizes
@@ -133,18 +144,20 @@ jQuery(function ($) {
 });
 
 function scramble() {
-    var rand, i;
+    var i;
 
-    rand = Math.random() * 9 + 1;
+    function rando() {
+        return (Math.random() * 9 + 1) | 0;
+    }
 
-    for (i = 0; i < rand; i++) {
-        W.setTimeout($.fn.click.bind($('#btnRight1')), i * 99);
+    for (i = 0; i < rando(); i++) {
+        W.setTimeout($.fn.click.bind(sliders.eq(0).find('.right')), i * 99);
     }
-    for (i = 0; i < rand; i++) {
-        W.setTimeout($.fn.click.bind($('#btnLeft2')), i * 99);
+    for (i = 0; i < rando(); i++) {
+        W.setTimeout($.fn.click.bind(sliders.eq(1).find('.left')), i * 99);
     }
-    for (i = 0; i < rand; i++) {
-        W.setTimeout($.fn.click.bind($('#btnRight3')), i * 99);
+    for (i = 0; i < rando(); i++) {
+        W.setTimeout($.fn.click.bind(sliders.eq(2).find('.right')), i * 99);
     }
 }
 
@@ -158,15 +171,14 @@ function createShareLink() {
     shareLink = W.location.href + currentIndexes.join('');
 
     console.debug(shareLink);
-    $('#previewDiv').show();
-    $('#printCorners').show();
+    $('#Preview').show();
 
     //duplicate snowman div
-    original = document.getElementById('snowman');
+    original = $('.snowmen')[0];
     clone = original.cloneNode(true); // 'deep' clone
 
-    clone.id = 'snowman1';
-    $('#previewDiv').append(clone);
+    clone.id = 'Clone';
+    $('#Preview').append(clone);
 }
 
 function sharePreview() {
@@ -174,7 +186,6 @@ function sharePreview() {
 }
 
 function closePreview() {
-    $('#snowman1').remove();
-    $('#previewDiv').hide();
-    $('#printCorners').hide();
+    $('#Clone').remove();
+    $('#Preview').hide();
 }

@@ -1,0 +1,60 @@
+/* base */
+
+html, body {
+    height: 100%;
+}
+body {
+    margin: 0px;
+    padding: 0px;
+    background-color: #9eb6ce;
+    background-image: url(../img/background.jpg);
+    background-position: top;
+    background-repeat: repeat-x;
+    font-family: Arial, Verdana;
+    height: 97%;
+}
+
+h1, h2, h3, p, ul, li {
+    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
+    -webkit-font-smoothing: antialiased;
+}
+h1 {
+    display: inline;
+    font-size: 18px;
+    font-weight: normal;
+    color: #bb0826;
+}
+h2 {
+    display: inline;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: strong;
+    color: #bb0826;
+}
+
+a:link {
+    color: #ffffff;
+    text-decoration: none;
+}
+a:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+a:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+a:active {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    font-weight: bold;
+}
+
+.clearFix {
+    clear: both;
+}
