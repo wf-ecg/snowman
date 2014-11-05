@@ -1,7 +1,12 @@
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /* Misc */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-body {/* test */
-/*     border: 1em solid lime;*/
+body.debug {
+    border: 1em solid lime;
+}
+.parts {
+    border: 1px dotted red;
+    margin: 3em;
+    padding: 1em;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
