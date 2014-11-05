@@ -6,9 +6,9 @@ $slideH: 215px;
 .snowmen {
     float: right;
     max-width: $slideW;
-    min-width: $slideH;
+    min-width: $slideH ;
 }
-.container {
+.slider {
     float: right;
     height: $slideH;
     overflow: hidden;

@@ -95,7 +95,7 @@ jQuery(function ($) {
         return this;
     };
 
-    sliders = $('.container').idem();
+    sliders = $('.slider').idem();
     console.warn(sliders);
 
     jssor_slider1 = new $JssorSlider$(sliders[0].id, makeOptions({$StartIndex: slideIndex1}));
