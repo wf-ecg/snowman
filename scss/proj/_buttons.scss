@@ -1,14 +1,4 @@
-/* buttons */
-
-@mixin buttonGrad($clr1: white, $clr2: black ){
-    background-color: $clr1;
-    @include background-image( linear-gradient(top, $clr1 1%, $clr2 99%) );
-    $clr1: ie-hex-str($clr1);
-    $clr2: ie-hex-str($clr2);
-    //filter:      progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=$clr1, endColorstr=$clr2);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#00000000);
-    -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='+$clr1+', endColorstr='+$clr2+')';
-}
+/* PROJ / buttons */
 
 .button {
     border: 1px solid $edge0;
@@ -23,21 +13,22 @@
     text-shadow: $light_shad;
 
     &.preview {
-        @include buttonGrad( $lime0, $lime1);
+        @include backGrad( $lime0, $lime1);
         &:hover {
-            @include buttonGrad( $lime0, $lime0);
+            @include backGrad( $lime0, $lime0);
         }
     }
     &.scramble {
-        @include buttonGrad( $purp0, $purp1);
+        @include backGrad( $purp0, $purp1);
         &:hover {
-            @include buttonGrad( $purp0, $purp0);
+            @include backGrad( $purp0, $purp0);
         }
     }
     &.build {
-        @include buttonGrad( $redd0, $redd0);
+        @include backGrad( $redd0, $redd0);
         &:hover {
-            @include buttonGrad( $redd1, $redd1);
+            @include backGrad( $redd1, $redd1);
         }
     }
 }
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

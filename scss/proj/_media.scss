@@ -1,9 +1,8 @@
-/* media */
+/* PROJ / media */
 
 @media print {
     body {
-        background-color: #ffffff;
-        background-image: none;
+        background: none;
         height: 100%;
     }
     #Container,
@@ -12,6 +11,9 @@
     }
     #Preview {
         height: 100%;
+    }
+    .noprint {
+        display: none;
     }
 }
 
@@ -46,3 +48,4 @@
         float: none;
     }
 }
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
