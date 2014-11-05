@@ -11,7 +11,6 @@ body {
     background-position: top;
     background-repeat: repeat-x;
     font-family: Arial, Verdana;
-    height: 97%;
 }
 
 h1, h2, h3, p, ul, li {
@@ -43,5 +42,12 @@ ul {
 }
 
 .clearFix {
-    clear: both;
+    clear: left;
+}
+.block.left {
+    max-width: 66%;
+
+    h2 {
+        padding-top: 1em;
+    }
 }

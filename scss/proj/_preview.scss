@@ -21,20 +21,19 @@
     z-index: 100;
 
     .logo {
-        display: block;
-        margin: 0 auto;
-        position: relative;
-        top: 350px;
-        width: 25%;
+        @include middify();
+        top: 333px;
+        width: 400px;
         z-index: 1000;
     }
     .nav {
+        @include middify();
         background-color: #fff;
         border-width: 1px 1px 0 1px;
         border-style: solid;
         border-color: #bb0826;
         height: 25px;
-        margin: 25px auto 0px auto;
+        margin-top: 25px;
         width: 246px;
 
         .close, .print, .share {

@@ -11,13 +11,14 @@
     max-width: 1100px;
     overflow: hidden;
     padding: 10px;
+    padding-bottom: 20px;
     position: relative;
     width: 90%;
 }
 #Copy, #Logo {
     float: left;
     min-width: 200px;
-    width: 40%;
+    width: 45%;
 }
 #Toy {
     float: right;
@@ -61,8 +62,7 @@
 }
 
 .footer {
-    bottom: 0;
+    bottom: -10px;
     font-size: .6em;
     position: absolute;
-    width: 40%;
 }

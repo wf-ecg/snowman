@@ -28,4 +28,8 @@ $edge0: #e0e3e2;
 @import "_media";
 @import "_preview";
 @import "_sharing";
+
+.middify {
+    @include middify();
+}
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
