@@ -39,7 +39,7 @@ jQuery(function ($) {
         regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
         results = regex.exec(W.location.search);
 
-        return (results == null) ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        return (results === null) ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
     }
 
     qscheck = parseInt(getParameterByName('a'), 10);
