@@ -1,10 +1,4 @@
-@import url(base.css);
-@import url(custom.css);
-@import url(jssor.css);
-@import url(preview.css);
-@import url(buttons.css);
-@import url(sharing.css);
-
+/* media */
 
 @media print {
     body {
@@ -37,7 +31,7 @@
         padding: 0px;
         margin: 10px auto 0 auto;
     }
-    .container {
+    .slider {
         margin-right: 10px;
     }
     .cta_created {

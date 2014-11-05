@@ -1,0 +1,53 @@
+/* custom */
+
+#Container {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: #0095c8 0px solid;
+    box-shadow: 0px 0px 5px 2px #0095c8;
+    display: block;
+    font-size: .8em;
+    line-height: 1.5em;
+    margin: 20px auto 0 auto;
+    max-width: 1100px;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
+    width: 90%;
+}
+#Copy, #Logo {
+    float: left;
+    min-width: 200px;
+    width: 40%;
+}
+#disclosure {
+    font-size: 10px;
+}
+
+.instructions {
+    display: none;
+}
+.red {
+    color: #bb0826;
+}
+.cta_created {
+    display: none;
+    margin-bottom: 1em;
+    overflow: visible;
+    padding: 10px 0 0 0;
+    text-align: left;
+    width: 100%;
+}
+.cta_shared {
+    display: none;
+    margin: 1em 0;
+    padding: 10px 0 0 0;
+    text-align: left;
+}
+
+.footer {
+    bottom: 0;
+    color: #000000;
+    font-size: .6em;
+    position: absolute;
+    text-align: left;
+}
