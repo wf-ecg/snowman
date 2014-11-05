@@ -1,6 +1,7 @@
 @import url(base.css);
 @import url(custom.css);
 @import url(jssor.css);
+@import url(preview.css);
 @import url(buttons.css);
 @import url(sharing.css);
 
@@ -11,7 +12,7 @@
         background-image: none;
         height: 100%;
     }
-    #Container, #Snowman, #previewNav {
+    #Container, .snowmen, #Preview .nav {
         display: none;
     }
     #Preview {
@@ -29,14 +30,14 @@
         box-shadow: none;
         -webkit-box-shadow: none;
     }
-    #Snowman, #Copy, #Logo {
+    .snowmen, #Copy, #Logo {
         float: none;
         width: 96%;
         text-align: center;
         padding: 0px;
         margin: 10px auto 0 auto;
     }
-    #Slider1, #Slider2, #Slider3 {
+    .container {
         margin-right: 10px;
     }
     .cta_created {

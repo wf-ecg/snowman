@@ -1,0 +1,76 @@
+/* preview */
+
+#Preview {
+    background: rgba(255, 255, 255, 0.8);
+    bottom: 0;
+    display: none;
+    left: 0;
+    right: 0;
+    position: fixed !important;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+}
+#Preview .corners {
+    display: none;
+}
+#Preview .logo {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    top: 350px;
+    width: 25%;
+    z-index: 1000;
+}
+#Preview .nav {
+    background-color: #fff;
+    border-width: 1px 1px 0 1px;
+    border-style: solid;
+    border-color: #bb0826;
+    height: 25px;
+    margin: 25px auto 0px auto;
+    width: 246px;
+}
+#Preview .nav .share,
+#Preview .nav .print,
+#Preview .nav .close {
+    border: none;
+    float: right;
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+}
+#Preview .nav .share:hover,
+#Preview .nav .print:hover,
+#Preview .nav .close:hover {
+    filter: alpha(opacity=40);
+    opacity: 0.4;
+}
+
+.corners .tl, .corners .tr, .corners .bl, .corners .br {
+    display: none;
+    position: relative;
+    z-index: 9999;
+}
+.corners .tl {
+    background-image: url('../img/frame/cornerFrame_TL1.png');
+    left: 10px;
+    top: 10px;
+}
+.corners .tl {
+    background-image: url('../img/frame/cornerFrame_TL1.png');
+    right: 10px;
+    top: 10px;
+}
+.corners .bl {
+    background-image: url('../img/frame/cornerFrame_TL1.png');
+    bottom: 10px;
+    left: 10px;
+}
+.corners .br {
+    background-image: url('../img/frame/cornerFrame_TL1.png');
+    bottom: 10px;
+    right: 10px;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
