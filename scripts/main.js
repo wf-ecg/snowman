@@ -177,7 +177,7 @@ function createShareLink() {
     original = $('.snowmen')[0];
     clone = original.cloneNode(true); // 'deep' clone
 
-    clone.id = 'Snowman1';
+    clone.id = 'Clone';
     $('#Preview').append(clone);
 }
 
@@ -186,6 +186,6 @@ function sharePreview() {
 }
 
 function closePreview() {
-    $('#Snowman1').remove();
+    $('#Clone').remove();
     $('#Preview').hide();
 }

@@ -1,89 +1,28 @@
-@charset "UTF-8";
 /* jssor */
 
-#Container {
-    display: block;
-    overflow: hidden;
-    margin: 20px auto 0 auto;
-    padding: 10px 5px 5px 10px;
-    width: 90%;
-    max-width: 1100px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border: #0095c8 0px solid;
-    box-shadow: 0px 0px 5px 5px #0095c8;
-    -webkit-box-shadow: 0px 0px 5px 5px #0095c8;
-    font-size: .8em;
-    line-height: 1.5em;
-}
 .snowmen {
-    width: 56%;
-    min-width: 200px;
+    float: right;
     max-width: 650px;
-    float: right;
-}
-#Copy, #Logo {
-    width: 42%;
     min-width: 200px;
-    float: left;
+    width: 56%;
 }
-#disclosure {
-    font-size: 10px;
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-.logo {
-    margin-right: 30px;
-}
-
 .container {
-    position: relative;
-    margin: 0px 5px 0px 0px;
     float: right;
-    top: 0px;
-    right: 0px;
-    width: 680px;
     height: 240px;
+    margin: 0px 5px 0px 0px;
     overflow: hidden;
+    position: relative;
+    right: 0px;
+    top: 0px;
+    width: 680px;
 }
-
-#Snowman1 {
-    position: absolute;
-    text-align: center;
-    top: 50px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 50%;
-    min-width: 480px;
-    height: auto;
-    margin: auto;
-    overflow: hidden;
-    border-width: 10px;
-    border-style: solid;
-    border-color: #021a40;
-    -webkit-border-image: url(../img/frame/borderFrame.png) 30 30 stretch; /* Safari 3.1-5 */
-    -o-border-image: url(../img/frame/borderFrame.png) 30 30 stretch; /* Opera 11-12.1 */
-    border-image: url(../img/frame/borderFrame.png) 30 30 stretch;
-}
-
-#Snowman1 .arrow {
-    visibility: hidden;
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
 /* jssor slider arrow navigator skin 13 css */
-/*
-.jssora13l (normal)                     .jssora13r (normal)
-.jssora13l:hover (normal mouseover)     .jssora13r:hover (normal mouseover)
-.jssora13ldn (mousedown)                .jssora13rdn (mousedown)
-*/
 .jssora13l, .jssora13r, .jssora13ldn, .jssora13rdn {
-    position: absolute;
+    background: url('../img/buttons/a13.png') no-repeat;
     cursor: pointer;
     display: block;
-    background: url(../img/buttons/a13.png) no-repeat;
+    position: absolute;
     overflow: hidden;
     z-index: 999;
 }
@@ -105,78 +44,3 @@
 .jssora13rdn {
     background-position: -310px -35px;
 }
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-.instructions {
-    display: none;
-}
-.red {
-    color: #bb0826;
-}
-.cta_created {
-    display: none;
-    width: 100%;
-    overflow: visible;
-    margin-bottom: 1em;
-    text-align: left;
-    padding: 10px 0 0 0;
-}
-.cta_shared {
-    display: none;
-    margin: 1em 0;
-    text-align: left;
-    padding: 10px 0 0 0;
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-.greeting {
-    display: none;
-    position: relative;
-    top: -40%;
-    z-index: 999;
-}
-#Preview .share, #Preview .print,
-.scramble, .preview, .build {
-    display: inline-block;
-    float: left;
-    padding: 4px 8px;
-    margin: 3px 6px 3px 0px;
-    background-color: #821861;
-    color: #ffffff;
-    border: 1px solid #e0e3e2;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-    font-size: 12px;
-    text-align: center;
-    cursor: pointer;
-}
-.scramble:hover {
-    background-color: #C12493;
-}
-.preview {
-    background-color: #46a033;
-    margin-right: 0px;
-}
-.preview:hover {
-    background-color: #53BE3D;
-}
-.build {
-    background-color: #900;
-}
-.build:hover {
-    background-color: #C40000;
-}
-
-.footer {
-    float: left;
-    position: absolute;
-    bottom: 10px;
-    padding-bottom: 1em;
-    font-size: .6em;
-    text-align: left;
-    color: #000000;
-}
-
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

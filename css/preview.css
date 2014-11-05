@@ -1,5 +1,25 @@
 /* preview */
 
+#Clone {
+    border-width: 10px;
+    border-style: solid;
+    border-color: #021a40;
+    -webkit-border-image: url('../img/frame/borderFrame.png') 30 30 stretch; /* Safari 3.1-5 */
+    -o-border-image: url('../img/frame/borderFrame.png') 30 30 stretch; /* Opera 11-12.1 */
+    border-image: url('../img/frame/borderFrame.png') 30 30;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    min-width: 480px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 50px;
+}
+#Clone .arrow {
+    visibility: hidden;
+}
+
 #Preview {
     background: rgba(255, 255, 255, 0.8);
     bottom: 0;
@@ -11,9 +31,6 @@
     top: 0;
     z-index: 100;
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-}
-#Preview .corners {
-    display: none;
 }
 #Preview .logo {
     display: block;
@@ -36,9 +53,9 @@
 #Preview .nav .print,
 #Preview .nav .close {
     border: none;
+    filter: alpha(opacity=100);
     float: right;
     opacity: 1.0;
-    filter: alpha(opacity=100);
 }
 #Preview .nav .share:hover,
 #Preview .nav .print:hover,
@@ -46,11 +63,22 @@
     filter: alpha(opacity=40);
     opacity: 0.4;
 }
+#Preview .nav .share,
+#Preview .nav .print {
+    float: left;
+}
 
+.corners {
+    background-color: rgba(55,55,255,0.3);
+    height: 100%;
+    width: 100em;
+}
 .corners .tl, .corners .tr, .corners .bl, .corners .br {
+    background-color: red;
     display: none;
     position: relative;
     z-index: 9999;
+    width: 60px;
 }
 .corners .tl {
     background-image: url('../img/frame/cornerFrame_TL1.png');
