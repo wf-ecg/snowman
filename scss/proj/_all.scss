@@ -5,6 +5,8 @@ $count: 4;
 @mixin shadgrad($clr1: rgba(11, 11, 11, 0.5), $clr2: rgba(0, 0, 0, 0) ){
     @include background-image( linear-gradient(top, $clr1 70%, $clr2 90%) );
 }
+$slideW: 600px;
+$slideH: 215px;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 @import "_base";

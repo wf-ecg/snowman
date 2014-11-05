@@ -19,6 +19,13 @@
     min-width: 200px;
     width: 40%;
 }
+#Toy {
+    float: right;
+    max-width: $slideW + 100;
+    min-width: $slideH;
+    width: 55%;
+}
+
 #disclosure {
     font-size: 10px;
 }
@@ -46,8 +53,7 @@
 
 .footer {
     bottom: 0;
-    color: #000000;
     font-size: .6em;
     position: absolute;
-    text-align: left;
+    width: 40%;
 }
