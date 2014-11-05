@@ -14,26 +14,6 @@
     position: relative;
     width: 90%;
 }
-.arrow {
-    height: 50px;
-    top: 123px;
-    width: 40px;
-}
-.arrow.left {
-    left: 30px;
-}
-.arrow.right {
-    right: 30px;
-}
-div[u="slides"] {
-    cursor: move;
-    height: 240px;
-    left: 0px;
-    overflow: hidden;
-    position: absolute;
-    top: 0px;
-    width: 680px;
-}
 #Copy, #Logo {
     float: left;
     min-width: 200px;

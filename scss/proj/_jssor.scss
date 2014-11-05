@@ -1,20 +1,43 @@
 /* jssor */
 
+$slideW: 600px;
+$slideH: 215px;
+
 .snowmen {
     float: right;
-    max-width: 650px;
-    min-width: 200px;
-    width: 56%;
+    max-width: $slideW;
+    min-width: $slideH;
 }
 .container {
     float: right;
-    height: 240px;
-    margin: 0px 5px 0px 0px;
+    height: $slideH;
     overflow: hidden;
     position: relative;
     right: 0px;
     top: 0px;
-    width: 680px;
+    width: $slideW;
+}
+
+.arrow {
+    height: 50px;
+    top: 123px;
+    width: 40px;
+
+    &.left {
+        left: 30px;
+    }
+    &.right {
+        right: 30px;
+    }
+}
+div[u="slides"] {
+    cursor: move;
+    height: $slideH;
+    left: 0px;
+    overflow: hidden;
+    position: absolute;
+    top: 0px;
+    width: $slideW;
 }
 
 /* jssor slider arrow navigator skin 13 css */
@@ -28,15 +51,15 @@
 }
 .jssora13l {
     background-position: -10px -35px;
+    &:hover {
+        background-position: -130px -35px;
+    }
 }
 .jssora13r {
     background-position: -70px -35px;
-}
-.jssora13l:hover {
-    background-position: -130px -35px;
-}
-.jssora13r:hover {
-    background-position: -190px -35px;
+    &:hover {
+        background-position: -190px -35px;
+    }
 }
 .jssora13ldn {
     background-position: -250px -35px;
