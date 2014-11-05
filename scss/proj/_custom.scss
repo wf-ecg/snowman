@@ -1,18 +1,17 @@
 /* custom */
 
 #Container {
-    display: block;
-    overflow: hidden;
-    margin: 20px auto 0 auto;
-    padding: 10px 5px 5px 10px;
-    width: 90%;
-    max-width: 1100px;
     background-color: rgba(255, 255, 255, 0.3);
     border: #0095c8 0px solid;
-    box-shadow: 0px 0px 5px 5px #0095c8;
-    -webkit-box-shadow: 0px 0px 5px 5px #0095c8;
+    box-shadow: 0px 0px 5px 2px #0095c8;
+    display: block;
     font-size: .8em;
     line-height: 1.5em;
+    margin: 20px auto 0 auto;
+    max-width: 1100px;
+    overflow: hidden;
+    padding: 10px 5px 5px 10px;
+    width: 90%;
 }
 .arrow {
     height: 50px;
@@ -35,9 +34,9 @@ div[u="slides"] {
     width: 680px;
 }
 #Copy, #Logo {
-    width: 42%;
-    min-width: 200px;
     float: left;
+    min-width: 200px;
+    width: 42%;
 }
 #disclosure {
     font-size: 10px;
@@ -51,25 +50,25 @@ div[u="slides"] {
 }
 .cta_created {
     display: none;
-    width: 100%;
-    overflow: visible;
     margin-bottom: 1em;
-    text-align: left;
+    overflow: visible;
     padding: 10px 0 0 0;
+    text-align: left;
+    width: 100%;
 }
 .cta_shared {
     display: none;
     margin: 1em 0;
-    text-align: left;
     padding: 10px 0 0 0;
+    text-align: left;
 }
 
 .footer {
-    float: left;
-    position: absolute;
     bottom: 10px;
-    padding-bottom: 1em;
-    font-size: .6em;
-    text-align: left;
     color: #000000;
+    float: left;
+    font-size: .6em;
+    padding-bottom: 1em;
+    position: absolute;
+    text-align: left;
 }
