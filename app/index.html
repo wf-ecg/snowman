@@ -28,6 +28,7 @@
         <div id="Container">
 
             <div id="Logo">
+                <div class="part" style="float: left; width: 180px; height: 50px;">abc</div>
                 <img src="img/splash-banner.png" width="100%">
             </div>
 
@@ -75,45 +76,45 @@
             </div>
 
             <div id="Copy">
-
-                <h1>Play the Snowman Scramble and create your own unique snowman.
-                    You can even share your snowman with family and friends. </h1>
-                <p> CLICK THE ARROWS TO SEE THE OPTIONS.</p>
+                <div class="part">
+                    <h1>Play the Snowman Scramble and create your own unique snowman.
+                        You can even share your snowman with family and friends. </h1>
+                </div>
 
                 <div class="cta_created">
+                    <p> CLICK THE ARROWS TO SEE THE OPTIONS.</p>
                     <a href="javascript:Slides.scramble();"><div class="button scramble">Scramble Snowman</div></a>
                     <a href="javascript:Slides.openPreview();"><div class="button preview">Preview Card</div></a>
                 </div>
 
                 <div class="cta_shared">
-                    <a href="javascript:this.document.location.href = 'index.html'"><div class="button build">Build Your Own</div></a>
+                    <p>Here’s my Snowman Scramble – have fun designing yours.</p>
+                    <a href="javascript:this.document.location.href = 'index.html'"><div class="button build">Ready to roll?</div></a>
+                </div>
+
+                <div class="clearFix"></div>
+
+                <div class="part">
+                    <p>In appreciation of your relationship with Wells&nbsp;Fargo Institutional Retirement and Trust,
+                        we’ve made a charitable donation to the following organizations:<br>
+                    </p>
+                    <ul>
+                        <li>American Red Cross</li>
+                        <li>Special Olympics</li>
+                        <li>National Wildlife Federation</li>
+                    </ul>
+
+                    <div class="clearFix"><br></div>
+
+                    <h2>We hope you enjoy playing the Snowman Scramble and that your holidays are happy and full of promise.</h2>
+
+                    <div class="clearFix"><br></div>
+
                 </div>
 
                 <!-- end Copy -->
             </div>
-
-            <div class="clearFix"></div>
-
-            <div class="instructions block left">
-                <p>In appreciation of your relationship with Wells&nbsp;Fargo Institutional Retirement and Trust,
-                    we’ve made a charitable donation to the following organizations:<br>
-                </p>
-                <ul>
-                    <li>American Red Cross</li>
-                    <li>Special Olympics</li>
-                    <li>National Wildlife Federation</li>
-                </ul>
-            </div>
-
-            <div class="clearFix"><br></div>
-
-            <div class="block left">
-                <h2>We hope you enjoy playing the Snowman Scramble and that your holidays are happy and full of promise.</h2>
-            </div>
-
-            <div class="clearFix"><br></div>
-
-            <div class="footer">
+            <div class="footer part">
                 <p id="disclosure">&copy; 2014 Wells Fargo Bank, N.A. All rights reserved. ECG-1208017</p>
             </div>
 
@@ -139,12 +140,6 @@
 
             <!-- end Preview -->
         </div>
-
-        <section class="parts">
-            <cite>bizline: IRT</cite><hr>
-            <h2>Here’s my Snowman Scramble – have fun designing yours.</h2>
-            <p><a href="javascript:;" class="button">Ready to Roll</a></p>
-        </section>
 
         <script src="vendor/jssor.js"></script>
         <script src="vendor/jssor.slider.js"></script>
