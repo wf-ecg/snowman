@@ -1,12 +1,15 @@
 /* PROJ / media */
 
+body {
+    overflow: hidden;
+}
+
 @media print {
     body {
         background: none;
         height: 100%;
     }
-    #Container,
-    #Preview .nav {
+    #Container, #Preview .nav {
         display: none;
     }
     #Preview {
@@ -18,6 +21,9 @@
 }
 
 @media (max-width: 639px) {
+    body {
+        overflow: auto;
+    }
     #Container {
         border: none;
         box-shadow: none;
