@@ -135,7 +135,7 @@ Slides.init = function ($) {
     }
 
     self.openPreview = function () {
-        W.scrollTo(1,1);
+        W.scrollTo(1, 1);
 
         if (!$('#Clone').length) {
             makeClone();
