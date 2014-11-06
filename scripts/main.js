@@ -1,21 +1,27 @@
 /*jslint white:false */
-/*globals console, document, jQuery, window, $,
+/*globals document, jQuery, window, $,
     $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$, $JssorEasing$, $JssorSlider$,
 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var jssor_slider1, jssor_slider2, jssor_slider3, sliders, W = window;
+var W = window,
+    C = W.console,
+    slider = {
+    $: null,
+    A: null,
+    B: null,
+    C: null,
+};
 
 function loadjscssfile(filename, filetype) {
     var fileref;
 
-    if (filetype === 'js') { //if filename is a external JavaScript file
-        // alert('called');
+    if (filetype === 'js') {
         fileref = document.createElement('script');
         fileref.setAttribute('type', 'text/javascript');
         fileref.setAttribute('src', filename);
-        console.warn('called');
+        C.warn('called');
     }
-    else if (filetype === 'css') { //if filename is an external CSS file
+    else if (filetype === 'css') {
         fileref = document.createElement('link');
         fileref.setAttribute('rel', 'stylesheet');
         fileref.setAttribute('type', 'text/css');
@@ -95,12 +101,12 @@ jQuery(function ($) {
         return this;
     };
 
-    sliders = $('.slider').idem();
-    console.warn(sliders);
+    slider.$ = $('.slider').idem();
+    C.warn(slider.$);
 
-    jssor_slider1 = new $JssorSlider$(sliders[0].id, makeOptions({$StartIndex: slideIndex1}));
-    jssor_slider2 = new $JssorSlider$(sliders[1].id, makeOptions({$StartIndex: slideIndex2}));
-    jssor_slider3 = new $JssorSlider$(sliders[2].id, makeOptions({$StartIndex: slideIndex3}));
+    slider.A = new $JssorSlider$(slider.$[0].id, makeOptions({$StartIndex: slideIndex1}));
+    slider.B = new $JssorSlider$(slider.$[1].id, makeOptions({$StartIndex: slideIndex2}));
+    slider.C = new $JssorSlider$(slider.$[2].id, makeOptions({$StartIndex: slideIndex3}));
 
     //responsive code begin
     //you can remove responsive code if you don't want the slider scales while window resizes
@@ -110,7 +116,7 @@ jQuery(function ($) {
 
         paddingWidth = 20; //                                                   reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
         minReserveWidth = 325; //                                               minimum width should reserve for text
-        parentElement = jssor_slider2.$Elmt.parentNode;
+        parentElement = slider.B.$Elmt.parentNode;
         parentWidth = parentElement.clientWidth; //                             evaluate parent container width
 
         if (parentWidth) {
@@ -127,9 +133,9 @@ jQuery(function ($) {
             }
 
             $('#clearFixDiv').css('clear', clearFix); //                        clear fix for safari 3.1, chrome 3
-            jssor_slider1.$ScaleWidth(sliderWidth);
-            jssor_slider2.$ScaleWidth(sliderWidth);
-            jssor_slider3.$ScaleWidth(sliderWidth);
+            slider.A.$ScaleWidth(sliderWidth);
+            slider.B.$ScaleWidth(sliderWidth);
+            slider.C.$ScaleWidth(sliderWidth);
         } else {
             W.setTimeout(ScaleSlider, 30);
         }
@@ -151,13 +157,13 @@ function scramble() {
     }
 
     for (i = 0; i < rando(); i++) {
-        W.setTimeout($.fn.click.bind(sliders.eq(0).find('.right')), i * 99);
+        W.setTimeout($.fn.click.bind(slider.$.eq(0).find('.right')), i * 99);
     }
     for (i = 0; i < rando(); i++) {
-        W.setTimeout($.fn.click.bind(sliders.eq(1).find('.left')), i * 99);
+        W.setTimeout($.fn.click.bind(slider.$.eq(1).find('.left')), i * 99);
     }
     for (i = 0; i < rando(); i++) {
-        W.setTimeout($.fn.click.bind(sliders.eq(2).find('.right')), i * 99);
+        W.setTimeout($.fn.click.bind(slider.$.eq(2).find('.right')), i * 99);
     }
 }
 
@@ -165,9 +171,9 @@ function createShareLink() {
     var currentIndexes = [];
 
     //generate link based of current slides positions
-    currentIndexes.push('?a=' + jssor_slider1.$CurrentIndex());
-    currentIndexes.push('&b=' + jssor_slider2.$CurrentIndex());
-    currentIndexes.push('&c=' + jssor_slider3.$CurrentIndex());
+    currentIndexes.push('?a=' + slider.A.$CurrentIndex());
+    currentIndexes.push('&b=' + slider.B.$CurrentIndex());
+    currentIndexes.push('&c=' + slider.C.$CurrentIndex());
     return '' + W.location.href + currentIndexes.join('');
 }
 
@@ -187,8 +193,9 @@ function createClone() {
 }
 
 function sharePreview() {
-    if ($('#Clone').length) return;
-    createClone();
+    if (!$('#Clone')) {
+        createClone();
+    }
 }
 
 function closePreview() {
