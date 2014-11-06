@@ -1,8 +1,6 @@
 /* PROJ / preview */
 
 #Clone {
-    $size: 30;
-    @include border-image( url('../img/frame/borderFrame.png') $size stretch);
     position: absolute;
     top: 50px;
 
@@ -59,36 +57,43 @@
     }
 }
 
-.corners {
-    background-color: rgba(55,55,255,0.3);
-    width: 10em;
+#Clone .corners {
+    $gap: 3px;
+    $size: 10;
+    border: $size * 1px solid transparent;
+    @include border-image( url('../img/frame/borderFrame.png') $size round);
+    @include middify();
+    height: 96%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 92%;
 
     .tl, .tr, .bl, .br {
-        background-color: red;
-        display: none;
-        position: relative;
-        width: 60px;
+        height: 50px;
+        position: absolute;
+        width: 50px;
         z-index: 9999;
     }
     .tl {
-        background-image: url('../img/frame/cornerFrame_TL1.png');
-        left: 10px;
-        top: 10px;
+        background-image: url('../img/frame/corner_TL.png');
+        left: $gap;
+        top: $gap;
     }
-    .tl {
-        background-image: url('../img/frame/cornerFrame_TL1.png');
-        right: 10px;
-        top: 10px;
+    .tr {
+        background-image: url('../img/frame/corner_TR.png');
+        right: $gap;
+        top: $gap;
     }
     .bl {
-        background-image: url('../img/frame/cornerFrame_TL1.png');
-        bottom: 10px;
-        left: 10px;
+        background-image: url('../img/frame/corner_BL.png');
+        bottom: $gap;
+        left: $gap;
     }
     .br {
-        background-image: url('../img/frame/cornerFrame_TL1.png');
-        bottom: 10px;
-        right: 10px;
+        background-image: url('../img/frame/corner_BR.png');
+        bottom: $gap;
+        right: $gap;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

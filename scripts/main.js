@@ -179,6 +179,7 @@ function createShareLink() {
 
     clone.id = 'Clone';
     $('#Preview').append(clone);
+    $(clone).append($('.corners').clone());
 }
 
 function sharePreview() {
