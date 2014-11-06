@@ -21,8 +21,11 @@
     width: $leftside;
 }
 #Toy {
-    border-top: $edge;
-    border-bottom: $edge;
+    outline-color: rgba(255, 255, 255, 0.8);
+    outline-offset: -10px;
+    outline-style: solid;
+    outline-width: 6px;
+    padding: 10px 0;
     float: right;
     width: $rightside;
 
@@ -33,7 +36,7 @@
 .snowmen {
     @include middify();
     max-width: $slideW;
-    min-width: $slideH;
+    width: 100%;
 }
 
 #disclosure {
