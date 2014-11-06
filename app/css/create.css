@@ -3,12 +3,12 @@
 .instructions {
     display: block;
 }
-.cta_created {
+.create {
     display: inline-block;
 }
-.cta_shared {
-    display: none;
+.shared {
+/*    display: none;*/
 }
 .greeting {
-    display: none;
+/*    display: none;*/
 }

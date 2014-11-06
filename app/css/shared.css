@@ -1,8 +1,8 @@
 /* shared */
 
 .instructions {
-    display: none;
+/*    display: none;*/
 }
-.cta_shared {
+.shared {
     display: block;
 }
