@@ -2,6 +2,8 @@
 
 .slider {
     @include middify();
+    border-left: $edge;
+    border-right: $edge;
     clear: both;
     height: $slideH;
     overflow: hidden;

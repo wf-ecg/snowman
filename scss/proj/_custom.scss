@@ -18,13 +18,13 @@
 #Copy, #Logo {
     float: left;
     min-width: 200px;
-    width: 45%;
+    width: $leftside;
 }
 #Toy {
+    border-top: $edge;
+    border-bottom: $edge;
     float: right;
-    max-width: $slideW;
-    min-width: $slideH;
-    width: 55%;
+    width: $rightside;
 
     .snowmen {
         position: relative;
