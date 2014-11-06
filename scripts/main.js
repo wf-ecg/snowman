@@ -162,17 +162,19 @@ function scramble() {
 }
 
 function createShareLink() {
-    var currentIndexes = [], shareLink, original, clone;
+    var currentIndexes = [];
 
     //generate link based of current slides positions
     currentIndexes.push('?a=' + jssor_slider1.$CurrentIndex());
     currentIndexes.push('&b=' + jssor_slider2.$CurrentIndex());
     currentIndexes.push('&c=' + jssor_slider3.$CurrentIndex());
-    shareLink = W.location.href + currentIndexes.join('');
+    return '' + W.location.href + currentIndexes.join('');
+}
 
-    console.debug(shareLink);
+function createClone() {
+    var original, clone;
+
     $('#Preview').show();
-
     //duplicate snowman div
     original = $('.snowmen')[0];
     clone = original.cloneNode(true); // 'deep' clone
@@ -180,10 +182,13 @@ function createShareLink() {
     clone.id = 'Clone';
     $('#Preview').append(clone);
     $(clone).append($('.corners').clone());
+
+    W.alert(createShareLink());
 }
 
 function sharePreview() {
-    createShareLink();
+    if ($('#Clone').length) return;
+    createClone();
 }
 
 function closePreview() {
