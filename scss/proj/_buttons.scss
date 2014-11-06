@@ -12,23 +12,52 @@
     text-decoration: none;
     text-shadow: $light_shad;
 
-    &.preview {
-        @include backGrad( $lime0, $lime1);
-        &:hover {
-            @include backGrad( $lime0, $lime0);
-        }
+    &.preview {   @include backGrad( $lime0, $lime1);
+        &:hover { @include backGrad( $lime0, $lime0); }
+        &:active{ @include backGrad( $lime1, $lime1); }
     }
-    &.scramble {
-        @include backGrad( $purp0, $purp1);
-        &:hover {
-            @include backGrad( $purp0, $purp0);
-        }
+    &.scramble {  @include backGrad( $purp0, $purp1);
+        &:hover { @include backGrad( $purp0, $purp0); }
+        &:active{ @include backGrad( $purp0, $purp0); }
     }
-    &.build {
-        @include backGrad( $redd0, $redd0);
-        &:hover {
-            @include backGrad( $redd1, $redd1);
-        }
+    &.build {     @include backGrad( $redd0, $redd1);
+        &:hover { @include backGrad( $redd0, $redd0); }
+        &:active{ @include backGrad( $redd1, $redd1); }
+    }
+}
+.arrow {
+    background-image-repeat: no-repeat;
+    cursor: pointer;
+    display: block;
+    height: 45px;
+    position: absolute;
+    overflow: hidden;
+    top: 123px;
+    width: 50px;
+    z-index: 999;
+
+        &.left { left: -6px; }
+        &.right { right: -6px; }
+    &:hover {
+        &.left { left: -3px; }
+        &.right { right: -3px; }
+    }
+    &:active {
+        opacity: 0.9;
+        &.left { left: -6px   !important; }
+        &.right { right: -6px !important; }
+    }
+    .top {
+        &.left { background-image: url('../img/buttons/tabs_AR.png'); }
+        &.right{ background-image: url('../img/buttons/tabs_AL.png'); }
+    }
+    .middle {
+        &.left { background-image: url('../img/buttons/tabs_BR.png'); }
+        &.right{ background-image: url('../img/buttons/tabs_BL.png'); }
+    }
+    .bottom {
+        &.left { background-image: url('../img/buttons/tabs_CR.png'); }
+        &.right{ background-image: url('../img/buttons/tabs_CL.png'); }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

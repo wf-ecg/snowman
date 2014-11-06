@@ -1,0 +1,20 @@
+/* PROJ / jssor */
+
+.slider {
+    @include middify();
+    clear: both;
+    height: $slideH;
+    overflow: hidden;
+    position: relative;
+    width: $slideW;
+}
+
+div[u="slides"] {
+    cursor: move;
+    height: $slideH;
+    overflow: hidden;
+    position: absolute;
+    width: $slideW;
+}
+
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
