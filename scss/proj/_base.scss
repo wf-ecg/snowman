@@ -1,4 +1,4 @@
-/* base */
+/* PROJ / base */
 
 html, body {
     height: 100%;
@@ -11,40 +11,23 @@ body {
     background-position: top;
     background-repeat: repeat-x;
     font-family: Arial, Verdana;
-    height: 97%;
 }
 
 h1, h2, h3, p, ul, li {
     font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
-    -webkit-font-smoothing: antialiased;
 }
 h1 {
-    display: inline;
     font-size: 18px;
     font-weight: normal;
     color: #bb0826;
 }
 h2 {
-    display: inline;
     font-size: 14px;
     font-style: italic;
-    font-weight: strong;
     color: #bb0826;
 }
 
-a:link {
-    color: #ffffff;
-    text-decoration: none;
-}
-a:visited {
-    color: #ffffff;
-    text-decoration: none;
-}
-a:hover {
-    color: #ffffff;
-    text-decoration: none;
-}
-a:active {
+a:link, a:visited, a:hover, a:active {
     color: #ffffff;
     text-decoration: none;
 }
@@ -59,5 +42,13 @@ ul {
 }
 
 .clearFix {
-    clear: both;
+    clear: left;
 }
+.block.left {
+    max-width: 66%;
+
+    h2 {
+        padding-top: 1em;
+    }
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

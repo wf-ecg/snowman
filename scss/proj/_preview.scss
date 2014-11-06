@@ -1,53 +1,42 @@
-/* preview */
+/* PROJ / preview */
 
 #Clone {
-    $size: 30;
-    border-width: 10px;
-    border-style: solid;
-    border-color: #021a40;
-    border: ($size * 1px) solid transparent;
-    @include border-image( url('../img/frame/borderFrame.png') $size stretch );
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    min-width: 480px;
-    overflow: hidden;
     position: absolute;
-    right: 0;
     top: 50px;
 
+    * {
+        @include nosel();
+        cursor: not-allowed;
+    }
     .arrow {
-        visibility: hidden;
+        display: none;
     }
 }
 
 #Preview {
-    background: rgba(255, 255, 255, 0.8);
+    $haze: rgba(255, 255, 255, 0.6);
+    @include middify();
+    @include backGrad($haze, $haze);
     bottom: 0;
     display: none;
-    left: 0;
-    position: fixed !important;
     position: absolute;
-    right: 0;
     top: 0;
-    z-index: 100;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    z-index: 1000;
 
     .logo {
-        display: block;
-        margin: 0 auto;
-        position: relative;
-        top: 350px;
-        width: 25%;
+        @include middify();
+        top: 333px;
+        width: 400px;
         z-index: 1000;
     }
     .nav {
+        @include middify();
         background-color: #fff;
         border-width: 1px 1px 0 1px;
         border-style: solid;
         border-color: #bb0826;
         height: 25px;
-        margin: 25px auto 0px auto;
+        margin-top: 25px;
         width: 246px;
 
         .close, .print, .share {
@@ -68,37 +57,43 @@
     }
 }
 
-.corners {
-    background-color: rgba(55,55,255,0.3);
-    height: 100%;
-    width: 100em;
+#Clone .corners {
+    $gap: 3px;
+    $size: 10;
+    border: $size * 1px solid transparent;
+    @include border-image( url('../img/frame/borderFrame.png') $size round);
+    @include middify();
+    height: 96%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 92%;
 
     .tl, .tr, .bl, .br {
-        background-color: red;
-        display: none;
-        position: relative;
-        width: 60px;
+        height: 50px;
+        position: absolute;
+        width: 50px;
         z-index: 9999;
     }
     .tl {
-        background-image: url('../img/frame/cornerFrame_TL1.png');
-        left: 10px;
-        top: 10px;
+        background-image: url('../img/frame/corner_TL.png');
+        left: $gap;
+        top: $gap;
     }
-    .tl {
-        background-image: url('../img/frame/cornerFrame_TL1.png');
-        right: 10px;
-        top: 10px;
+    .tr {
+        background-image: url('../img/frame/corner_TR.png');
+        right: $gap;
+        top: $gap;
     }
     .bl {
-        background-image: url('../img/frame/cornerFrame_TL1.png');
-        bottom: 10px;
-        left: 10px;
+        background-image: url('../img/frame/corner_BL.png');
+        bottom: $gap;
+        left: $gap;
     }
     .br {
-        background-image: url('../img/frame/cornerFrame_TL1.png');
-        bottom: 10px;
-        right: 10px;
+        background-image: url('../img/frame/corner_BR.png');
+        bottom: $gap;
+        right: $gap;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
