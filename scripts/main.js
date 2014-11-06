@@ -3,50 +3,22 @@
     $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$, $JssorEasing$, $JssorSlider$,
 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var W = window,
-    C = W.console,
-    slider = {
+var W = W || window,
+    C = C || W.console,
+    Ss;
+
+Ss = {
     $: null,
     A: null,
     B: null,
     C: null,
 };
 
-function loadjscssfile(filename, filetype) {
-    var fileref;
-
-    if (filetype === 'js') {
-        fileref = document.createElement('script');
-        fileref.setAttribute('type', 'text/javascript');
-        fileref.setAttribute('src', filename);
-        C.warn('called');
-    }
-    else if (filetype === 'css') {
-        fileref = document.createElement('link');
-        fileref.setAttribute('rel', 'stylesheet');
-        fileref.setAttribute('type', 'text/css');
-        fileref.setAttribute('href', filename);
-    }
-    if (typeof fileref !== 'undefined') {
-        document.getElementsByTagName('head')[0].appendChild(fileref);
-    }
-}
-
-jQuery(function ($) {
-
+Ss.init = function () {
+    var self = Ss;
     var qscheck, slideIndex1, slideIndex2, slideIndex3;
 
     //Reference http://www.jssor.com/development/tip-make-responsive-slider.html
-
-    function getParameterByName(name) {
-        var regex, results;
-
-        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-        regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
-        results = regex.exec(W.location.search);
-
-        return (results === null) ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
-    }
 
     qscheck = parseInt(getParameterByName('a'), 10);
     slideIndex1 = parseInt(getParameterByName('a') || '0', 10);
@@ -61,8 +33,8 @@ jQuery(function ($) {
 
     function makeOptions(x) {
         return $.extend({
-            $StartIndex: 1,
-            $FillMode: 2,                                                   //  [Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
+            $StartIndex: 0,
+            $FillMode: 0,                                                   //  [Optional] The way to fill image in slide, 0 stretch, 1 contain (keep aspect ratio and put all inside slide), 2 cover (keep aspect ratio and cover whole slide), 4 actual size, 5 contain for large image, actual size for small image, default value is 0
             $AutoPlay: false,                                               //  [Optional] Whether to auto play, to enable slideshow, this option must be set to true, default value is false
             $DragOrientation: 1,                                            //  [Optional] Orientation to drag slide, 0 no drag, 1 horizental, 2 vertical, 3 either, default value is 1 (Note that the $DragOrientation should be the same as $PlayOrientation when $DisplayPieces is greater than 1, or parking position is not 0),
 
@@ -101,12 +73,12 @@ jQuery(function ($) {
         return this;
     };
 
-    slider.$ = $('.slider').idem();
-    C.warn(slider.$);
+    Ss.$ = $('.slider').idem();
+    C.warn(Ss.$);
 
-    slider.A = new $JssorSlider$(slider.$[0].id, makeOptions({$StartIndex: slideIndex1}));
-    slider.B = new $JssorSlider$(slider.$[1].id, makeOptions({$StartIndex: slideIndex2}));
-    slider.C = new $JssorSlider$(slider.$[2].id, makeOptions({$StartIndex: slideIndex3}));
+    Ss.A = new $JssorSlider$(Ss.$[0].id, makeOptions({$StartIndex: slideIndex1}));
+    Ss.B = new $JssorSlider$(Ss.$[1].id, makeOptions({$StartIndex: slideIndex2}));
+    Ss.C = new $JssorSlider$(Ss.$[2].id, makeOptions({$StartIndex: slideIndex3}));
 
     //responsive code begin
     //you can remove responsive code if you don't want the slider scales while window resizes
@@ -116,7 +88,7 @@ jQuery(function ($) {
 
         paddingWidth = 20; //                                                   reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
         minReserveWidth = 325; //                                               minimum width should reserve for text
-        parentElement = slider.B.$Elmt.parentNode;
+        parentElement = Ss.B.$Elmt.parentNode;
         parentWidth = parentElement.clientWidth; //                             evaluate parent container width
 
         if (parentWidth) {
@@ -133,9 +105,9 @@ jQuery(function ($) {
             }
 
             $('#clearFixDiv').css('clear', clearFix); //                        clear fix for safari 3.1, chrome 3
-            slider.A.$ScaleWidth(sliderWidth);
-            slider.B.$ScaleWidth(sliderWidth);
-            slider.C.$ScaleWidth(sliderWidth);
+            Ss.A.$ScaleWidth(sliderWidth);
+            Ss.B.$ScaleWidth(sliderWidth);
+            Ss.C.$ScaleWidth(sliderWidth);
         } else {
             W.setTimeout(ScaleSlider, 30);
         }
@@ -147,58 +119,61 @@ jQuery(function ($) {
         $(W).on('resize orientationchange', ScaleSlider);
     }
     /* responsive code end */
-});
 
-function scramble() {
-    var i;
+    self.scramble = function () {
+        var i;
 
-    function rando() {
-        return (Math.random() * 9 + 1) | 0;
-    }
+        function rando() {
+            return (Math.random() * 9 + 1) | 0;
+        }
 
-    for (i = 0; i < rando(); i++) {
-        W.setTimeout($.fn.click.bind(slider.$.eq(0).find('.right')), i * 99);
-    }
-    for (i = 0; i < rando(); i++) {
-        W.setTimeout($.fn.click.bind(slider.$.eq(1).find('.left')), i * 99);
-    }
-    for (i = 0; i < rando(); i++) {
-        W.setTimeout($.fn.click.bind(slider.$.eq(2).find('.right')), i * 99);
-    }
-}
+        for (i = 0; i < rando(); i++) {
+            W.setTimeout($.fn.click.bind(Ss.$.eq(0).find('.right')), i * 99);
+        }
+        for (i = 0; i < rando(); i++) {
+            W.setTimeout($.fn.click.bind(Ss.$.eq(1).find('.left')), i * 99);
+        }
+        for (i = 0; i < rando(); i++) {
+            W.setTimeout($.fn.click.bind(Ss.$.eq(2).find('.right')), i * 99);
+        }
+    };
 
-function createShareLink() {
-    var currentIndexes = [];
+    self.shareLink = function () {
+        var currentIndexes = [];
 
-    //generate link based of current slides positions
-    currentIndexes.push('?a=' + slider.A.$CurrentIndex());
-    currentIndexes.push('&b=' + slider.B.$CurrentIndex());
-    currentIndexes.push('&c=' + slider.C.$CurrentIndex());
-    return '' + W.location.href + currentIndexes.join('');
-}
+        //generate link based of current slides positions
+        currentIndexes.push('?a=' + Ss.A.$CurrentIndex());
+        currentIndexes.push('&b=' + Ss.B.$CurrentIndex());
+        currentIndexes.push('&c=' + Ss.C.$CurrentIndex());
+        return '' + W.location.href + currentIndexes.join('');
+    };
 
-function createClone() {
-    var original, clone;
+    self.createClone = function () {
+        var original, clone;
 
-    $('#Preview').show();
-    //duplicate snowman div
-    original = $('.snowmen')[0];
-    clone = original.cloneNode(true); // 'deep' clone
+        $('#Preview').show();
+        //duplicate snowman div
+        original = $('.snowmen')[0];
+        clone = original.cloneNode(true); // 'deep' clone
 
-    clone.id = 'Clone';
-    $('#Preview').append(clone);
-    $(clone).append($('.corners').clone());
+        clone.id = 'Clone';
+        $('#Preview').append(clone);
+        $(clone).append($('.corners').clone());
 
-    W.alert(createShareLink());
-}
+        W.alert(self.shareLink());
+    };
 
-function sharePreview() {
-    if (!$('#Clone')) {
-        createClone();
-    }
-}
+    self.sharePreview = function () {
+        if (!$('#Clone').length) {
+            self.createClone();
+        }
+    };
 
-function closePreview() {
-    $('#Clone').remove();
-    $('#Preview').hide();
-}
+    self.closePreview = function () {
+        $('#Clone').remove();
+        $('#Preview').hide();
+    };
+};
+
+$(Ss.init);
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
