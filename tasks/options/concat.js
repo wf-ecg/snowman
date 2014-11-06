@@ -16,7 +16,7 @@ module.exports = {
         + '= = = = = = = = */\n',
         sourceMap: true,
     },
-    bootstrap: {
+    boot: {
         options: {
             sourceMap: false, // see uglify for map
         },
@@ -34,18 +34,12 @@ module.exports = {
     base: {
         options: { sourceMap: false, },
         files: {
-            'app/build/lib.js': ['libs/*.js'],
-            'app/build/src.js': ['scripts/[a-z]*.js', 'scripts/_[a-z]*.js'],
-        },
-    },
-    full: {
-        files: {
-            'app/build/lib.js': ['libs/*.js'],
             'app/build/src.js': ['scripts/[a-z]*.js', 'scripts/_[a-z]*.js'],
         },
     },
     libs: {
         files: {
+            'app/build/lib.js': ['libs/*.js'],
             'app/build/poly.js': [ 'libs/poly/*.js'],
             'app/build/xtend.js': [ 'libs/xtend/*.js'],
         },
