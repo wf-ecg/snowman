@@ -131,7 +131,9 @@ Slides.init = function ($) {
 
         preview$.append(clone).show();
 
-        W.alert(self.makeLink());
+        _.delay(function () {
+            W.alert(self.makeLink());
+        }, 333);
     }
 
     self.openPreview = function () {
