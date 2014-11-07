@@ -12,13 +12,11 @@
     @include coldHaze();
     @include centify();
     @include clearfix;
-    display: block;
+
     font-size: .8em;
     line-height: 1.5em;
-    min-width: 800px;
-    max-width: 1100px;
     padding: 1em;
-    width: 90%;
+    width: 90%; min-width: 800px; max-width: 1234px;
 }
 #Copy, #Logo {
     float: left;
@@ -38,6 +36,8 @@
 }
 #Toy {
     @include coldHaze(3px);
+    border: 3px solid white;
+    box-sizing: content-box;
     float: right;
     margin: 1em;
     overflow: hidden;
