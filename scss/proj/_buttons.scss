@@ -26,7 +26,7 @@
     }
 }
 .arrow {
-    background-image-repeat: no-repeat;
+    background-repeat: no-repeat;
     cursor: pointer;
     display: block;
     height: 45px;
@@ -47,15 +47,15 @@
         &.left { left: -6px   !important; }
         &.right { right: -6px !important; }
     }
-    .top {
+    .top & {
         &.left { background-image: url('../img/buttons/tabs_AR.png'); }
         &.right{ background-image: url('../img/buttons/tabs_AL.png'); }
     }
-    .middle {
+    .middle & {
         &.left { background-image: url('../img/buttons/tabs_BR.png'); }
         &.right{ background-image: url('../img/buttons/tabs_BL.png'); }
     }
-    .bottom {
+    .bottom & {
         &.left { background-image: url('../img/buttons/tabs_CR.png'); }
         &.right{ background-image: url('../img/buttons/tabs_CL.png'); }
     }

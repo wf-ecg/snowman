@@ -11,6 +11,9 @@
         /* clearfix */
     }
 }
+.clearfix {
+    @include clearfix;
+}
 @mixin nosel(){
     -webkit-user-drag: none;
     @include user-select(none);

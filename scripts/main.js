@@ -149,5 +149,9 @@ Slides.init = function ($) {
 
 jQuery(function () {
     Slides.init(jQuery);
+
+    $('.logo').click(function () {
+        $('html').toggleClass('debug');
+    });
 });
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

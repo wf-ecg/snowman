@@ -10,6 +10,11 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#00000000);
     -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='+$clr1+', endColorstr='+$clr2+')';
 }
+@mixin overflow($x: visible, $y: visible) {
+    overflow: $x;
+    overflow-x: $x;
+    overflow-y: $y;
+}
 @mixin centify(){
     left: 0; right: 0;
     margin-left: auto;
