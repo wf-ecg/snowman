@@ -26,6 +26,7 @@
     .splash {
         @include centify();
         max-width: 400px;
+        position: absolute;
         top: 333px;
         width: 100%;
         z-index: 1000;

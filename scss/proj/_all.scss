@@ -19,7 +19,6 @@
     left: 0; right: 0;
     margin-left: auto;
     margin-right: auto;
-    position: absolute;
 }
 .centify {
     @include centify();
@@ -28,7 +27,6 @@
     left: 0; right: 0;
     top: 0; bottom: 0;
     margin: auto;
-    position: absolute;
 }
 .middify {
     @include middify();
