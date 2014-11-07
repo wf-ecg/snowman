@@ -51,7 +51,7 @@ Slides.init = function ($) {
     //  you can remove responsive code if you don't want the slider scales while window resizes
 
     function ScaleSlider() {
-        var paddingWidth, minReserveWidth, parentElement, parentWidth, availableWidth, sliderWidth, clearFix;
+        var paddingWidth, minReserveWidth, parentElement, parentWidth, availableWidth, sliderWidth;
 
         paddingWidth = 20; //                                                   reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
         minReserveWidth = 325; //                                               minimum width should reserve for text
@@ -63,15 +63,12 @@ Slides.init = function ($) {
             sliderWidth = availableWidth * 0.5; //                              calculate slider width as 70% of available width
             sliderWidth = Math.min(sliderWidth, 851); //                        slider width is maximum 600
             sliderWidth = Math.max(sliderWidth, 200); //                        slider width is minimum 200
-            clearFix = 'none';
 
             if (availableWidth - sliderWidth < minReserveWidth) { //            evaluate free width for text, if the width is less than minReserveWidth then fill parent container
                 sliderWidth = availableWidth; //                                set slider width to available width
                 sliderWidth = Math.max(sliderWidth, 200); //                    slider width is minimum 200
-                clearFix = 'both';
             }
 
-            $('#clearFixDiv').css('clear', clearFix); //                        clear fix for safari 3.1, chrome 3
             self.A.$ScaleWidth(sliderWidth);
             self.B.$ScaleWidth(sliderWidth);
             self.C.$ScaleWidth(sliderWidth);
