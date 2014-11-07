@@ -19,8 +19,13 @@
     position: relative;
     width: 90%; min-width: 800px; max-width: 1234px;
 }
+#Copy > div {
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+}
 #Copy, #Logo {
     float: left;
+    margin-left: 1em;
     min-width: 200px;
     width: $leftside;
 }
@@ -54,7 +59,7 @@
     font-size: 10px;
 }
 .footer {
-    bottom: -26px;
+    bottom: 0px;
     font-size: 0.6em;
     position: absolute;
 }
