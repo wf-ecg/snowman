@@ -168,5 +168,23 @@ jQuery(function () {
     $('.logo').click(function () {
         $('html').toggleClass('debug');
     });
+
+    // show sections
+    var mode = parseInt(getParameterByName('m') || '-1', 10);
+
+    $('#Copy').children().hide();
+    $('.greeting, .closing').show();
+
+    if (mode > 0) {
+        $('.create').show();
+        $('.shared').hide();
+
+        if (mode === 2) {
+            $('.charity').show();
+        }
+    } else {
+        $('.shared').show();
+        $('.create, .arrow').remove();
+    }
 });
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
