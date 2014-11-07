@@ -8,6 +8,7 @@
     font-size: .8em;
     line-height: 1.5em;
     margin: 20px auto 0 auto;
+    min-width: 800px;
     max-width: 1100px;
     overflow: hidden;
     padding: 10px;
@@ -18,52 +19,39 @@
 #Copy, #Logo {
     float: left;
     min-width: 200px;
-    width: 45%;
+    width: $leftside;
+}
+#Logo {
+    .part {
+        height: 50px;
+        width: 180px;
+    }
+    .splash {
+        margin: -10px;
+        margin-top: -20px;
+    }
 }
 #Toy {
+    padding: 10px 0;
     float: right;
-    max-width: $slideW;
-    min-width: $slideH;
-    width: 55%;
+    width: $rightside;
 
     .snowmen {
         position: relative;
     }
 }
-.snowmen {
-    @include middify();
-    max-width: $slideW;
-    min-width: $slideH;
-}
 
-#disclosure {
-    font-size: 10px;
-}
-
-.instructions {
-    display: none;
-}
-.red {
-    color: #bb0826;
-}
-.cta_created {
-    display: none;
-    margin-bottom: 1em;
-    overflow: visible;
-    padding: 10px 0 0 0;
-    text-align: left;
+.splash img {
     width: 100%;
 }
-.cta_shared {
-    display: none;
-    margin: 1em 0;
-    padding: 10px 0 0 0;
-    text-align: left;
+.disclosure {
+    color: gray;
+    font-family: sans-serif;
+    font-size: 10px;
 }
-
 .footer {
-    bottom: -10px;
-    font-size: .6em;
+    bottom: -6px;
+    font-size: 0.6em;
     position: absolute;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -1,12 +1,15 @@
 /* PROJ / media */
 
+body {
+    overflow: hidden;
+}
+
 @media print {
     body {
         background: none;
         height: 100%;
     }
-    #Container,
-    #Preview .nav {
+    #Container, #Preview .nav {
         display: none;
     }
     #Preview {
@@ -18,17 +21,20 @@
 }
 
 @media (max-width: 639px) {
+    body {
+        overflow: auto;
+    }
     #Container {
         border: none;
         box-shadow: none;
         margin: 0px;
+        min-width: 450px;
         overflow: hidden;
         width: 100%;
     }
     #Toy, #Copy, #Logo {
         float: none;
         margin: 10px auto 0 auto;
-        padding: 0px;
         text-align: center;
         width: 96%;
     }

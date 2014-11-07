@@ -1,0 +1,11 @@
+/* PROJ / snowman */
+
+.snowmen {
+    @include middify();
+    background-color: white;
+    max-width: 650px;
+    min-width: 450px;
+    padding: 10px 0;
+    width: 100%;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
