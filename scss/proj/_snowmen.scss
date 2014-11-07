@@ -1,11 +1,37 @@
-/* PROJ / snowman */
+/* PROJ / snowmen */
 
 .snowmen {
     @include centify();
     background-color: white;
     max-width: 650px;
     min-width: 450px;
-    padding: 10px 0;
     width: 100%;
+
+    .slider {
+        @include centify();
+        clear: both;
+        height: $slideH;
+        overflow: hidden;
+        position: relative;
+        width: $slideW;
+    }
+
+    div[u="slides"] {
+        cursor: move;
+        height: $slideH;
+        overflow: hidden;
+        position: absolute;
+        width: $slideW;
+    }
+    #Preview & {
+        .slider {
+            margin-bottom: -1.5px !important; // hide the seams
+        }
+    }
+    #Toy & {
+        .slider {
+            box-shadow: 0 -1px 1px rgba(0, 0, 0, 0.2); // show the seams
+        }
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -23,9 +23,6 @@
     top: 0;
     z-index: 1000;
 
-    .snowmen {
-        padding: 0;
-    }
     .splash {
         @include centify();
         max-width: 400px;
