@@ -100,17 +100,16 @@ WF.Strings = {
                 + "<p>Choose a link above.  We provide these links to external websites for your convenience. " //
                 + 'Wells Fargo does not endorse and is not responsible for their content, links, privacy policies, or security policies.</p><span class="hide">End popup</span>',
                 "es": '<span class="hide" tabindex="0" lang="en">Begin popup</span><h2>Comparta esta p&aacute;gina</h2>' //
-            + '<ul><li><a href="#facebook" class="c52fb">Facebook</a></li>' //
-            + '<li><a href="#twitter" class="c52twitter">Twitter</a></li>' //
-            + '<li><a href="#linkedin" class="c52linkedin">LinkedIn</a></li>' //
-            + '<li><a href="#googleplus" class="c52googleplus">Google+</a></li></ul>' //
-            + "<p>Seleccione uno de los enlaces electr&oacute;nicos arriba. Para su conveniencia, le proporcionamos estos enlaces electr&oacute;nicos a sitios de Internet externos." //
-            + "Wells Fargo no avala ni se hace responsable por el contenido, los enlaces electr&oacute;nicos, las pol&iacute;ticas de privacidad o las pol&iacute;ticas de seguridad de esos " //
-            + 'sitios de Internet.</p><span class="hide" lang="en">End popup</span>'
+                + '<ul><li><a href="#facebook" class="c52fb">Facebook</a></li>' //
+                + '<li><a href="#twitter" class="c52twitter">Twitter</a></li>' //
+                + '<li><a href="#linkedin" class="c52linkedin">LinkedIn</a></li>' //
+                + '<li><a href="#googleplus" class="c52googleplus">Google+</a></li></ul>' //
+                + "<p>Seleccione uno de los enlaces electr&oacute;nicos arriba. Para su conveniencia, le proporcionamos estos enlaces electr&oacute;nicos a sitios de Internet externos." //
+                + "Wells Fargo no avala ni se hace responsable por el contenido, los enlaces electr&oacute;nicos, las pol&iacute;ticas de privacidad o las pol&iacute;ticas de seguridad de esos " //
+                + 'sitios de Internet.</p><span class="hide" lang="en">End popup</span>'
             },
             "EmailInsert": {
-                "en": "Hi,\n\nI thought you'd be interested in this page I found on wellsfargo.com: \n\n",
-                "es": "Pens&eacute; que podr&iacute;a interesarle esta p&aacute;gina que encontr&eacute; en wellsfargo.com/spanish:"
+                "en": "Hey, check out what I found: \n\n",
             }
         }
     },
