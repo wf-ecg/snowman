@@ -50,19 +50,19 @@ Slides.init = function ($) {
     //  responsive code begin
     //  you can remove responsive code if you don't want the slider scales while window resizes
 
-    function ScaleSlider() {
+    function scaleSlider() {
         var paddingWidth, minReserveWidth, parentElement, parentWidth, availableWidth, sliderWidth;
 
-        paddingWidth = 20; //                                                   reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
-        minReserveWidth = 325; //                                               minimum width should reserve for text
+        paddingWidth = 0; //                                                    reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
+        minReserveWidth = 0; //                                                 minimum width should reserve for text
         parentElement = self.B.$Elmt.parentNode;
         parentWidth = parentElement.clientWidth; //                             evaluate parent container width
 
         if (parentWidth) {
             availableWidth = parentWidth - paddingWidth; //                     exclude blank width
-            sliderWidth = availableWidth * 0.5; //                              calculate slider width as 70% of available width
-            sliderWidth = Math.min(sliderWidth, 851); //                        slider width is maximum 600
-            sliderWidth = Math.max(sliderWidth, 200); //                        slider width is minimum 200
+            sliderWidth = availableWidth * 1; //                                calculate slider width as 100% of available width
+            sliderWidth = Math.min(sliderWidth, 600); //                        slider width is maximum 600
+            sliderWidth = Math.max(sliderWidth, 600); //                        slider width is minimum 200
 
             if (availableWidth - sliderWidth < minReserveWidth) { //            evaluate free width for text, if the width is less than minReserveWidth then fill parent container
                 sliderWidth = availableWidth; //                                set slider width to available width
@@ -73,14 +73,14 @@ Slides.init = function ($) {
             self.B.$ScaleWidth(sliderWidth);
             self.C.$ScaleWidth(sliderWidth);
         } else {
-            W.setTimeout(ScaleSlider, 30);
+            W.setTimeout(scaleSlider, 30);
         }
     }
 
-    ScaleSlider();
+    scaleSlider();
 
     if (!W.navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) {
-        $(W).on('resize orientationchange', ScaleSlider);
+        $(W).on('resize orientationchange', scaleSlider);
     }
     /* responsive code end */
 
