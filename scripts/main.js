@@ -50,42 +50,54 @@ Slides.init = function ($) {
     //  responsive code begin
     //  you can remove responsive code if you don't want the slider scales while window resizes
 
-    function ScaleSlider() {
-        var paddingWidth, minReserveWidth, parentElement, parentWidth, availableWidth, sliderWidth, clearFix;
+    function scaleSlider() {
+        var paddingWidth, minReserveWidth, parentElement, parentWidth, availableWidth, sliderWidth;
 
-        paddingWidth = 20; //                                                   reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
-        minReserveWidth = 325; //                                               minimum width should reserve for text
+        paddingWidth = 0; //                                                    reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
+        minReserveWidth = 0; //                                                 minimum width should reserve for text
         parentElement = self.B.$Elmt.parentNode;
         parentWidth = parentElement.clientWidth; //                             evaluate parent container width
 
         if (parentWidth) {
             availableWidth = parentWidth - paddingWidth; //                     exclude blank width
-            sliderWidth = availableWidth * 0.5; //                              calculate slider width as 70% of available width
-            sliderWidth = Math.min(sliderWidth, 851); //                        slider width is maximum 600
-            sliderWidth = Math.max(sliderWidth, 200); //                        slider width is minimum 200
-            clearFix = 'none';
+            sliderWidth = availableWidth * 1; //                                calculate slider width as 100% of available width
+            sliderWidth = Math.min(sliderWidth, 600); //                        slider width is maximum 600
+            sliderWidth = Math.max(sliderWidth, 600); //                        slider width is minimum 200
 
             if (availableWidth - sliderWidth < minReserveWidth) { //            evaluate free width for text, if the width is less than minReserveWidth then fill parent container
                 sliderWidth = availableWidth; //                                set slider width to available width
                 sliderWidth = Math.max(sliderWidth, 200); //                    slider width is minimum 200
-                clearFix = 'both';
             }
 
-            $('#clearFixDiv').css('clear', clearFix); //                        clear fix for safari 3.1, chrome 3
             self.A.$ScaleWidth(sliderWidth);
             self.B.$ScaleWidth(sliderWidth);
             self.C.$ScaleWidth(sliderWidth);
         } else {
-            W.setTimeout(ScaleSlider, 30);
+            W.setTimeout(scaleSlider, 30);
         }
     }
 
-    ScaleSlider();
+    scaleSlider();
 
     if (!W.navigator.userAgent.match(/(iPhone|iPod|iPad|BlackBerry|IEMobile)/)) {
-        $(W).on('resize orientationchange', ScaleSlider);
+        $(W).on('resize orientationchange', scaleSlider);
     }
     /* responsive code end */
+
+    function disableBtnForSecs(sel, sec) {
+        var btn, url;
+
+        btn = $(sel);
+        url = btn.attr('href');
+
+        btn.fadeTo(sec * 99, 0.5);
+        btn.attr('href', '#');
+
+        _.delay(function () {
+            btn.attr('href', url);
+            btn.fadeTo(sec * 9, 1);
+        }, sec * 999);
+    }
 
     self.scramble = function () {
         var i;
@@ -103,7 +115,7 @@ Slides.init = function ($) {
         for (i = 0; i < rando(); i++) {
             W.setTimeout($.fn.click.bind(self.$.eq(2).find('.right')), i * 99);
         }
-        $('.button.preview').hide().fadeIn(3333);
+        disableBtnForSecs('.button.preview', 1);
     };
 
     function readIndexes() {
@@ -126,13 +138,13 @@ Slides.init = function ($) {
         var clone;
 
         clone = div.cloneNode(true); // duplicate snowman
-        $(clone).append($('.corners').clone());
+        $(clone).append($('.corners').clone()).css('width', Slides.$.eq(0).width());
         clone.id = 'Clone';
 
         preview$.append(clone).show();
 
         _.delay(function () {
-            W.alert(self.makeLink());
+//            W.alert(self.makeLink());
         }, 333);
     }
 
@@ -152,5 +164,27 @@ Slides.init = function ($) {
 
 jQuery(function () {
     Slides.init(jQuery);
+
+    $('.logo').click(function () {
+        $('html').toggleClass('debug');
+    });
+
+    // show sections
+    var mode = parseInt(getParameterByName('m') || '-1', 10);
+
+    $('#Copy').children().hide();
+    $('.greeting, .closing').show();
+
+    if (mode > 0) {
+        $('.create').show();
+        $('.shared').hide();
+
+        if (mode === 2) {
+            $('.charity').show();
+        }
+    } else {
+        $('.shared').show();
+        $('.create, .arrow').remove();
+    }
 });
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -4,12 +4,65 @@
 body.debug {
     border: 1em solid lime;
 }
-.parts {
-    border: 1px dotted red;
-    margin: 3em;
-    padding: 1em;
+.greeting, .closing {
+    @include edger2(yellow);
 }
-.part {
-    //border: 1px dotted red;
+.create {
+    @include edger2(red);
+}
+.shared {
+    @include edger2(blue);
+}
+.charity {
+    @include edger2(green);
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+/*  OUR LIL FRIEND
+
+    draganddrop
+    fontface
+    generatedcontent
+    hashchange
+    js
+    localstorage
+    lt-ie8
+    lt-ie9
+    no-applicationcache
+    no-audio
+    no-backgroundsize
+    no-borderimage
+    no-borderradius
+    no-boxshadow
+    no-canvas
+    no-canvastext
+    no-cssanimations
+    no-csscolumns
+    no-cssgradients
+    no-cssreflections
+    no-csstransforms
+    no-csstransforms3d
+    no-csstransitions
+    no-flexbox
+    no-flexboxlegacy
+    no-geolocation
+    no-history
+    no-hsla
+    no-indexeddb
+    no-inlinesvg
+    no-multiplebgs
+    no-opacity
+    no-rgba
+    no-smil
+    no-svg
+    no-svgclippaths
+    no-textshadow
+    no-touch
+    no-video
+    no-webgl
+    no-websockets
+    no-websqldatabase
+    no-webworkers
+    postmessage
+    sessionstorage
+
+*/

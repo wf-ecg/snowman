@@ -15,7 +15,9 @@
 
 #Preview {
     $haze: rgba(255, 255, 255, 0.6);
-    @include middify();
+    $wfred: #bb0826;
+
+    @include centify();
     @include backGrad($haze, $haze);
     bottom: 0;
     display: none;
@@ -24,21 +26,24 @@
     z-index: 1000;
 
     .splash {
-        @include middify();
+        @include centify();
         max-width: 400px;
+        position: absolute;
         top: 333px;
         width: 100%;
         z-index: 1000;
     }
     .nav {
-        @include middify();
-        background-color: #fff;
-        border-width: 1px 1px 0 1px;
-        border-style: solid;
-        border-color: #bb0826;
-        height: 25px;
-        margin-top: 25px;
-        width: 246px;
+        @include centify();
+        background-color: white;
+        border: 1px solid $edge0;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px gray;
+        height: 30px;
+        margin-top: 15px;
+        padding: 3px;
+        width: 250px;
+        .lt-ie9 & { border-color: $wfred; }
 
         .close, .print, .share {
             border: none;
@@ -61,14 +66,18 @@
 #Clone .corners {
     $gap: 3px;
     $size: 10;
+
+    @include centify();
     border: $size * 1px solid transparent;
-    @include border-image( url('../img/frame/borderFrame.png') $size round);
-    @include middify();
-    height: 96%;
+    height: 97%;
     position: absolute;
-    top: 0;
+    top: 1.7%;
     bottom: 0;
-    width: 92%;
+    width: 97%;
+    & {
+        @include border-image( url('../img/frame/borderFrame.png') $size round);
+    }
+    .lt-ie9 & { border: $size * 0.5px solid white; }
 
     .tl, .tr, .bl, .br {
         height: 50px;

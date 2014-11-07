@@ -1,23 +1,31 @@
 /* PROJ / custom */
 
-#Container {
+@mixin coldHaze($fuzz: 5px) {
     background-color: rgba(255, 255, 255, 0.3);
-    border: #0095c8 0px solid;
-    box-shadow: 0px 0px 5px 2px #0095c8;
-    display: block;
+    border: 1px solid $edge0;
+    box-shadow: 0 0 ($fuzz * 2) ($fuzz / 2) setTrans($icee0, 0.5);
+    .lt-ie9 & { border: $fuzz solid $icee1; }
+}
+
+#Container {
+    margin: 1em;
+    @include coldHaze();
+    @include centify();
+    @include clearfix;
+
     font-size: .8em;
     line-height: 1.5em;
-    margin: 20px auto 0 auto;
-    min-width: 800px;
-    max-width: 1100px;
-    overflow: hidden;
-    padding: 10px;
-    padding-bottom: 20px;
+    padding: 1em;
     position: relative;
-    width: 90%;
+    width: 90%; min-width: 800px; max-width: 1234px;
+}
+#Copy > div {
+    margin-bottom: 1em;
+    margin-top: 1.5em;
 }
 #Copy, #Logo {
     float: left;
+    margin-left: 1em;
     min-width: 200px;
     width: $leftside;
 }
@@ -25,6 +33,7 @@
     .part {
         height: 50px;
         width: 180px;
+        text-align: left;
     }
     .splash {
         margin: -10px;
@@ -32,13 +41,13 @@
     }
 }
 #Toy {
-    padding: 10px 0;
+    @include coldHaze(3px);
+    border: 3px solid white;
+    box-sizing: content-box;
     float: right;
+    margin: 1em;
+    overflow: hidden;
     width: $rightside;
-
-    .snowmen {
-        position: relative;
-    }
 }
 
 .splash img {
@@ -50,7 +59,7 @@
     font-size: 10px;
 }
 .footer {
-    bottom: -6px;
+    bottom: 0px;
     font-size: 0.6em;
     position: absolute;
 }
