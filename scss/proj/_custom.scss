@@ -2,9 +2,9 @@
 
 @mixin coldHaze($fuzz: 5px) {
     background-color: rgba(255, 255, 255, 0.3);
-    border: #0095c8 0px solid;
-    box-shadow: 0 0 ($fuzz * 2) ($fuzz / 2) setTrans(#0095c8, 0.5);
-    .lt-ie9 & { border: #a6bcd3 $fuzz solid; }
+    border: 1px solid $edge0;
+    box-shadow: 0 0 ($fuzz * 2) ($fuzz / 2) setTrans($icee0, 0.5);
+    .lt-ie9 & { border: $fuzz solid $icee1; }
 }
 
 #Container {
@@ -16,6 +16,7 @@
     font-size: .8em;
     line-height: 1.5em;
     padding: 1em;
+    position: relative;
     width: 90%; min-width: 800px; max-width: 1234px;
 }
 #Copy, #Logo {
