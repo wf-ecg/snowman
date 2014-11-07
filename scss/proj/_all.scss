@@ -10,11 +10,20 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#00000000);
     -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='+$clr1+', endColorstr='+$clr2+')';
 }
+@mixin centify(){
+    left: 0; right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+}
+.centify {
+    @include centify();
+}
 @mixin middify(){
-    left: 0;
+    left: 0; right: 0;
+    top: 0; bottom: 0;
     margin: auto;
     position: absolute;
-    right: 0;
 }
 .middify {
     @include middify();

@@ -1,7 +1,7 @@
 /* PROJ / jssor */
 
 .slider {
-    @include middify();
+    @include centify();
     clear: both;
     height: $slideH;
     overflow: hidden;

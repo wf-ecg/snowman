@@ -15,7 +15,7 @@
 
 #Preview {
     $haze: rgba(255, 255, 255, 0.6);
-    @include middify();
+    @include centify();
     @include backGrad($haze, $haze);
     bottom: 0;
     display: none;
@@ -24,14 +24,14 @@
     z-index: 1000;
 
     .splash {
-        @include middify();
+        @include centify();
         max-width: 400px;
         top: 333px;
         width: 100%;
         z-index: 1000;
     }
     .nav {
-        @include middify();
+        @include centify();
         background-color: #fff;
         border-width: 1px 1px 0 1px;
         border-style: solid;
@@ -63,7 +63,7 @@
     $size: 10;
     border: $size * 1px solid transparent;
     @include border-image( url('../img/frame/borderFrame.png') $size round);
-    @include middify();
+    @include centify();
     height: 96%;
     position: absolute;
     top: 0;
