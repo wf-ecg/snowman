@@ -84,6 +84,21 @@ Slides.init = function ($) {
     }
     /* responsive code end */
 
+    function disableBtnForSecs(sel, sec) {
+        var btn, url;
+
+        btn = $(sel);
+        url = btn.attr('href');
+
+        btn.fadeTo(sec * 99, 0.5);
+        btn.attr('href', '#');
+
+        _.delay(function () {
+            btn.attr('href', url);
+            btn.fadeTo(sec * 9, 1);
+        }, sec * 999);
+    }
+
     self.scramble = function () {
         var i;
 
@@ -100,7 +115,7 @@ Slides.init = function ($) {
         for (i = 0; i < rando(); i++) {
             W.setTimeout($.fn.click.bind(self.$.eq(2).find('.right')), i * 99);
         }
-        $('.button.preview').hide().fadeIn(3333);
+        disableBtnForSecs('.button.preview', 1);
     };
 
     function readIndexes() {
