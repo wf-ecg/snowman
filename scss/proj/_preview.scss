@@ -33,13 +33,14 @@
     }
     .nav {
         @include centify();
-        background-color: #fff;
-        border-width: 1px 1px 0 1px;
-        border-style: solid;
-        border-color: #bb0826;
-        height: 25px;
-        margin-top: 25px;
-        width: 246px;
+        background-color: white;
+        border: 1px solid $edge0;
+        border-radius: 5px;
+        box-shadow: 0 1px 3px gray;
+        height: 30px;
+        margin-top: 15px;
+        padding: 3px;
+        width: 250px;
 
         .close, .print, .share {
             border: none;
@@ -65,11 +66,11 @@
     border: $size * 1px solid transparent;
     @include border-image( url('../img/frame/borderFrame.png') $size round);
     @include centify();
-    height: 96%;
+    height: 97%;
     position: absolute;
-    top: 10px;
+    top: 9px;
     bottom: 0;
-    width: 96%;
+    width: 97%;
 
     .tl, .tr, .bl, .br {
         height: 50px;
