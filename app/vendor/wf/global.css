@@ -1,0 +1,157 @@
+.sideUtility {
+    display: inline;
+    float: left;
+    font-size: 80%;
+    overflow: hidden;
+}
+.sideUtility * {
+    font-family: sans-serif !important;
+}
+.sideUtility.bottom {
+    margin-bottom: 40px
+}
+.sideUtility ul {
+    clear: both;
+    margin: 0;
+    padding: 0;
+    list-style-type: none
+}
+.sideUtility.top ul {
+    float: right
+}
+.sideUtility.bottom ul {
+    float: left
+}
+.sideUtility li {
+    position: relative;
+    z-index: 55;
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style-type: none
+}
+.sideUtility.bottom li {
+    position: relative;
+    z-index: 55;
+    padding-left: 0;
+    list-style-type: none
+}
+.sideUtility li span {
+    display: block;
+    float: left;
+    width: 1px;
+    height: 10px;
+    margin: 8px 20px 0;
+    overflow: hidden;
+    border-right: 1px solid #ccc
+}
+.sideUtility.top {
+    width: auto;
+    clear: none
+}
+.mainContentCol .sideUtility li {
+    list-style-type: none
+}
+a.printLink {
+    position: relative;
+    top: 4px;
+    z-index: 40;
+    padding: 0 0 0 20px;
+    color: #434343;
+    text-decoration: none;
+    background: url("icon-print.png") 0 2px no-repeat
+}
+.c52 {
+    float: none;
+    position: absolute;
+    z-index: 45;
+    width: 250px;
+    padding-top: 14px;
+    border: 1px solid #ccc;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+    background-color: #fff
+}
+.c52.hide {
+    display: none;
+    visibility: hidden
+}
+.c52 h2 {
+    margin: 0 19px 19px 19px;
+    font-size: 111%;
+    font-style: normal;
+}
+.c52 p {
+    font-size: 80%;
+    margin: 0 19px 19px 19px;
+    padding-top: 19px;
+    border-top: 1px solid #ccc
+}
+.c52 ul {
+    float: none!important;
+    margin: 0 19px 5px 19px;
+    padding: 0;
+    list-style-type: none
+}
+.c52 li {
+    float: none!important;
+    margin: 0 0 14px 0;
+    padding: 0!important
+}
+.c52 a:link,c52 a:hover,c52 a:active {
+    color: black;
+    text-decoration: none
+}
+a.c52Link {
+    display: block;
+    float: left;
+    padding: 4px 8px 4px 24px;
+    color: #434343;
+    text-decoration: none;
+    background: url("social_share_plus.png") 6px 8px no-repeat
+}
+
+
+
+
+a.c52Link.active {
+    padding: 3px 7px 4px 23px;
+    border-left: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #fff;
+    border-right: 1px solid #ccc;
+    background: #fff url("social_share_minus.png") 5px 7px no-repeat
+}
+a.c52fb {
+    padding-bottom: 3px;
+    padding-left: 28px;
+    background: url("logo-facebook.png") 0 0 no-repeat
+}
+a.c52twitter {
+    padding-bottom: 3px;
+    padding-left: 26px;
+    background: url("twitter-bird-white-on-blue.gif") 0 0 no-repeat
+}
+a.c52linkedin {
+    padding-bottom: 3px;
+    padding-left: 28px;
+    background: url("LinkedIn.gif") 0 0 no-repeat
+}
+a.c52googleplus {
+    padding-bottom: 3px;
+    padding-left: 28px;
+    background: url("google+.gif") 0 0 no-repeat
+}
+a.c52email {
+    padding-left: 28px;
+    background: url("icon-mail-gray.png") 0 3px no-repeat
+}
+.hide,.hidden {
+    position: absolute;
+    width: 0;
+    overflow: hidden;
+    height: 0;
+    line-height: 0
+}
+.nobr {
+    white-space: nowrap
+}

@@ -27,14 +27,15 @@
         <!--<script src="./_root.js"></script>-->
         <script src="./build/boot.min.js"></script>
         <link href="build/screen.css" rel="stylesheet" type="text/css">
+        <link href="vendor/wf/global.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" type="text/css" href="//cloud.typography.com/6819872/783664/css/fonts.css">
         <!--<link href="/lib/fonts/archer.ssm.css" rel="stylesheet">-->
         <!--<script src="./_load.js"></script>-->
     </head>
     <body>
         <noscript>
-            <p>We're sorry, but some features of our site require JavaScript.
-                Please enable JavaScript on your browser and refresh the page.</p>
+        <p>We're sorry, but some features of our site require JavaScript.
+            Please enable JavaScript on your browser and refresh the page.</p>
         </noscript>
 
         <div id="Container">
@@ -152,8 +153,7 @@
             <div id="Copy">
 
                 <div class="greeting">
-                    <h1>Play the Snowman Scramble and create your own unique snowman.
-                        You can even share your snowman with family and friends. </h1>
+                    <h1>Play the Snowman Scramble and create your own unique snowman. You can even share your snowman with family and friends. </h1>
                 </div>
 
                 <div class="create">
@@ -196,8 +196,14 @@
         <div id="Preview">
 
             <div class="nav">
-                <a href="javascript:Slides.makeLink();"><img src="img/buttons/btn_preview_share.png" class="share"></a>
-                <a href="javascript:window.print();"><img src="img/buttons/btn_preview_print.png" class="print"></a>
+                <div class="sideUtility top">
+                    <ul>
+                        <li><a href="#" class="printLink">Print</a></li>
+                    </ul>
+                    <div class="c52 hide" aria-hidden="true" aria-label="popup"></div>
+                </div>
+                <!-- <a href="javascript:Slides.makeLink();"><img src="img/buttons/btn_preview_share.png" class="share"></a>-->
+                <!-- <a href="javascript:window.print();"><img src="img/buttons/btn_preview_print.png" class="print"></a>-->
                 <a href="javascript:Slides.closePreview();"><img src="img/buttons/btn_preview_close.png" class="close"></a>
             </div>
 
@@ -218,5 +224,6 @@
         <script src="build/src.js"></script>
         <script src="http://www.wellsfargomedia.com/lib/js/ga-ecg.js"></script>
 
+        <script src="vendor/wf/global.js"></script>
     </body>
 </html>
