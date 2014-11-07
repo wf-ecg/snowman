@@ -4,8 +4,8 @@
 body.debug {
     border: 1em solid lime;
 }
-.part {
-    @include edger(yellow);
+.greeting, .closing {
+    @include edger2(yellow);
 }
 .create {
     @include edger2(red);
