@@ -582,7 +582,7 @@ WF.Utils = {
         }
         delete trackInfo.suppressAsync;
         $.ajax({
-            url: "/vendor/wf/s.gif",
+            url: "./vendor/wf/s.gif",
             type: "GET",
             async: asyncMode,
             data: trackInfo,
@@ -659,102 +659,6 @@ WF.OnLoads = {
                 });
             }
         });
-    },
-    applyRotTracking: function (root) {
-        if (typeof root == "undefined") {
-            root = $("body");
-        }
-        $(root).find("a.rot").click(function (e) {
-            var _this = $(this),
-            curr = new Date(),
-            time = curr.valueOf(),
-            rotsrc = "//adfarm.mediaplex.com/ad/tr/7892-155493-3840-0?mpt=" + time + "&mpre=https%3A//adfarm.mediaplex.com/ad/ck/" + _this.attr("data-rotTracking") + "%3Fmpro%3Dhttps%3A//www.wellsfargo.com/images/s.gif%3F" + time,
-            timer = window.setTimeout(function () {
-                document.location.href = _this.attr("href");
-            }, 4000);
-            if (!document.getElementById("rottracker")) {
-                $("body").append('<img id="rottracker" src="' + rotsrc + '" style="width:0;height:0;line-height:0"/>');
-                $("#rottracker").load(function () {
-                    window.clearTimeout(timer);
-                    timer = null;
-                    document.location.href = _this.attr("href");
-                });
-            } else {
-                $("#rottracker").attr("src", rotsrc);
-            }
-            e.preventDefault();
-        });
-    },
-    applySyllabusTracking: function (root) {
-        if (typeof root == "undefined") {
-            root = $("body");
-        }
-        $(root).find("ul.c49nav a").bind("click keypress", function (evt) {
-            if (evt.type == "keypress" && evt.keyCode != 13) {
-                return;
-            }
-            var clist = WF.Utils.getClist(this);
-            var pos = $(this).closest(".c49").parent().children(".sideUtility").attr("class");
-            pos = $.trim(pos.replace(/sideUtility/, ""));
-            WF.Utils.trackVS({
-                "suppressAsync": true,
-                "event": "LinkActivated",
-                "eventType": evt.type,
-                "eventDescription": "syllabusLink",
-                "destinationUrl": this.href,
-                "position": WF.Utils.ucfirst(pos),
-                "clist": clist
-            });
-            if (evt.type == "keypress") {
-                evt.preventDefault();
-                window.location.href = this.href;
-            }
-        });
-    },
-    applyTourTracking: function (root) {
-        if (typeof root == "undefined") {
-            root = $("body");
-        }
-        $(root).find(".c61 a").bind("click keypress", function (evt) {
-            if (evt.type == "keypress" && evt.keyCode != 13) {
-                return;
-            }
-            var clist = WF.Utils.getClist(this);
-            var dir = WF.Utils.ucfirst($(this).text());
-            var pos = ($(this).closest("#contentBottom").length) ? "Bottom" : "Top";
-            WF.Utils.trackVS({
-                "suppressAsync": true,
-                "event": "LinkActivated",
-                "eventType": evt.type,
-                "eventDescription": "TourNavLink",
-                "destinationUrl": this.href,
-                "direction": dir,
-                "position": pos,
-                "clist": clist
-            });
-            if (evt.type == "keypress") {
-                window.location.href = this.href;
-                evt.preventDefault();
-            }
-        });
-    },
-    applyTelephoneStyling: function (root) {
-        if (typeof root == "undefined") {
-            root = $("body");
-        }
-        if (WF.Browser.supports.tel) {
-            $(root).find(".c12").each(function () {
-                var url = this.innerHTML.replace(/\D/g, "");
-                if (url.length == 10) {
-                    url = "1" + url;
-                }
-                this.innerHTML = '<a href="tel:+' + url + '">' + this.innerHTML + "</a>";
-            });
-        } else {
-            $(root).find(".c12").each(function () {
-                this.innerHTML = "<strong>" + this.innerHTML + "</strong>";
-            });
-        }
     },
     fixIECursorOnFatNav: function () {
         if (!$("html").hasClass("lt-ie9")) {

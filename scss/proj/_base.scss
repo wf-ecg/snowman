@@ -11,39 +11,32 @@ body {
     font-family: Arial, Verdana;
 }
 
-h1, h2, h3, p, ul, li {
-    font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
-}
-h1 {
-    font-size: 18px;
-    font-weight: normal;
-    color: #bb0826;
-}
-h2 {
-    font-size: 14px;
-    font-style: italic;
-    color: #bb0826;
-}
-
-a:link, a:visited, a:hover, a:active {
-    color: #ffffff;
-    text-decoration: none;
-}
-p {
-    margin-top: 1em;
-    margin-bottom: 1em;
-}
-ul {
-    list-style: none;
-    padding-left: 0;
-    font-weight: bold;
-}
-
-.block.left {
-    max-width: 66%;
-
+#Container {
+    h1, h2, h3, p, ul, li {
+        font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
+    }
+    h1 {
+        font-size: 18px;
+        font-weight: normal;
+        color: #bb0826;
+    }
     h2 {
-        padding-top: 1em;
+        font-size: 14px;
+        font-style: italic;
+        color: #bb0826;
+    }
+    a:link, a:visited, a:hover, a:active {
+        color: #ffffff;
+        text-decoration: none;
+    }
+    p {
+        margin-top: 1em;
+        margin-bottom: 1em;
+    }
+    ul {
+        list-style: none;
+        padding-left: 0;
+        font-weight: bold;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
