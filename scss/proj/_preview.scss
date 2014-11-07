@@ -23,6 +23,9 @@
     top: 0;
     z-index: 1000;
 
+    .snowmen {
+        padding: 0;
+    }
     .splash {
         @include centify();
         max-width: 400px;
@@ -66,9 +69,9 @@
     @include centify();
     height: 96%;
     position: absolute;
-    top: 0;
+    top: 10px;
     bottom: 0;
-    width: 92%;
+    width: 96%;
 
     .tl, .tr, .bl, .br {
         height: 50px;

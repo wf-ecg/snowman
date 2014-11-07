@@ -1,10 +1,10 @@
 /* PROJ / custom */
 
-@mixin coldHaze() {
+@mixin coldHaze($fuzz: 5px) {
     background-color: rgba(255, 255, 255, 0.3);
     border: #0095c8 0px solid;
-    box-shadow: 0 0 5px 2px #0095c8;
-    .lt-ie9 & { border: #a6bcd3 5px solid; }
+    box-shadow: 0 0 ($fuzz * 2) ($fuzz / 2) #0095c8;
+    .lt-ie9 & { border: #a6bcd3 $fuzz solid; }
 }
 
 #Container {
@@ -37,8 +37,9 @@
     }
 }
 #Toy {
-    @include coldHaze;
+    @include coldHaze(3px);
     float: right;
+    margin: 1em;
     overflow: hidden;
     width: $rightside;
 

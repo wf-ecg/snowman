@@ -123,13 +123,13 @@ Slides.init = function ($) {
         var clone;
 
         clone = div.cloneNode(true); // duplicate snowman
-        $(clone).append($('.corners').clone());
+        $(clone).append($('.corners').clone()).css('width', Slides.$.eq(0).width());
         clone.id = 'Clone';
 
         preview$.append(clone).show();
 
         _.delay(function () {
-            W.alert(self.makeLink());
+//            W.alert(self.makeLink());
         }, 333);
     }
 
