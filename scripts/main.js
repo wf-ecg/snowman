@@ -118,7 +118,7 @@ Slides.init = function ($) {
         self.ic = self.C.$CurrentIndex();
     }
 
-    self.makeLink = function () {
+    self.makeLink = function (mode) {
         var currentIndexes = []; // generate link based of current slides positions
         var href = W.location.href.replace(/\?.*/, ''); // clear query
 
@@ -127,7 +127,7 @@ Slides.init = function ($) {
         currentIndexes.push('&b=' + self.ib);
         currentIndexes.push('&c=' + self.ic);
 
-        href += currentIndexes.join('');
+        href += currentIndexes.join('') + (mode ? '&m=' + mode : '');
         $('#OG_url').attr('content', href);
 
         return href;
@@ -139,21 +139,30 @@ Slides.init = function ($) {
         if (!clone.length) {
             clone = $(div).clone(); // duplicate snowman
 
-            clone
+            clone.attr('id', 'Clone') //
             .css('width', Slides.$.eq(0).width()) // hack to match width of container
-            .attr('id', 'Clone') //
             .append($('.corners, .splash').clone()) //
             ;
             clone.find('.splash') //
             .css('position', 'absolute') //
             .attr('title', 'Drag to position / Click to fade') //
-            .draggable({ containment: $('#Container') }) // { containment: clone.find('.corners') }
+            .draggable({containment: $('#Container')}) // { containment: clone.find('.corners') }
             .click(function () {
                 $(this).animate({opacity: '-=0.1'});//remove();
             });
         }
         preview$.append(clone);
     }
+
+    self.autoPreview = function () {
+        if (self.checkPreview()) {
+            self.openPreview();
+        }
+    };
+
+    self.checkPreview = function () {
+        return (W.location.hash === '#preview');
+    };
 
     self.openPreview = function () {
         W.scrollTo(1, 1);
@@ -170,17 +179,21 @@ Slides.init = function ($) {
     };
 };
 
+function getMode() {
+    return parseInt(getParameterByName('m') || '-1', 10);
+}
+
 jQuery(function () {
+    var mode = getMode();
+
     Slides.init(jQuery);
 
     $('.logo').click(function () {
         $('html').toggleClass('debug');
     });
 
-    // show sections
-    var mode = parseInt(getParameterByName('m') || '-1', 10);
-
     $('#Copy').children().hide();
+    // show sections
     $('.greeting, .closing').show();
 
     if (mode > 0) {
