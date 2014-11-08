@@ -8,9 +8,8 @@
         @include nosel();
         cursor: not-allowed;
     }
-    .arrow {
-        display: none;
-    }
+    .arrow { display: none; }
+    .ui-draggable * { cursor: move; }
 }
 
 #Preview {
@@ -26,10 +25,8 @@
     z-index: 1000;
 
     .splash {
-        @include centify();
         max-width: 400px;
-        position: absolute;
-        top: 333px;
+        position: absolute; left: 99px; top: 266px;
         width: 100%;
         z-index: 1000;
     }

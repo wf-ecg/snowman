@@ -137,12 +137,17 @@ Slides.init = function ($) {
         var clone = $('#Clone');
 
         if (!clone.length) {
-            clone = div.cloneNode(true); // duplicate snowman
+            clone = $(div).clone(); // duplicate snowman
 
-            $(clone).append($('.corners').clone()) // hack to match width of container
-            .css('width', Slides.$.eq(0).width());
-
-            clone.id = 'Clone';
+            clone
+            .css('width', Slides.$.eq(0).width()) // hack to match width of container
+            .attr('id', 'Clone') //
+            .append($('.corners, .splash').clone()) //
+            ;
+            clone.find('.splash') //
+            .css('position', 'absolute') //
+            .draggable({ containment: clone.find('.corners') }) //
+            ;
         }
         preview$.append(clone);
     }
