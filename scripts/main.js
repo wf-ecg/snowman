@@ -1,6 +1,6 @@
 /*jslint white:false */
 /*globals document, jQuery, window,
-    getParameterByName, loadjscssfile, makeOptions,
+    getParameterByName, makeOptions,
     $JssorEasing$,
     $JssorSlider$,
 */
@@ -35,12 +35,6 @@ Slides.init = function ($) {
     self.ia = parseInt(getParameterByName('a') || '0', 10);
     self.ib = parseInt(getParameterByName('b') || '0', 10);
     self.ic = parseInt(getParameterByName('c') || '0', 10);
-
-    if (self.ia || self.ib || self.ic) {
-        loadjscssfile('css/shared.css', 'css');
-    } else {
-        loadjscssfile('css/create.css', 'css');
-    }
 
     self.A = new $JssorSlider$(self.$[0].id, makeOptions({$StartIndex: self.ia}));
     self.B = new $JssorSlider$(self.$[1].id, makeOptions({$StartIndex: self.ib}));
