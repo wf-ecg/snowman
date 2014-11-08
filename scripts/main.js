@@ -23,7 +23,7 @@ Slides.init = function ($) {
         div = $(self.div)[0],
         preview$ = $(self.preview);
 
-    preview$.on('mouseup', function (evt) {
+    preview$.on('mousedown', function (evt) {
         C.warn(evt);
         if (evt.target === preview$[0]) {
             evt.stopImmediatePropagation();
@@ -146,8 +146,11 @@ Slides.init = function ($) {
             ;
             clone.find('.splash') //
             .css('position', 'absolute') //
-            .draggable({ containment: clone.find('.corners') }) //
-            ;
+            .attr('title', 'Drag to position / Click to fade') //
+            .draggable({ containment: $('#Container') }) // { containment: clone.find('.corners') }
+            .click(function () {
+                $(this).animate({opacity: '-=0.1'});//remove();
+            });
         }
         preview$.append(clone);
     }

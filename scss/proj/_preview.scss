@@ -6,10 +6,13 @@
 
     * {
         @include nosel();
-        cursor: not-allowed;
+        cursor: default;
     }
     .arrow { display: none; }
-    .ui-draggable * { cursor: move; }
+    .ui-draggable * {
+        cursor: help;
+        &:active { cursor: move; }
+    }
 }
 
 #Preview {
@@ -19,6 +22,7 @@
     @include centify();
     @include backGrad($haze, $haze);
     bottom: 0;
+    cursor: not-allowed;
     display: none;
     position: absolute;
     top: 0;
@@ -66,11 +70,7 @@
 
     @include centify();
     border: $size * 1px solid transparent;
-    height: 97%;
-    position: absolute;
-    top: 1.7%;
-    bottom: 0;
-    width: 97%;
+    position: absolute; top: 1.7%; bottom: 0; height: 97%; width: 97%;
     & {
         @include border-image( url('../img/frame/borderFrame.png') $size round);
     }
@@ -80,7 +80,7 @@
         height: 50px;
         position: absolute;
         width: 50px;
-        z-index: 9999;
+        z-index: 999;
     }
     .tl {
         background-image: url('../img/frame/corner_TL.png');
