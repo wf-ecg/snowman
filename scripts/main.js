@@ -120,39 +120,45 @@ Slides.init = function ($) {
 
     self.makeLink = function () {
         var currentIndexes = []; // generate link based of current slides positions
+        var href = W.location.href.replace(/\?.*/, ''); // clear query
 
         readIndexes();
         currentIndexes.push('?a=' + self.ia);
         currentIndexes.push('&b=' + self.ib);
         currentIndexes.push('&c=' + self.ic);
-        return '' + W.location.href + currentIndexes.join('');
+
+        href += currentIndexes.join('');
+        $('#OG_url').attr('content', href);
+
+        return href;
     };
 
     function makeClone() {
-        var clone;
+        var clone = $('#Clone');
 
-        clone = div.cloneNode(true); // duplicate snowman
-        $(clone).append($('.corners').clone()).css('width', Slides.$.eq(0).width());
-        clone.id = 'Clone';
+        if (!clone.length) {
+            clone = div.cloneNode(true); // duplicate snowman
 
-        preview$.append(clone).show();
+            $(clone).append($('.corners').clone()) // hack to match width of container
+            .css('width', Slides.$.eq(0).width());
 
-        _.delay(function () {
-//            W.alert(self.makeLink());
-        }, 333);
+            clone.id = 'Clone';
+        }
+        preview$.append(clone);
     }
 
     self.openPreview = function () {
         W.scrollTo(1, 1);
 
-        if (!$('#Clone').length) {
+        preview$.fadeIn();
+        _.delay(function () {
             makeClone();
-        }
+        }, 333);
     };
 
     self.closePreview = function () {
         $('#Clone').remove();
-        preview$.hide();
+        preview$.fadeOut();
     };
 };
 
