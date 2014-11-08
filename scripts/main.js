@@ -120,15 +120,17 @@ Slides.init = function ($) {
 
     self.makeLink = function (mode) {
         var currentIndexes = []; // generate link based of current slides positions
-        var href = W.location.href.replace(/\?.*/, ''); // clear query
-
+        var href = W.location.href.replace(/\#.*/, ''); // clear query
+        var stub = '';
         readIndexes();
-        currentIndexes.push('?a=' + self.ia);
-        currentIndexes.push('&b=' + self.ib);
-        currentIndexes.push('&c=' + self.ic);
+        currentIndexes.push('#a' + self.ia);
+        currentIndexes.push('+b' + self.ib);
+        currentIndexes.push('+c' + self.ic);
 
-        href += currentIndexes.join('') + (mode ? '&m=' + mode : '');
+        stub = currentIndexes.join('');
+        href += stub;
         $('#OG_url').attr('content', href);
+        W.location.hash = stub + (mode ? '+m' + mode : '');
 
         return href;
     };
@@ -166,6 +168,7 @@ Slides.init = function ($) {
 
     self.openPreview = function () {
         W.scrollTo(1, 1);
+        C.warn(self.makeLink(getMode()));
 
         preview$.fadeIn();
         _.delay(function () {
