@@ -1159,50 +1159,35 @@ WF.Component.SocialShare = function () {
         }
         switch (shareSite) {
             case "facebook":
-                shareUrl = "http://www.facebook.com/sharer.php?u=" + encodeURIComponent(docUrl + "?ss=fb") + "&t=" + encodeURIComponent(header);
-                WF.Utils.trackVS({
-                    "url": WF.Utils.addUrlParam(window.location.href, "ss", "fb"),
-                    "event": "LinkActivated",
-                    "eventType": evt.type,
-                    "eventDescription": shareSite + "Continue"
-                }, function () {
-                    window.location.href = shareUrl;
-                });
+                shareUrl = "http://www.facebook.com/sharer.php?u=" //
+//                    + encodeURIComponent(docUrl + "?ss=fb") + "&t="
+//                    + encodeURIComponent(header);
                 break;
             case "linkedin":
-                shareUrl = "http://www.linkedin.com/shareArticle?mini=true&ro=false&url=" + encodeURIComponent(docUrl + "?ss=ln]") + "&summary=" + encodeURIComponent(document.title) + "&title=" + encodeURIComponent(document.title) + "&source=";
-                WF.Utils.trackVS({
-                    "url": WF.Utils.addUrlParam(window.location.href, "ss", "ln"),
-                    "event": "LinkActivated",
-                    "eventType": evt.type,
-                    "eventDescription": shareSite + "Continue"
-                }, function () {
-                    window.location.href = shareUrl;
-                });
+                shareUrl = "http://www.linkedin.com/shareArticle?mini=true&ro=false&url=" //
+//                    + encodeURIComponent(docUrl + "?ss=ln]") + "&summary=" //
+//                    + encodeURIComponent(document.title) + "&title=" //
+//                    + encodeURIComponent(document.title) + "&source=";
                 break;
             case "googleplus":
-                shareUrl = "https://plus.google.com/share?url=" + encodeURIComponent(docUrl + "?ss=gp");
-                WF.Utils.trackVS({
-                    "url": WF.Utils.addUrlParam(window.location.href, "ss", "gp"),
-                    "event": "LinkActivated",
-                    "eventType": evt.type,
-                    "eventDescription": shareSite + "Continue"
-                }, function () {
-                    window.location.href = shareUrl;
-                });
+                shareUrl = "https://plus.google.com/share?url=" //
+//                    + encodeURIComponent(docUrl + "?ss=gp");
                 break;
             case "twitter":
-                shareUrl = "http://twitter.com/share?url=" + encodeURIComponent(docUrl + "?ss=tw");
-                WF.Utils.trackVS({
-                    "url": WF.Utils.addUrlParam(window.location.href, "ss", "tw"),
-                    "event": "LinkActivated",
-                    "eventType": evt.type,
-                    "eventDescription": shareSite + "Continue"
-                }, function () {
-                    window.location.href = shareUrl;
-                });
+                shareUrl = "http://twitter.com/share?url=" //
+//                    + encodeURIComponent(docUrl + "?ss=tw");
                 break;
+            default:
+//                WF.Utils.trackVS({
+//                    "url": WF.Utils.addUrlParam(window.location.href, "ss", "gp"),
+//                    "event": "LinkActivated",
+//                    "eventType": evt.type,
+//                    "eventDescription": shareSite + "Continue"
+//                }, function () {
+//                    window.location.href = shareUrl;
+//                });
         }
+        window.location.href = shareUrl + encodeURIComponent(Slides.makeLink()); // HAAAACCK!
         this.hide();
     };
 
