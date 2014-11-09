@@ -23,7 +23,7 @@ Slides.init = function ($) {
         div = $(self.div)[0],
         preview$ = $(self.preview);
 
-    preview$.on('mouseup', function (evt) {
+    preview$.on('mousedown', function (evt) {
         C.warn(evt);
         if (evt.target === preview$[0]) {
             evt.stopImmediatePropagation();
@@ -118,55 +118,85 @@ Slides.init = function ($) {
         self.ic = self.C.$CurrentIndex();
     }
 
-    self.makeLink = function () {
+    self.makeLink = function (mode) {
         var currentIndexes = []; // generate link based of current slides positions
-
+        var href = W.location.href.replace(/\#.*/, ''); // clear query
+        var stub = '';
         readIndexes();
-        currentIndexes.push('?a=' + self.ia);
-        currentIndexes.push('&b=' + self.ib);
-        currentIndexes.push('&c=' + self.ic);
-        return '' + W.location.href + currentIndexes.join('');
+        currentIndexes.push('#a' + self.ia);
+        currentIndexes.push('+b' + self.ib);
+        currentIndexes.push('+c' + self.ic);
+
+        stub = currentIndexes.join('');
+        href += stub;
+        $('#OG_url').attr('content', href);
+        W.location.hash = stub + (mode ? '+m' + mode : '');
+
+        return href;
     };
 
     function makeClone() {
-        var clone;
+        var clone = $('#Clone');
 
-        clone = div.cloneNode(true); // duplicate snowman
-        $(clone).append($('.corners').clone()).css('width', Slides.$.eq(0).width());
-        clone.id = 'Clone';
+        if (!clone.length) {
+            clone = $(div).clone(); // duplicate snowman
 
-        preview$.append(clone).show();
-
-        _.delay(function () {
-//            W.alert(self.makeLink());
-        }, 333);
+            clone.attr('id', 'Clone') //
+            .css('width', Slides.$.eq(0).width()) // hack to match width of container
+            .append($('.corners, .splash').clone()) //
+            ;
+            clone.find('.splash') //
+            .css('position', 'absolute') //
+            .attr('title', 'Drag to position / Click to fade') //
+            .draggable({containment: $('#Container')}) // { containment: clone.find('.corners') }
+            .click(function () {
+                $(this).animate({opacity: '-=0.1'});//remove();
+            });
+        }
+        preview$.append(clone);
     }
+
+    self.autoPreview = function () {
+        if (self.checkPreview()) {
+            self.openPreview();
+        }
+    };
+
+    self.checkPreview = function () {
+        return (W.location.hash === '#preview');
+    };
 
     self.openPreview = function () {
         W.scrollTo(1, 1);
+        C.warn(self.makeLink(getMode()));
 
-        if (!$('#Clone').length) {
+        preview$.fadeIn();
+        _.delay(function () {
             makeClone();
-        }
+        }, 333);
     };
 
     self.closePreview = function () {
         $('#Clone').remove();
-        preview$.hide();
+        preview$.fadeOut();
     };
 };
 
+function getMode() {
+    return parseInt(getParameterByName('m') || '-1', 10);
+}
+
 jQuery(function () {
+    var mode = getMode();
+
     Slides.init(jQuery);
 
     $('.logo').click(function () {
         $('html').toggleClass('debug');
     });
 
-    // show sections
-    var mode = parseInt(getParameterByName('m') || '-1', 10);
-
     $('#Copy').children().hide();
+    // show sections
     $('.greeting, .closing').show();
 
     if (mode > 0) {

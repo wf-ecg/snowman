@@ -1,37 +1,20 @@
 /* PROJ / preview */
 
-#Clone {
-    position: absolute;
-    top: 50px;
-
-    * {
-        @include nosel();
-        cursor: not-allowed;
-    }
-    .arrow {
-        display: none;
-    }
-}
-
 #Preview {
     $haze: rgba(255, 255, 255, 0.6);
     $wfred: #bb0826;
 
     @include centify();
     @include backGrad($haze, $haze);
-    bottom: 0;
+    cursor: not-allowed;
     display: none;
-    position: absolute;
-    top: 0;
-    z-index: 1000;
+    position: absolute; bottom: 0; top: 0;
 
     .splash {
-        @include centify();
         max-width: 400px;
-        position: absolute;
-        top: 333px;
+        position: absolute; left: 99px; top: 266px;
         width: 100%;
-        z-index: 1000;
+        z-index: 10;
     }
     .nav {
         @include centify();
@@ -43,6 +26,7 @@
         margin-top: 15px;
         padding: 3px 9px;
         width: 250px;
+        z-index: 100;
         .lt-ie9 & { border-color: $wfred; }
 
         .close, .print, .share {
@@ -63,47 +47,57 @@
     }
 }
 
-#Clone .corners {
-    $gap: 3px;
-    $size: 10;
-
-    @include centify();
-    border: $size * 1px solid transparent;
-    height: 97%;
+#Clone {
     position: absolute;
-    top: 1.7%;
-    bottom: 0;
-    width: 97%;
-    & {
-        @include border-image( url('../img/frame/borderFrame.png') $size round);
-    }
-    .lt-ie9 & { border: $size * 0.5px solid white; }
+    top: 50px;
 
-    .tl, .tr, .bl, .br {
-        height: 50px;
-        position: absolute;
-        width: 50px;
-        z-index: 9999;
+    * {
+        @include nosel();
+        cursor: default;
     }
-    .tl {
-        background-image: url('../img/frame/corner_TL.png');
-        left: $gap;
-        top: $gap;
+    .arrow { display: none; }
+    .ui-draggable * {
+        cursor: help;
+        &:active { cursor: move; }
     }
-    .tr {
-        background-image: url('../img/frame/corner_TR.png');
-        right: $gap;
-        top: $gap;
-    }
-    .bl {
-        background-image: url('../img/frame/corner_BL.png');
-        bottom: $gap;
-        left: $gap;
-    }
-    .br {
-        background-image: url('../img/frame/corner_BR.png');
-        bottom: $gap;
-        right: $gap;
+    .corners {
+        $gap: 3px;
+        $size: 10;
+
+        @include centify();
+        border: $size * 1px solid transparent;
+        position: absolute; top: 1.7%; bottom: 0; height: 97%; width: 97%;
+        & {
+            @include border-image( url('../img/frame/borderFrame.png') $size round);
+        }
+        .lt-ie9 & { border: $size * 0.5px solid white; }
+
+        .tl, .tr, .bl, .br {
+            height: 50px;
+            position: absolute;
+            width: 50px;
+            z-index: 9;
+        }
+        .tl {
+            background-image: url('../img/frame/corner_TL.png');
+            left: $gap;
+            top: $gap;
+        }
+        .tr {
+            background-image: url('../img/frame/corner_TR.png');
+            right: $gap;
+            top: $gap;
+        }
+        .bl {
+            background-image: url('../img/frame/corner_BL.png');
+            bottom: $gap;
+            left: $gap;
+        }
+        .br {
+            background-image: url('../img/frame/corner_BR.png');
+            bottom: $gap;
+            right: $gap;
+        }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

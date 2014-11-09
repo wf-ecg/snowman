@@ -17,7 +17,7 @@
     }
 
     div[u="slides"] {
-        cursor: move;
+        cursor: col-resize; cursor: ew-resize;
         height: $slideH;
         overflow: hidden;
         position: absolute;

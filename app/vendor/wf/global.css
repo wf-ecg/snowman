@@ -1,157 +1,121 @@
+
+a.printLink {
+    background: url("images/icon-print.png") 0 2px no-repeat;
+    color: #434343;
+    position: relative;
+    padding: 0 0 0 20px;
+    text-decoration: none;
+    top: 4px;
+    z-index: 40;
+}
+.hide, .hidden {
+    position: absolute;
+    overflow: hidden;
+    height: 0;
+    line-height: 0;
+    width: 0;
+}
+.nobr {
+    white-space: nowrap;
+}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .sideUtility {
+    clear: none;
     display: inline;
     float: left;
     font-size: 70%;
     overflow: hidden;
+    width: auto;
 }
 .sideUtility * {
     font-family: sans-serif !important;
 }
-.sideUtility.bottom {
-    margin-bottom: 40px
-}
 .sideUtility ul {
     clear: both;
+    float: right;
+    list-style-type: none;
     margin: 0;
     padding: 0;
-    list-style-type: none
-}
-.sideUtility.top ul {
-    float: right
-}
-.sideUtility.bottom ul {
-    float: left
 }
 .sideUtility li {
-    position: relative;
-    z-index: 55;
     float: left;
+    list-style-type: none;
     margin: 0;
-    padding: 0;
-    list-style-type: none
-}
-.sideUtility.bottom li {
     position: relative;
+    padding: 0;
     z-index: 55;
-    padding-left: 0;
-    list-style-type: none
 }
 .sideUtility li span {
+    border-right: 1px solid #ccc;
     display: block;
     float: left;
-    width: 1px;
     height: 10px;
     margin: 8px 20px 0;
     overflow: hidden;
-    border-right: 1px solid #ccc
+    width: 1px;
 }
-.sideUtility.top {
-    width: auto;
-    clear: none
-}
-.mainContentCol .sideUtility li {
-    list-style-type: none
-}
-a.printLink {
-    position: relative;
-    top: 4px;
-    z-index: 40;
-    padding: 0 0 0 20px;
-    color: #434343;
-    text-decoration: none;
-    background: url("icon-print.png") 0 2px no-repeat
-}
+/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 .c52 {
-    float: none;
-    position: absolute;
-    z-index: 45;
-    width: 250px;
-    padding-top: 14px;
+    background-color: #fff;
     border: 1px solid #ccc;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-    background-color: #fff
+    float: none;
+    padding-top: 14px;
+    position: absolute;
+    width: 220px;
+    z-index: 45;
 }
 .c52.hide {
     display: none;
-    visibility: hidden
+    visibility: hidden;
 }
 .c52 h2 {
-    margin: 0 19px 19px 19px;
     font-size: 111%;
     font-style: normal;
+    margin: 0 19px 19px 19px;
 }
 .c52 p {
-    font-size: 80%;
+    border-top: 1px solid #ccc;
     margin: 0 19px 19px 19px;
     padding-top: 19px;
-    border-top: 1px solid #ccc
 }
 .c52 ul {
     float: none!important;
+    list-style-type: none;
     margin: 0 19px 5px 19px;
     padding: 0;
-    list-style-type: none
 }
 .c52 li {
     float: none!important;
     margin: 0 0 14px 0;
-    padding: 0!important
+    padding: 0!important;
 }
-.c52 a:link,c52 a:hover,c52 a:active {
+.c52 a:link, .c52 a:hover, .c52 a:active {
     color: black;
-    text-decoration: none
+    text-decoration: none;
 }
 a.c52Link {
+    background: url("images/social_share_plus.png") 6px 8px no-repeat;
+    color: #434343;
     display: block;
     float: left;
     padding: 4px 8px 4px 24px;
-    color: #434343;
     text-decoration: none;
-    background: url("social_share_plus.png") 6px 8px no-repeat
 }
-
-
-
-
 a.c52Link.active {
-    padding: 3px 7px 4px 23px;
+    background: #fff url("images/social_share_minus.png") 5px 7px no-repeat;
     border-left: 1px solid #ccc;
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #fff;
     border-right: 1px solid #ccc;
-    background: #fff url("social_share_minus.png") 5px 7px no-repeat
+    padding: 3px 7px 4px 23px;
 }
-a.c52fb {
+div.c52 ul li a {
     padding-bottom: 3px;
     padding-left: 28px;
-    background: url("logo-facebook.png") 0 0 no-repeat
 }
-a.c52twitter {
-    padding-bottom: 3px;
-    padding-left: 26px;
-    background: url("twitter-bird-white-on-blue.gif") 0 0 no-repeat
-}
-a.c52linkedin {
-    padding-bottom: 3px;
-    padding-left: 28px;
-    background: url("LinkedIn.gif") 0 0 no-repeat
-}
-a.c52googleplus {
-    padding-bottom: 3px;
-    padding-left: 28px;
-    background: url("google+.gif") 0 0 no-repeat
-}
-a.c52email {
-    padding-left: 28px;
-    background: url("icon-mail-gray.png") 0 3px no-repeat
-}
-.hide,.hidden {
-    position: absolute;
-    width: 0;
-    overflow: hidden;
-    height: 0;
-    line-height: 0
-}
-.nobr {
-    white-space: nowrap
-}
+a.c52fb { background: url("images/logo-facebook.png") 0 0 no-repeat; }
+a.c52email { background: url("images/icon-mail-gray.png") 0 3px no-repeat; }
+a.c52twitter { background: url("images/twitter-bird-white-on-blue.gif") 0 0 no-repeat; }
+a.c52linkedin { background: url("images/LinkedIn.gif") 0 0 no-repeat; }
+a.c52googleplus { background: url("images/gplus.gif") 0 0 no-repeat; }
