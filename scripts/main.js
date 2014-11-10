@@ -79,13 +79,13 @@ Slides.init = function ($) {
     /* responsive code end */
 
     function disableBtnForSecs(sel, sec) {
-        var btn, url;
+        var btn, url, slug = 'javascript';
 
         btn = $(sel);
         url = btn.attr('href');
 
         btn.fadeTo(sec * 99, 0.5);
-        btn.attr('href', 'javascript:void(0)');
+        btn.attr('href', slug + ':');
 
         _.delay(function () {
             btn.attr('href', url);

@@ -6,21 +6,28 @@ html, body {
 body {
     background: url(../img/background.jpg) top repeat-x $icy_deep;
     font-family: Arial, Verdana;
+    line-height: 1.4;
 }
 
 #Container {
+    font-size: .8em;
+    padding: 1em;
+    position: relative;
+
     h1, h2, h3, p, ul, li {
         font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
     }
-    h1 {
+    h1, h2 {
         color: $wfred;
+        line-height: 1.2;
+    }
+    h1 {
         font-size: 18px;
         font-weight: normal;
     }
     h2 {
         font-size: 14px;
         font-style: italic;
-        color: $wfred;
     }
     a:link, a:visited, a:hover, a:active {
         color: white;
