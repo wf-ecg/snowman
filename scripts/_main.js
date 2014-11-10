@@ -179,11 +179,20 @@ function getMode() {
     return parseInt(getParameterByName('m') || '-1', 10);
 }
 
+function reSource(eles) {
+    C.warn(eles);
+    $(eles).each(function (i, e) {
+        var me = $(e);
+        me.attr('src', me.data('src'));
+    });
+}
+
 jQuery(function () {
     var mode = getMode();
 
-    FastClick.attach(document.body);
-    Slides.init(jQuery);
+    FastClick.attach(W.document.body);
+    reSource($('[data-src]'));
+    Slides.init(W.jQuery);
 
     $('.logo').click(function () {
         //$('html').toggleClass('debug');
