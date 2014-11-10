@@ -148,7 +148,7 @@ Slides.init = function ($) {
             clone.find('.splash') //
             .css('position', 'absolute') //
             .attr('title', 'Drag to position / Click to fade') //
-            .draggable({containment: $('#Container')}) // { containment: clone.find('.corners') }
+            .draggable() // { containment: clone.find('.corners') }
             .click(function () {
                 $(this).animate({opacity: '-=0.1'});//remove();
             });
