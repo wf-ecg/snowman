@@ -1,9 +1,6 @@
 /* PROJ / preview */
 
 #Preview {
-    $haze: rgba(255, 255, 255, 0.6);
-    $wfred: #bb0826;
-
     @include middify();
     @include backGrad($haze, $haze);
     cursor: not-allowed;
