@@ -192,7 +192,7 @@ jQuery(function () {
     Slides.init(jQuery);
 
     $('.logo').click(function () {
-        $('html').toggleClass('debug');
+        //$('html').toggleClass('debug');
     });
 
     $('#Copy').children().hide();
