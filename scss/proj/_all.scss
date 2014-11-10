@@ -19,18 +19,13 @@
     left: 0; right: 0;
     margin-left: auto;
     margin-right: auto;
-}
-.centify {
-    @include centify();
-}
+}.centify { @include centify(); }
+
 @mixin middify(){
     left: 0; right: 0;
     top: 0; bottom: 0;
     margin: auto;
-}
-.middify {
-    @include middify();
-}
+}.middify { @include middify(); }
 
 $slideW: 600px;
 $slideH: 214px;
@@ -51,7 +46,7 @@ $leftside: 40%;     $rightside: 50%;
 @import "_buttons";
 @import "_cta";
 @import "_custom";
-@import "_media";
 @import "_preview";
 @import "_snowmen";
+@import "_media";
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
