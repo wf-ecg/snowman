@@ -8,7 +8,7 @@ module.exports = {
     },
     cat: {
         files: ['libs/*.js', 'scripts/*.js'],
-        tasks: ['jshint:precat', 'concat:base'],
+        tasks: ['jshint:precat', 'concat:main'],
     },
     css: {
         files: ['scss/**/*.scss'],
@@ -19,7 +19,7 @@ module.exports = {
             livereload: '<%= pkg.port0 %>',
         },
         files: ['app/**/*', '!app/**/*.map'],
-        tasks: ['jshint:postcat', 'sync:base'],
+        tasks: ['jshint:postcat', 'sync:update'],
     },
     warn: {
         options: { reload: !false, },
