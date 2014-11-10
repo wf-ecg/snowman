@@ -5,7 +5,7 @@
 //
 // RequestAnimationFrame
 //
-Util.rafo = function (fnObj) {
+W.Util && (Util.rafo = function (fnObj) {
     fnObj = fnObj || {};
 
     var rAF = 'equestAnimationFrame',
@@ -51,8 +51,7 @@ Util.rafo = function (fnObj) {
         rAF(again);
     };
     rAF(again); // kickoff
-};
-Util.rafo();
+}) && Util.rafo();
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 /*
 

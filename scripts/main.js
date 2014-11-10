@@ -1,8 +1,7 @@
 /*jslint white:false */
 /*globals document, jQuery, window,
     getParameterByName, makeOptions,
-    $JssorEasing$,
-    $JssorSlider$,
+    $JssorEasing$, $JssorSlider$,
 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W = W || window,
@@ -20,8 +19,9 @@ Slides = {
 
 Slides.init = function ($) {
     var self = this,
-        div = $(self.div)[0],
         preview$ = $(self.preview);
+
+    self.div = $(self.div).eq(0);
 
     preview$.on('mousedown', function (evt) {
         C.warn(evt);
@@ -79,13 +79,13 @@ Slides.init = function ($) {
     /* responsive code end */
 
     function disableBtnForSecs(sel, sec) {
-        var btn, url;
+        var btn, url, slug = 'javascript';
 
         btn = $(sel);
         url = btn.attr('href');
 
         btn.fadeTo(sec * 99, 0.5);
-        btn.attr('href', '#');
+        btn.attr('href', slug + ':');
 
         _.delay(function () {
             btn.attr('href', url);
@@ -110,6 +110,7 @@ Slides.init = function ($) {
             W.setTimeout($.fn.click.bind(self.$.eq(2).find('.right')), i * 99);
         }
         disableBtnForSecs('.button.preview', 1);
+        disableBtnForSecs('.button.scramble', 1);
     };
 
     function readIndexes() {
@@ -139,32 +140,24 @@ Slides.init = function ($) {
         var clone = $('#Clone');
 
         if (!clone.length) {
-            clone = $(div).clone(); // duplicate snowman
+            clone = self.div.clone(); // duplicate snowman
 
             clone.attr('id', 'Clone') //
-            .css('width', Slides.$.eq(0).width()) // hack to match width of container
-            .append($('.corners, .splash').clone()) //
+            .css({ // hack to match container
+                height: Slides.$.height() * 3 - 3,
+                width: Slides.$.width(),
+            }).append($('.corners, .splash').clone()) //
             ;
             clone.find('.splash') //
             .css('position', 'absolute') //
             .attr('title', 'Drag to position / Click to fade') //
-            .draggable({containment: $('#Container')}) // { containment: clone.find('.corners') }
+            .draggable() // { containment: clone.find('.corners') }
             .click(function () {
                 $(this).animate({opacity: '-=0.1'});//remove();
             });
         }
         preview$.append(clone);
     }
-
-    self.autoPreview = function () {
-        if (self.checkPreview()) {
-            self.openPreview();
-        }
-    };
-
-    self.checkPreview = function () {
-        return (W.location.hash === '#preview');
-    };
 
     self.openPreview = function () {
         W.scrollTo(1, 1);
@@ -189,10 +182,11 @@ function getMode() {
 jQuery(function () {
     var mode = getMode();
 
+    FastClick.attach(document.body);
     Slides.init(jQuery);
 
     $('.logo').click(function () {
-        $('html').toggleClass('debug');
+        //$('html').toggleClass('debug');
     });
 
     $('#Copy').children().hide();

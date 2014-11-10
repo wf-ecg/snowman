@@ -4,29 +4,33 @@ html, body {
     height: 100%;
 }
 body {
-    background-color: #9eb6ce;
-    background-image: url(../img/background.jpg);
-    background-position: top;
-    background-repeat: repeat-x;
+    background: url(../img/background.jpg) top repeat-x $icy_deep;
     font-family: Arial, Verdana;
+    line-height: 1.4;
 }
 
 #Container {
+    font-size: .8em;
+    padding: 1em;
+    position: relative;
+
     h1, h2, h3, p, ul, li {
         font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
+    }
+    h1, h2 {
+        color: $wfred;
+        line-height: 1.2;
     }
     h1 {
         font-size: 18px;
         font-weight: normal;
-        color: #bb0826;
     }
     h2 {
         font-size: 14px;
         font-style: italic;
-        color: #bb0826;
     }
     a:link, a:visited, a:hover, a:active {
-        color: #ffffff;
+        color: white;
         text-decoration: none;
     }
     p {
@@ -34,9 +38,9 @@ body {
         margin-bottom: 1em;
     }
     ul {
+        font-weight: bold;
         list-style: none;
         padding-left: 0;
-        font-weight: bold;
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

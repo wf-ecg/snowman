@@ -27,6 +27,7 @@
 }
 .arrow {
     background-repeat: no-repeat;
+    background-size: 100%;
     cursor: pointer;
     display: block;
     height: 45px;
@@ -46,17 +47,29 @@
         &.left { left: -6px   !important; }
         &.right { right: -6px !important; }
     }
-    .top & {
+    .lt-ie9 .top & {
         &.left { background-image: url('../img/buttons/tabs_AR.png'); }
         &.right{ background-image: url('../img/buttons/tabs_AL.png'); }
     }
-    .middle & {
+    .lt-ie9 .middle & {
         &.left { background-image: url('../img/buttons/tabs_BR.png'); }
         &.right{ background-image: url('../img/buttons/tabs_BL.png'); }
     }
-    .bottom & {
+    .lt-ie9 .bottom & {
         &.left { background-image: url('../img/buttons/tabs_CR.png'); }
         &.right{ background-image: url('../img/buttons/tabs_CL.png'); }
+    }
+    .top & {
+        &.left { background-image: url('../img/buttons/tabs_AR-hr.png'); }
+        &.right{ background-image: url('../img/buttons/tabs_AL-hr.png'); }
+    }
+    .middle & {
+        &.left { background-image: url('../img/buttons/tabs_BR-hr.png'); }
+        &.right{ background-image: url('../img/buttons/tabs_BL-hr.png'); }
+    }
+    .bottom & {
+        &.left { background-image: url('../img/buttons/tabs_CR-hr.png'); }
+        &.right{ background-image: url('../img/buttons/tabs_CL-hr.png'); }
     }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

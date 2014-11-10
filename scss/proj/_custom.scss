@@ -3,8 +3,8 @@
 @mixin coldHaze($fuzz: 5px) {
     background-color: rgba(255, 255, 255, 0.3);
     border: 1px solid $edge0;
-    box-shadow: 0 0 ($fuzz * 2) ($fuzz / 2) setTrans($icee0, 0.5);
-    .lt-ie9 & { border: $fuzz solid $icee1; }
+    box-shadow: 0 0 ($fuzz * 2) ($fuzz / 2) setTrans($icy_0, 0.5);
+    .lt-ie9 & { border: $fuzz solid $icy_1; }
 }
 
 #Container {
@@ -13,10 +13,6 @@
     @include centify();
     @include clearfix;
 
-    font-size: .8em;
-    line-height: 1.5em;
-    padding: 1em;
-    position: relative;
     width: 90%; min-width: 800px; max-width: 1234px;
 }
 #Copy > div {
@@ -26,6 +22,7 @@
 #Copy, #Logo {
     float: left;
     margin-left: 1em;
+    margin-top: 1em;
     min-width: 200px;
     width: $leftside;
 }
@@ -34,6 +31,10 @@
         height: 50px;
         width: 180px;
         text-align: left;
+
+        img {
+            height: 100%;
+        }
     }
     .splash {
         margin: -10px;
