@@ -85,7 +85,7 @@ Slides.init = function ($) {
         url = btn.attr('href');
 
         btn.fadeTo(sec * 99, 0.5);
-        btn.attr('href', '#');
+        btn.attr('href', 'javascript:void(0)');
 
         _.delay(function () {
             btn.attr('href', url);
@@ -110,6 +110,7 @@ Slides.init = function ($) {
             W.setTimeout($.fn.click.bind(self.$.eq(2).find('.right')), i * 99);
         }
         disableBtnForSecs('.button.preview', 1);
+        disableBtnForSecs('.button.scramble', 1);
     };
 
     function readIndexes() {
