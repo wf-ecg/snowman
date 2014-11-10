@@ -4,11 +4,12 @@
     $haze: rgba(255, 255, 255, 0.6);
     $wfred: #bb0826;
 
-    @include centify();
+    @include middify();
     @include backGrad($haze, $haze);
     cursor: not-allowed;
     display: none;
-    position: absolute; bottom: 0; top: 0;
+    position: absolute;
+    width: 100%; height: 100%;
 
     .splash {
         max-width: 400px;

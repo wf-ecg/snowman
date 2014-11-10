@@ -12,11 +12,12 @@ body {
     #Clone {
         top: 0 !important;
     }
-    #Container, #Preview .nav {
+    #Container, .nav {
         display: none;
     }
     #Preview {
         height: 100%;
+        overflow: hidden;
     }
     .noprint {
         display: none;
