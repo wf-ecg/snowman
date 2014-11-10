@@ -1,8 +1,7 @@
 /*jslint white:false */
 /*globals document, jQuery, window,
     getParameterByName, makeOptions,
-    $JssorEasing$,
-    $JssorSlider$,
+    $JssorEasing$, $JssorSlider$,
 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W = W || window,
@@ -20,8 +19,9 @@ Slides = {
 
 Slides.init = function ($) {
     var self = this,
-        div = $(self.div)[0],
         preview$ = $(self.preview);
+
+    self.div = $(self.div).eq(0);
 
     preview$.on('mousedown', function (evt) {
         C.warn(evt);
@@ -140,11 +140,13 @@ Slides.init = function ($) {
         var clone = $('#Clone');
 
         if (!clone.length) {
-            clone = $(div).clone(); // duplicate snowman
+            clone = self.div.clone(); // duplicate snowman
 
             clone.attr('id', 'Clone') //
-            .css('width', Slides.$.eq(0).width()) // hack to match width of container
-            .append($('.corners, .splash').clone()) //
+            .css({ // hack to match container
+                height: Slides.$.height() * 3 - 3,
+                width: Slides.$.width(),
+            }).append($('.corners, .splash').clone()) //
             ;
             clone.find('.splash') //
             .css('position', 'absolute') //
@@ -156,16 +158,6 @@ Slides.init = function ($) {
         }
         preview$.append(clone);
     }
-
-    self.autoPreview = function () {
-        if (self.checkPreview()) {
-            self.openPreview();
-        }
-    };
-
-    self.checkPreview = function () {
-        return (W.location.hash === '#preview');
-    };
 
     self.openPreview = function () {
         W.scrollTo(1, 1);
