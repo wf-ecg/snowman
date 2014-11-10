@@ -20,7 +20,7 @@
         "load-grunt-tasks": "~0.2.0"
     },
     "bases": ["app", ".", "../.."],
-    "group": "mfal/irt/1208017/r7",
+    "group": "mfal/irt/1208017/r8",
     "port0": 7017,
     "port1": 8017,
     "zzzzz": 0
