@@ -182,6 +182,7 @@ function getMode() {
 jQuery(function () {
     var mode = getMode();
 
+    FastClick.attach(document.body);
     Slides.init(jQuery);
 
     $('.logo').click(function () {
