@@ -77,28 +77,34 @@
         .lt-ie9 & { border: $size * 0.5px solid white; }
 
         .tl, .tr, .bl, .br {
+            background-repeat: no-repeat;
+            background-size: 100%;
             height: 50px;
             position: absolute;
             width: 50px;
             z-index: 9;
         }
         .tl {
-            background-image: url('../img/frame/corner_TL.png');
+            background-image: url('../img/frame/corner_TL-hr.png');
+            .lt-ie9 & { background-image: url('../img/frame/corner_TL.png'); }
             left: $gap;
             top: $gap;
         }
         .tr {
-            background-image: url('../img/frame/corner_TR.png');
+            background-image: url('../img/frame/corner_TR-hr.png');
+            .lt-ie9 & { background-image: url('../img/frame/corner_TR.png'); }
             right: $gap;
             top: $gap;
         }
         .bl {
-            background-image: url('../img/frame/corner_BL.png');
+            background-image: url('../img/frame/corner_BL-hr.png');
+            .lt-ie9 & { background-image: url('../img/frame/corner_BL.png'); }
             bottom: $gap;
             left: $gap;
         }
         .br {
-            background-image: url('../img/frame/corner_BR.png');
+            background-image: url('../img/frame/corner_BR-hr.png');
+            .lt-ie9 & { background-image: url('../img/frame/corner_BR.png'); }
             bottom: $gap;
             right: $gap;
         }
