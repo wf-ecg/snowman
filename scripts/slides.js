@@ -14,6 +14,10 @@ Slides = {
     C: null,
     div: '.snowmen',
     preview: '#Preview',
+    closePreview: Function,
+    openPreview: Function,
+    scramble: Function,
+    makeLink: Function,
 };
 
 Slides.init = function ($) {
@@ -37,11 +41,19 @@ Slides.init = function ($) {
     self.ib = parseInt(Help.getParameterByName('b') || '0', 10);
     self.ic = parseInt(Help.getParameterByName('c') || '0', 10);
 
-    $.extend(Help.defaults, {$DragOrientation: mode});
+    $.extend(Help.defaults, {
+        $DragOrientation: mode,
+    });
 
-    self.A = new $JssorSlider$(self.$[0].id, Help.makeOptions({$StartIndex: self.ia}));
-    self.B = new $JssorSlider$(self.$[1].id, Help.makeOptions({$StartIndex: self.ib}));
-    self.C = new $JssorSlider$(self.$[2].id, Help.makeOptions({$StartIndex: self.ic}));
+    self.A = new $JssorSlider$(self.$[0].id, Help.makeOptions({
+        $StartIndex: self.ia,
+    }));
+    self.B = new $JssorSlider$(self.$[1].id, Help.makeOptions({
+        $StartIndex: self.ib,
+    }));
+    self.C = new $JssorSlider$(self.$[2].id, Help.makeOptions({
+        $StartIndex: self.ic,
+    }));
 
     // Reference http://www.jssor.com/development/tip-make-responsive-slider.html
     //  you can remove responsive code if you don't want the slider scales while window resizes
@@ -127,6 +139,7 @@ Slides.init = function ($) {
         var currentIndexes = []; // generate link based of current slides positions
         var href = W.location.href.replace(/\#.*/, ''); // clear query
         var stub = '';
+
         readIndexes();
         currentIndexes.push('#a' + self.ia);
         currentIndexes.push('+b' + self.ib);
@@ -157,7 +170,9 @@ Slides.init = function ($) {
             .attr('title', 'Drag to position / Click to fade') //
             .draggable() // { containment: clone.find('.corners') }
             .click(function () {
-                $(this).animate({opacity: '-=0.1'});//remove();
+                $(this).animate({
+                    opacity: '-=0.1'
+                });//remove();
             });
         }
         preview$.append(clone);

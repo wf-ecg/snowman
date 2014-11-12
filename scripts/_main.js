@@ -20,7 +20,7 @@ jQuery(function () {
 
     $('.logo').click(function () {
         //$('html').toggleClass('debug');
-    });
+        });
 
     $('#Copy').children().hide();
     // show sections
