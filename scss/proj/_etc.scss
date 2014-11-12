@@ -2,8 +2,8 @@
 
 .charity, .create, .shared {
     display: none;
-        margin-bottom: 1em;
-        margin-top: 1.5em;
+    margin-bottom: 1em;
+    margin-top: 1.5em;
 }
 .disclosure {
     color: gray;
@@ -16,30 +16,45 @@
     padding: 1em;
     position: absolute;
 }
-.logo.desktop {
-    background-color: $edge_lite;
-    height: 50px;
-    margin: 0;
-    width: 180px;
-    text-align: left;
-
+.logo {
     img {
-/*        height: 100%;*/
+        display: none;
+        max-height: 100%;
     }
-}
-.logo.mobile {
-    background-image: url(../img/logos/wf_mobile_bg.png);
-    background-size: 1px 100%;
-    box-shadow: $light_shad;
-    display: none;
-    height: $headH;
-    position: fixed;
-    text-align: center;
-    width: 100%;
-    z-index: 999;
+    .wells & img.wells {
+        display: inline-block;
+    }
+    .wystar & img.wystar {
+        display: inline-block;
+        margin-top: 3px;
+    }
+    &.desktop {
+        //background-color: $edge_hi;
+        height: 50px;
+        margin: 0;
+        width: 180px;
+        text-align: left;
 
-    img {
-        height: 100%;
+        img {
+            max-height: 100%;
+        }
+    }
+    &.mobile {
+        background-size: 1px 100%;
+        box-shadow: $light_shad;
+        display: none;
+        height: $headH;
+        position: fixed;
+        text-align: center;
+        width: 100%;
+        z-index: 999;
+
+        .wells & {
+            background-image: url(../img/logos/wf_mobile_bg.png);
+        }
+        .wystar & {
+            @include backGrad( white, $edge_hi);
+        }
     }
 }
 .splash {

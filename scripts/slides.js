@@ -61,6 +61,7 @@ Slides.init = function ($) {
     //  responsive code begin
 
     function scaleSlider() {
+        C.log('scale');
         var paddingWidth, minReserveWidth, parentElement, parentWidth, availableWidth, sliderWidth;
 
         paddingWidth = 0; //                                                    reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
