@@ -1,11 +1,12 @@
 /* PROJ / custom */
 
 #Container {
-    margin: 1em;
     @include coldHaze(5px);
-    @include centify();
     @include clearfix;
 
+    font-size: .8em;
+    margin: 1em; @include centify(); position: relative;
+    padding: 1em;
     width: 90%; min-width: 800px; max-width: 1234px;
 }
 #Copy {
@@ -16,8 +17,6 @@
     width: $leftside;
 
     & > div {
-        margin-bottom: 1em;
-        margin-top: 1.5em;
     }
 }
 #Toy {

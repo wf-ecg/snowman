@@ -40,10 +40,10 @@ $haze3: rgba(255, 255, 255, 0.3);
 $haze6: rgba(255, 255, 255, 0.6);
 
 $icy_deep: #9eb6ce; $icy_shok: #0095c8;
-$edge0: #e0e3e2;
-$lime0: #46a033;    $lime1: #007337;
-$purp0: #ae2573;    $purp1: #821861;
-$redd0: #c40000;    $redd1: #990000;
+$edge_hi: #e0e3e2;
+$lime_hi: #46a033;  $lime_lo: #007337;
+$purp_hi: #ae2573;  $purp_lo: #821861;
+$red_hi: #c40000;   $red_lo: #990000;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 @import "_base";

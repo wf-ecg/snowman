@@ -17,7 +17,7 @@
     .nav {
         @include centify();
         background-color: white;
-        border: 1px solid $edge0;
+        border: 1px solid $edge_hi;
         border-radius: 5px;
         box-shadow: 0 1px 3px gray;
         height: 30px;
