@@ -4,9 +4,9 @@ module.exports = function (grunt) {
         'jshint:precat',
         'concat',
         'jshint:postcat',
-        'uglify:full',
+        'uglify',
         'sass:full',
-        'sync:full',
+        'sync:clean',
         'connect:full',
         'watch',
     ]);

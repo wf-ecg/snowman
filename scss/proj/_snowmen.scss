@@ -22,6 +22,9 @@
         overflow: hidden;
         position: absolute;
         width: $slideW;
+        .mode0 & {
+            cursor: none;
+        }
     }
     #Preview & {
         box-shadow: 1px 2px 5px gray;
