@@ -20,9 +20,9 @@ jQuery(function () {
 
     $('.logo').click(function () {
         //$('html').toggleClass('debug');
-        });
+    });
 
-    $('#Copy').children().hide();
+    $('#Copy').find('.create, .shared, .charity').hide();
     // show sections
     $('.greeting, .closing').show();
 

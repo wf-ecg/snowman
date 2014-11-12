@@ -35,9 +35,10 @@ body {
         min-width: 400px;
         overflow: hidden;
         padding: 0 0 3em 0;
+        top: $headH;
         width: 100%;
     }
-    #Toy, #Copy, #Logo {
+    #Toy, #Copy {
         float: none;
         text-align: center;
         width: 93%;
@@ -48,10 +49,12 @@ body {
     .shared {
         text-align: center;
     }
-    .share, .print, .scramble, .preview {
+    .scramble, .preview {
         display: inline-block;
         float: none;
     }
+    .logo.desktop { display: none; }
+    .logo.mobile { display: block; }
 }
 
 @media (min-width: 640px) {

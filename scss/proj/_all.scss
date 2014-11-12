@@ -10,6 +10,12 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#00000000);
     -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='+$clr1+', endColorstr='+$clr2+')';
 }
+@mixin coldHaze($fuzz: 2px) {
+    @include backGrad($haze, $haze);
+    border: 1px solid $icy_0;
+    box-shadow: 0 0 ($fuzz * 5) ($fuzz / 2) setTrans($icy_0, 0.5);
+    .lt-ie9 & { border: $fuzz solid $icy_deep; }
+}
 @mixin overflow($x: visible, $y: visible) {
     overflow: $x;
     overflow-x: $x;
@@ -27,11 +33,12 @@
     margin: auto;
 }.middify { @include middify(); }
 
-$slideW: 600px;
-$slideH: 214px;
+$slideW: 600px;     $slideH: 214px;
+$leftside: 40%;     $rightside: 50%;
+$headH: 40px;
+
 $light_shad: 0px 1px 2px rgba(0, 0, 0, 0.3);
 $haze: rgba(255, 255, 255, 0.3);
-$wfred: #bb0826;
 
 $edge0: #e0e3e2;
 $icy_0: #0095c8;    $icy_1: #a6bcd3;    $icy_deep: #9eb6ce;
@@ -39,13 +46,12 @@ $lime0: #46a033;    $lime1: #007337;
 $purp0: #ae2573;    $purp1: #821861;
 $redd0: #c40000;    $redd1: #990000;
 
-$leftside: 40%;     $rightside: 50%;
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 @import "_base";
 @import "_buttons";
-@import "_cta";
 @import "_custom";
+@import "_etc";
 @import "_preview";
 @import "_snowmen";
 @import "_media";

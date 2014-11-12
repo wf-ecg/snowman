@@ -1,12 +1,5 @@
 /* PROJ / custom */
 
-@mixin coldHaze($fuzz: 2px) {
-    @include backGrad($haze, $haze);
-    border: 1px solid $icy_0;
-    box-shadow: 0 0 ($fuzz * 5) ($fuzz / 2) setTrans($icy_0, 0.5);
-    .lt-ie9 & { border: $fuzz solid $icy_deep; }
-}
-
 #Container {
     margin: 1em;
     @include coldHaze(5px);
@@ -15,30 +8,16 @@
 
     width: 90%; min-width: 800px; max-width: 1234px;
 }
-#Copy > div {
-    margin-bottom: 1em;
-    margin-top: 1.5em;
-}
-#Copy, #Logo {
+#Copy {
     float: left;
     margin-left: 1em;
     margin-top: 1em;
     min-width: 200px;
     width: $leftside;
-}
-#Logo {
-    .part {
-        height: 50px;
-        width: 180px;
-        text-align: left;
 
-        img {
-            height: 100%;
-        }
-    }
-    .splash {
-        margin: -10px;
-        margin-top: -20px;
+    & > div {
+        margin-bottom: 1em;
+        margin-top: 1.5em;
     }
 }
 #Toy {
@@ -49,20 +28,5 @@
     margin: 1em;
     overflow: hidden;
     width: $rightside;
-}
-
-.splash img {
-    width: 100%;
-}
-.disclosure {
-    color: gray;
-    font-family: sans-serif;
-    font-size: 10px;
-}
-.footer {
-    bottom: 0px;
-    font-size: 0.6em;
-    padding: 1em;
-    position: absolute;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
