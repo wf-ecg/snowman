@@ -1,12 +1,7 @@
 /* PROJ / etc */
 
-.splash {
-    margin: -5px;
-    margin-top: -15px;
-
-    img {
-        width: 100%;
-    }
+.charity, .create, .shared {
+    display: none;
 }
 .disclosure {
     color: gray;
@@ -45,7 +40,12 @@
         height: 100%;
     }
 }
-.charity, .create, .shared {
-    display: none;
+.splash {
+    margin: -5px;
+    margin-top: -15px;
+
+    img {
+        width: 100%;
+    }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
