@@ -1,15 +1,15 @@
 /* PROJ / custom */
 
-@mixin coldHaze($fuzz: 5px) {
-    background-color: rgba(255, 255, 255, 0.3);
-    border: 1px solid $edge0;
-    box-shadow: 0 0 ($fuzz * 2) ($fuzz / 2) setTrans($icy_0, 0.5);
-    .lt-ie9 & { border: $fuzz solid $icy_1; }
+@mixin coldHaze($fuzz: 2px) {
+    @include backGrad($haze, $haze);
+    border: 1px solid $icy_0;
+    box-shadow: 0 0 ($fuzz * 5) ($fuzz / 2) setTrans($icy_0, 0.5);
+    .lt-ie9 & { border: $fuzz solid $icy_deep; }
 }
 
 #Container {
     margin: 1em;
-    @include coldHaze();
+    @include coldHaze(5px);
     @include centify();
     @include clearfix;
 
@@ -62,6 +62,7 @@
 .footer {
     bottom: 0px;
     font-size: 0.6em;
+    padding: 1em;
     position: absolute;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
