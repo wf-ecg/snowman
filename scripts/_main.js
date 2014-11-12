@@ -1,30 +1,21 @@
 /*jslint white:false */
 /*globals document, jQuery, window,
-    getParameterByName, makeOptions,
+    Help, Page, Slides
     $JssorEasing$, $JssorSlider$,
 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var W = W || window,
-    C = C || W.console,
-    Slides;
+var W, C;
 
-function getMode() {
-    return parseInt(getParameterByName('m') || '-1', 10);
-}
-
-function reSource(eles) {
-    C.warn(eles);
-    $(eles).each(function (i, e) {
-        var me = $(e);
-        me.attr('src', me.data('src'));
-    });
-}
+W = W || window;
+C = C || W.console;
 
 jQuery(function () {
-    var mode = getMode();
+    var mode = Page.getMode();
+    mode = mode > 0 ? mode : 0;
+    $('body').addClass('mode' + mode);
 
     FastClick.attach(W.document.body);
-    reSource($('[data-src]'));
+    Page.reSource($('[data-src]'));
     Slides.init(W.jQuery);
 
     $('.logo').click(function () {

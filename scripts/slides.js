@@ -17,8 +17,10 @@ Slides = {
 };
 
 Slides.init = function ($) {
-    var self = this,
-        preview$ = $(self.preview);
+    var self = this, mode, preview$;
+
+    mode = Page.getMode() > 0 ? 1 : 0;
+    preview$ = $(self.preview);
 
     self.div = $(self.div).eq(0);
 
@@ -31,17 +33,20 @@ Slides.init = function ($) {
     });
 
     self.$ = $(self.$).idem();
-    self.ia = parseInt(getParameterByName('a') || '0', 10);
-    self.ib = parseInt(getParameterByName('b') || '0', 10);
-    self.ic = parseInt(getParameterByName('c') || '0', 10);
+    self.ia = parseInt(Help.getParameterByName('a') || '0', 10);
+    self.ib = parseInt(Help.getParameterByName('b') || '0', 10);
+    self.ic = parseInt(Help.getParameterByName('c') || '0', 10);
 
-    self.A = new $JssorSlider$(self.$[0].id, makeOptions({$StartIndex: self.ia}));
-    self.B = new $JssorSlider$(self.$[1].id, makeOptions({$StartIndex: self.ib}));
-    self.C = new $JssorSlider$(self.$[2].id, makeOptions({$StartIndex: self.ic}));
+    $.extend(Help.defaults, {$DragOrientation: mode});
+
+    self.A = new $JssorSlider$(self.$[0].id, Help.makeOptions({$StartIndex: self.ia}));
+    self.B = new $JssorSlider$(self.$[1].id, Help.makeOptions({$StartIndex: self.ib}));
+    self.C = new $JssorSlider$(self.$[2].id, Help.makeOptions({$StartIndex: self.ic}));
 
     // Reference http://www.jssor.com/development/tip-make-responsive-slider.html
-    //  responsive code begin
     //  you can remove responsive code if you don't want the slider scales while window resizes
+
+    //  responsive code begin
 
     function scaleSlider() {
         var paddingWidth, minReserveWidth, parentElement, parentWidth, availableWidth, sliderWidth;
@@ -160,7 +165,7 @@ Slides.init = function ($) {
 
     self.openPreview = function () {
         W.scrollTo(1, 1);
-        C.warn(self.makeLink(getMode()));
+        C.warn(self.makeLink(Page.getMode()));
 
         preview$.fadeIn();
         _.delay(function () {
