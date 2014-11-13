@@ -19,10 +19,10 @@ jQuery(function () {
     Slides.init(W.jQuery);
 
     $('.logo').click(function () {
-        //$('html').toggleClass('debug');
-        });
+        $('body').toggleClass('wells wystar');
+    });
 
-    $('#Copy').children().hide();
+    $('#Copy').find('.create, .shared, .charity').hide();
     // show sections
     $('.greeting, .closing').show();
 

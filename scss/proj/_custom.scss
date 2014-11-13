@@ -1,44 +1,22 @@
 /* PROJ / custom */
 
-@mixin coldHaze($fuzz: 5px) {
-    background-color: rgba(255, 255, 255, 0.3);
-    border: 1px solid $edge0;
-    box-shadow: 0 0 ($fuzz * 2) ($fuzz / 2) setTrans($icy_0, 0.5);
-    .lt-ie9 & { border: $fuzz solid $icy_1; }
-}
-
 #Container {
-    margin: 1em;
-    @include coldHaze();
-    @include centify();
+    @include coldHaze(5px);
     @include clearfix;
 
+    font-size: .8em;
+    margin: 1em; @include centify(); position: relative;
+    padding: 1em;
     width: 90%; min-width: 800px; max-width: 1234px;
 }
-#Copy > div {
-    margin-bottom: 1em;
-    margin-top: 1.5em;
-}
-#Copy, #Logo {
+#Copy {
     float: left;
     margin-left: 1em;
     margin-top: 1em;
     min-width: 200px;
     width: $leftside;
-}
-#Logo {
-    .part {
-        height: 50px;
-        width: 180px;
-        text-align: left;
 
-        img {
-            height: 100%;
-        }
-    }
-    .splash {
-        margin: -10px;
-        margin-top: -20px;
+    & > div {
     }
 }
 #Toy {
@@ -46,22 +24,8 @@
     border: 3px solid white;
     box-sizing: content-box;
     float: right;
-    margin: 1em;
+    margin: 1em auto;
     overflow: hidden;
     width: $rightside;
-}
-
-.splash img {
-    width: 100%;
-}
-.disclosure {
-    color: gray;
-    font-family: sans-serif;
-    font-size: 10px;
-}
-.footer {
-    bottom: 0px;
-    font-size: 0.6em;
-    position: absolute;
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

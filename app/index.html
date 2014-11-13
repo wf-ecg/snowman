@@ -31,23 +31,18 @@
         <!--<link href="/lib/fonts/archer.ssm.css" rel="stylesheet">-->
         <!--<script src="./_load.js"></script>-->
     </head>
-    <body>
+    <body class="wells">
         <noscript>
         <p>We're sorry, but some features of our site require JavaScript.
             Please enable JavaScript on your browser and refresh the page.</p>
         </noscript>
 
-        <div id="Container">
+        <div class="mobile logo">
+            <img class="wells" src="img/logos/wf_mobile.png">
+            <img class="wystar" src="img/logos/wystar.png">
+        </div>
 
-            <div id="Logo">
-                <div class="part">
-                    <img class="logo" src="img/logos/wf.png">
-                    <!-- <img src="img/logos/wystar.png"> -->
-                </div>
-                <div class="splash">
-                    <img src="img/splash-banner.png">
-                </div>
-            </div>
+        <div id="Container">
 
             <div id="Toy">
                 <div class="snowmen">
@@ -151,6 +146,15 @@
 
             <div id="Copy">
 
+                <div class="desktop logo">
+                    <img class="wells"  src="img/logos/wf.png">
+                    <img class="wystar" src="img/logos/wystar.png">
+                </div>
+
+                <div class="splash">
+                    <img src="img/splash-banner.png">
+                </div>
+
                 <div class="greeting">
                     <h1>Play the Snowman Scramble and create your own unique snowman.
                         <span> You can even share your snowman with family and&nbsp;friends. </span>
@@ -158,7 +162,7 @@
                 </div>
 
                 <div class="create">
-                    <p> CLICK THE ARROWS TO SEE THE OPTIONS.</p>
+                    <!--<p> CLICK THE ARROWS TO SEE THE OPTIONS.</p>-->
                     <p>
                         <a href="javascript:Slides.scramble();" class="button scramble"> Scramble Snowman </a>
                         <a href="javascript:Slides.openPreview();" class="button preview"> Preview and Share </a>
@@ -188,7 +192,7 @@
                 <!-- end Copy -->
             </div>
 
-            <div class="footer part">
+            <div class="footer">
                 <span class="disclosure">&copy; 2014 Wells Fargo Bank, N.A. All rights reserved. ECG-1208017</span>
             </div>
             <!-- end Container -->
@@ -203,8 +207,6 @@
                     </ul>
                     <div class="c52 hide" aria-hidden="true" aria-label="popup"></div>
                 </div>
-                <!-- <a href="javascript:Slides.makeLink();"><img src="img/buttons/btn_preview_share.png" class="share"></a>-->
-                <!-- <a href="javascript:window.print();"><img src="img/buttons/btn_preview_print.png" class="print"></a>-->
                 <a href="javascript:Slides.closePreview();"><img src="img/buttons/btn_preview_close.png" class="close"></a>
             </div>
 

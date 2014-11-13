@@ -4,9 +4,20 @@
     @include centify();
     background-color: white;
     max-width: 650px;
-    min-width: 350px;
+    min-width: 300px;
     width: 100%;
 
+    div[u="slides"] {
+        cursor: col-resize; cursor: ew-resize;
+        height: $slideH;
+        overflow: hidden;
+        position: absolute;
+        width: $slideW;
+
+        .mode0 & {
+            cursor: none;
+        }
+    }
     .slider {
         @include centify();
         clear: both;
@@ -16,16 +27,6 @@
         width: $slideW;
     }
 
-    div[u="slides"] {
-        cursor: col-resize; cursor: ew-resize;
-        height: $slideH;
-        overflow: hidden;
-        position: absolute;
-        width: $slideW;
-        .mode0 & {
-            cursor: none;
-        }
-    }
     #Preview & {
         box-shadow: 1px 2px 5px gray;
         .slider {

@@ -2,7 +2,7 @@
 
 #Preview {
     @include middify();
-    @include backGrad($haze, $haze);
+    @include backGrad($haze6, $haze6);
     cursor: not-allowed;
     display: none;
     position: fixed;
@@ -17,7 +17,7 @@
     .nav {
         @include centify();
         background-color: white;
-        border: 1px solid $edge0;
+        border: 1px solid $edge_hi;
         border-radius: 5px;
         box-shadow: 0 1px 3px gray;
         height: 30px;
@@ -26,26 +26,20 @@
         position: fixed;
         width: 250px;
         z-index: 100;
-        .lt-ie9 & { border-color: $wfred; }
+        .lt-ie9 & { border-color: $wf_red; }
 
         .c52 {
             left: initial !important;
             position: fixed;
         }
-        .close, .print, .share {
-            border: none;
-            filter: alpha(opacity=100);
+        .close {
             float: right;
-            opacity: 1.0;
-
-            &:hover {
+        }
+        a:hover {
+            &, * {
                 filter: alpha(opacity=60);
                 opacity: 0.6;
             }
-        }
-        .print, .share {
-            float: left;
-            margin-right: 1em;
         }
     }
 }

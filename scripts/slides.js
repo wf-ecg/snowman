@@ -29,7 +29,7 @@ Slides.init = function ($) {
     self.div = $(self.div).eq(0);
 
     preview$.on('mousedown', function (evt) {
-        C.warn(evt);
+        //C.debug(evt);
         if (evt.target === preview$[0]) {
             evt.stopImmediatePropagation();
             $('.nav .close').click();
@@ -61,6 +61,7 @@ Slides.init = function ($) {
     //  responsive code begin
 
     function scaleSlider() {
+        //C.debug('scale');
         var paddingWidth, minReserveWidth, parentElement, parentWidth, availableWidth, sliderWidth;
 
         paddingWidth = 0; //                                                    reserve blank width for margin+padding: margin+padding-left (10) + margin+padding-right (10)
@@ -111,6 +112,7 @@ Slides.init = function ($) {
 
     self.scramble = function () {
         var i;
+        W.scrollTo(1, 1);
 
         function rando() {
             return (Math.random() * 9 + 1) | 0;
@@ -180,7 +182,7 @@ Slides.init = function ($) {
 
     self.openPreview = function () {
         W.scrollTo(1, 1);
-        C.warn(self.makeLink(Page.getMode()));
+        //C.debug(self.makeLink(Page.getMode()));
 
         preview$.fadeIn();
         _.delay(function () {

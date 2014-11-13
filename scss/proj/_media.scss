@@ -32,12 +32,17 @@ body {
         border: none;
         box-shadow: none;
         margin: 0px;
-        min-width: 400px;
+        min-width: 300px;
         overflow: hidden;
         padding: 0 0 3em 0;
+        top: $headH;
         width: 100%;
     }
-    #Toy, #Copy, #Logo {
+    #Preview {
+        top: $headH * 1.2;
+        .splash { display: none; }
+    }
+    #Toy, #Copy {
         float: none;
         text-align: center;
         width: 93%;
@@ -48,10 +53,12 @@ body {
     .shared {
         text-align: center;
     }
-    .share, .print, .scramble, .preview {
+    .scramble, .preview {
         display: inline-block;
         float: none;
     }
+    .logo.desktop { display: none; }
+    .logo.mobile { display: block; }
 }
 
 @media (min-width: 640px) {

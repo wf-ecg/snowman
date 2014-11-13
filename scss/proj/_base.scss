@@ -4,21 +4,18 @@ html, body {
     height: 100%;
 }
 body {
-    background: url(../img/background.jpg) top repeat-x $icy_deep;
+    background: url(../img/background.jpg) bottom repeat-x white;
+    background-size: cover;
     font-family: Arial, Verdana;
     line-height: 1.4;
 }
 
 #Container {
-    font-size: .8em;
-    padding: 1em;
-    position: relative;
-
     h1, h2, h3, p, ul, li {
         font-family: 'Archer SSm A', 'Archer SSm B', Georgia, serif;
     }
     h1, h2 {
-        color: $wfred;
+        color: $wf_red;
     }
     h1 {
         font-size: 18px;
