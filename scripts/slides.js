@@ -142,16 +142,17 @@ Slides.init = function ($) {
         var currentIndexes = []; // generate link based of current slides positions
         var href = W.location.href.replace(/\#.*/, ''); // clear query
         var stub = '';
+        var toke = '+';
 
         readIndexes();
         currentIndexes.push('#a' + self.ia);
-        currentIndexes.push('+b' + self.ib);
-        currentIndexes.push('+c' + self.ic);
+        currentIndexes.push('b' + self.ib);
+        currentIndexes.push('c' + self.ic);
 
-        stub = currentIndexes.join('');
+        stub = currentIndexes.join(toke);
         href += stub;
         $('#OG_url').attr('content', href);
-        W.location.hash = stub + (mode ? '+m' + mode : '');
+        W.location.hash = stub + (mode ? toke + 'm' + mode : '');
 
         return href;
     };
@@ -183,7 +184,7 @@ Slides.init = function ($) {
 
     self.openPreview = function () {
         Page.reset();
-        self.makeLink(Page.getMode())
+        self.makeLink(Page.getMode());
 
         preview$.fadeIn();
         _.delay(function () {

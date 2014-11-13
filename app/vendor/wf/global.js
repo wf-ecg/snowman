@@ -4324,6 +4324,6 @@ $(document).ready(function () {
         });
     }
     if (window.location.hash && window.location.hash.length > 1) {
-        WF.Utils.setDelayedScrollTo(window.location.hash);
+        //WF.Utils.setDelayedScrollTo(window.location.hash);
     }
 });

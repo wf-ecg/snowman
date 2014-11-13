@@ -79,7 +79,7 @@ Help.getParameterByName = function (name) {
     var regex, results;
 
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    regex = new RegExp('[+\\#]' + name + '([^+&#]*)');
+    regex = new RegExp('[+\\#]' + name + '([^+&#]*)'); // hash tokens
     results = regex.exec(W.location.hash);
 
     return (results === null) ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
