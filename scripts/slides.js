@@ -33,7 +33,7 @@ Slides.init = function ($) {
         //C.debug(evt);
         if (evt.target === preview$[0]) {
             evt.stopImmediatePropagation();
-            $('.nav .close').click();
+            self.closePreview();
         }
     });
 
@@ -188,11 +188,12 @@ Slides.init = function ($) {
         preview$.fadeIn();
         _.delay(function () {
             makeClone();
+            $('#Preview .splash').stikit('#Preview');
         }, 333);
     };
 
     self.closePreview = function () {
-        $('#Clone').remove();
+        $('#Clone, #Preview .splash').remove();
         preview$.fadeOut();
     };
 };

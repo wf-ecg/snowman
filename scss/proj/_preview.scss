@@ -60,10 +60,6 @@
         cursor: default;
     }
     .arrow { display: none; }
-    .ui-draggable * {
-        cursor: help;
-        &:active { cursor: move; }
-    }
     .corners {
         $gap: 3px;
         $size: 10;
