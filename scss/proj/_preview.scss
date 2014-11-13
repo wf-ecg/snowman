@@ -38,8 +38,8 @@
             position: fixed;
         }
         .closeLink {
-            background: url('../img/buttons/close.png') right 7px no-repeat;
-            .lt-ie9 & { background-image: url('../img/buttons/close-lr.png'); }
+            background: url('../images/buttons/close.png') right 7px no-repeat;
+            .lt-ie9 & { background-image: url('../images/buttons/close-lr.png'); }
             @include background-size( 13px );
             // -ms-behavior: url('./vendor/backgroundsize.htc'); only works if item is visible upon load
             color: $wf_red;
@@ -70,7 +70,7 @@
         border: $size * 1px solid transparent;
         position: absolute; top: 1.7%; bottom: 0; height: 97%; width: 97%;
         & {
-            @include border-image( url('../img/frame/borderFrame.png') $size round);
+            @include border-image( url('../images/frame/borderFrame.png') $size round);
         }
         .lt-ie9 & { border: $size * 0.5px solid white; }
 
@@ -83,26 +83,26 @@
             z-index: 9;
         }
         .tl {
-            background-image: url('../img/frame/corner_TL-hr.png');
-            .lt-ie9 & { background-image: url('../img/frame/corner_TL.png'); }
+            background-image: url('../images/frame/corner_TL-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_TL.png'); }
             left: $gap;
             top: $gap;
         }
         .tr {
-            background-image: url('../img/frame/corner_TR-hr.png');
-            .lt-ie9 & { background-image: url('../img/frame/corner_TR.png'); }
+            background-image: url('../images/frame/corner_TR-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_TR.png'); }
             right: $gap;
             top: $gap;
         }
         .bl {
-            background-image: url('../img/frame/corner_BL-hr.png');
-            .lt-ie9 & { background-image: url('../img/frame/corner_BL.png'); }
+            background-image: url('../images/frame/corner_BL-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_BL.png'); }
             bottom: $gap;
             left: $gap;
         }
         .br {
-            background-image: url('../img/frame/corner_BR-hr.png');
-            .lt-ie9 & { background-image: url('../img/frame/corner_BR.png'); }
+            background-image: url('../images/frame/corner_BR-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_BR.png'); }
             bottom: $gap;
             right: $gap;
         }

@@ -23,28 +23,28 @@
         &.right { right: -6px !important; }
     }
     .lt-ie9 .top & {
-        &.left { background-image: url('../img/buttons/tabs_AR.png'); }
-        &.right{ background-image: url('../img/buttons/tabs_AL.png'); }
+        &.left { background-image: url('../images/buttons/tabs_AR.png'); }
+        &.right{ background-image: url('../images/buttons/tabs_AL.png'); }
     }
     .lt-ie9 .middle & {
-        &.left { background-image: url('../img/buttons/tabs_BR.png'); }
-        &.right{ background-image: url('../img/buttons/tabs_BL.png'); }
+        &.left { background-image: url('../images/buttons/tabs_BR.png'); }
+        &.right{ background-image: url('../images/buttons/tabs_BL.png'); }
     }
     .lt-ie9 .bottom & {
-        &.left { background-image: url('../img/buttons/tabs_CR.png'); }
-        &.right{ background-image: url('../img/buttons/tabs_CL.png'); }
+        &.left { background-image: url('../images/buttons/tabs_CR.png'); }
+        &.right{ background-image: url('../images/buttons/tabs_CL.png'); }
     }
     .top & {
-        &.left { background-image: url('../img/buttons/tabs_AR-hr.png'); }
-        &.right{ background-image: url('../img/buttons/tabs_AL-hr.png'); }
+        &.left { background-image: url('../images/buttons/tabs_AR-hr.png'); }
+        &.right{ background-image: url('../images/buttons/tabs_AL-hr.png'); }
     }
     .middle & {
-        &.left { background-image: url('../img/buttons/tabs_BR-hr.png'); }
-        &.right{ background-image: url('../img/buttons/tabs_BL-hr.png'); }
+        &.left { background-image: url('../images/buttons/tabs_BR-hr.png'); }
+        &.right{ background-image: url('../images/buttons/tabs_BL-hr.png'); }
     }
     .bottom & {
-        &.left { background-image: url('../img/buttons/tabs_CR-hr.png'); }
-        &.right{ background-image: url('../img/buttons/tabs_CL-hr.png'); }
+        &.left { background-image: url('../images/buttons/tabs_CR-hr.png'); }
+        &.right{ background-image: url('../images/buttons/tabs_CL-hr.png'); }
     }
 }
 .button {

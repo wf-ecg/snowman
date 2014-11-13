@@ -4,7 +4,7 @@ html, body {
     height: 100%;
 }
 body {
-    background: url(../img/background.jpg) bottom repeat-x white;
+    background: url(../images/background.jpg) bottom repeat-x white;
     @include background-size( cover ); -ms-behavior: url('./vendor/backgroundsize.htc');
     font-family: Arial, Verdana;
     line-height: 1.5;
