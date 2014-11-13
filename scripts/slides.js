@@ -183,7 +183,7 @@ Slides.init = function ($) {
 
     self.openPreview = function () {
         Page.reset();
-        //C.debug(self.makeLink(Page.getMode()));
+        self.makeLink(Page.getMode())
 
         preview$.fadeIn();
         _.delay(function () {
