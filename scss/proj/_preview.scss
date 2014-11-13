@@ -39,7 +39,9 @@
         }
         .closeLink {
             background: url('../img/buttons/close.png') right 7px no-repeat;
-            background-size: 13px;
+            .lt-ie9 & { background-image: url('../img/buttons/close-lr.png'); }
+            @include background-size( 13px );
+            // -ms-behavior: url('./vendor/backgroundsize.htc'); only works if item is visible upon load
             color: $wf_red;
             padding: 5px 20px 4px 4px;
             position: relative;
