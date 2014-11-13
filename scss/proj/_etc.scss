@@ -1,14 +1,20 @@
 /* PROJ / etc */
 
-.charity, .create, .shared {
+.charity, .create, .shared, .closing {
     display: none;
-    margin-bottom: 1em;
-    margin-top: 1.5em;
+    margin: 3em 0;
 }
 .disclosure {
     color: gray;
     font-family: sans-serif;
     font-size: 10px;
+}
+.dot {
+    background-color: red;
+    overflow: hidden;
+    position: absolute;
+    width: 3px; height: 3px;
+    z-index: 999999;
 }
 .footer {
     bottom: 0px;
@@ -29,18 +35,16 @@
         margin-top: 3px;
     }
     &.desktop {
-        //background-color: $edge_hi;
         height: 50px;
         margin: 0;
-        width: 180px;
         text-align: left;
-
-        img {
-            max-height: 100%;
-        }
+        width: 180px;
+        img { max-height: 100%; }
     }
     &.mobile {
         background-size: 1px 100%;
+        .wells & { background-image: url(../images/logos/wf_mobile_bg.png); }
+        .wystar & { @include backGrad( white, $edge_hi); }
         box-shadow: $light_shad;
         display: none;
         height: $headH;
@@ -48,20 +52,14 @@
         text-align: center;
         width: 100%;
         z-index: 999;
-
-        .wells & {
-            background-image: url(../img/logos/wf_mobile_bg.png);
-        }
-        .wystar & {
-            @include backGrad( white, $edge_hi);
-        }
     }
 }
 .splash {
-    margin: -20px -10px 0 -10px;
-
-    img {
-        width: 100%;
-    }
+    margin: -15px -10px 0 -10px;
+    img { width: 100%; }
+}
+.ui-draggable * {
+    cursor: help;
+    &:active { cursor: move; }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

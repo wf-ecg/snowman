@@ -9,44 +9,52 @@
     width: 100%; height: 100%;
 
     .splash {
-        max-width: 400px;
+        max-width: 100%;
         position: relative; left: 99px; top: 333px;
-        width: 100%;
+        width: 400px;
         z-index: 10;
     }
     .nav {
         @include centify();
         background-color: white;
         border: 1px solid $edge_hi;
+        .lt-ie9 & { border-color: $wf_red; }
         border-radius: 5px;
         box-shadow: 0 1px 3px gray;
         height: 30px;
         margin-top: 15px;
-        padding: 3px 9px;
-        position: fixed;
-        width: 250px;
+        padding: 3px 12px;
+        position: absolute;
+        width: 266px;
         z-index: 100;
-        .lt-ie9 & { border-color: $wf_red; }
 
-        .c52 {
+        a:hover {
+            &, * {
+                @include opacity(0.6);
+            }
+        }
+        .c52 { // modify placement of Share menu
             left: initial !important;
             position: fixed;
         }
-        .close {
-            float: right;
-        }
-        a:hover {
-            &, * {
-                filter: alpha(opacity=60);
-                opacity: 0.6;
-            }
+        .closeLink {
+            background: url('../images/buttons/close.png') right 7px no-repeat;
+            .lt-ie9 & { background-image: url('../images/buttons/close-lr.png'); }
+            @include background-size( 13px );
+            // -ms-behavior: url('./vendor/backgroundsize.htc'); only works if item is visible upon load
+            color: $wf_red;
+            padding: 5px 20px 4px 4px;
+            position: relative;
+            text-decoration: none;
+            top: 4px;
+            z-index: 40;
         }
     }
 }
 
 #Clone {
     @include middify();
-    position: fixed;
+    position: absolute;
     top: -3em;
 
     * {
@@ -54,10 +62,6 @@
         cursor: default;
     }
     .arrow { display: none; }
-    .ui-draggable * {
-        cursor: help;
-        &:active { cursor: move; }
-    }
     .corners {
         $gap: 3px;
         $size: 10;
@@ -66,7 +70,7 @@
         border: $size * 1px solid transparent;
         position: absolute; top: 1.7%; bottom: 0; height: 97%; width: 97%;
         & {
-            @include border-image( url('../img/frame/borderFrame.png') $size round);
+            @include border-image( url('../images/frame/borderFrame.png') $size round);
         }
         .lt-ie9 & { border: $size * 0.5px solid white; }
 
@@ -79,26 +83,26 @@
             z-index: 9;
         }
         .tl {
-            background-image: url('../img/frame/corner_TL-hr.png');
-            .lt-ie9 & { background-image: url('../img/frame/corner_TL.png'); }
+            background-image: url('../images/frame/corner_TL-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_TL.png'); }
             left: $gap;
             top: $gap;
         }
         .tr {
-            background-image: url('../img/frame/corner_TR-hr.png');
-            .lt-ie9 & { background-image: url('../img/frame/corner_TR.png'); }
+            background-image: url('../images/frame/corner_TR-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_TR.png'); }
             right: $gap;
             top: $gap;
         }
         .bl {
-            background-image: url('../img/frame/corner_BL-hr.png');
-            .lt-ie9 & { background-image: url('../img/frame/corner_BL.png'); }
+            background-image: url('../images/frame/corner_BL-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_BL.png'); }
             bottom: $gap;
             left: $gap;
         }
         .br {
-            background-image: url('../img/frame/corner_BR-hr.png');
-            .lt-ie9 & { background-image: url('../img/frame/corner_BR.png'); }
+            background-image: url('../images/frame/corner_BR-hr.png');
+            .lt-ie9 & { background-image: url('../images/frame/corner_BR.png'); }
             bottom: $gap;
             right: $gap;
         }

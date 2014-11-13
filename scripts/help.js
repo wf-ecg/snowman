@@ -1,9 +1,7 @@
 /*jslint white:false */
 /*globals document, jQuery, window,
-    Help: true,
-    $JssorArrowNavigator$,
-    $JssorBulletNavigator$,
-    $JssorCaptionSlider$,
+    Help:true,
+    $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$,
  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W, C, Help;
@@ -25,14 +23,70 @@ jQuery.fn.idem = function () {
     return this;
 };
 
+jQuery.fn.stikit = function (here, there) {
+    var target = Help.middleOf(here);
+    var tweak = Help.middleOff(this);
+
+    $(this).appendTo(there || here) //
+    .css({
+        opacity: 0,
+        width: '1200px',
+    }) //
+    .animate({
+        left: target.left + tweak.left,
+        opacity: 1,
+        position: 'absolute',
+        top: target.top + tweak.top,
+        width: '400px'
+    }, 999);
+};
+
+jQuery.fn.centerdot = function () {
+    var me = $(this);
+    var cite = $('<cite class="dot">');
+
+    cite.insertAfter(me);
+    cite.css(Help.middleOf(me));
+
+    return this;
+};
+
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 // Project Independant
+
+Help.middleOf = function (ele) {
+    var me, obj, span;
+
+    me = $(ele);
+    obj = me.offset(); // augment
+
+    span = me.width();
+    obj.left += (span / 2);
+    span = me.height();
+    obj.top += (span / 2);
+
+    return obj;
+};
+
+Help.middleOff = function (ele) {
+    var me, obj, span;
+
+    me = $(ele);
+    obj = {}; // simple assignments
+
+    span = me.width();
+    obj.left = -(span / 2);
+    span = me.height();
+    obj.top = -(span / 2);
+
+    return obj;
+};
 
 Help.getParameterByName = function (name) {
     var regex, results;
 
     name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
-    regex = new RegExp('[+\\#]' + name + '([^+&#]*)');
+    regex = new RegExp('[+\\#]' + name + '([^+&#]*)'); // hash tokens
     results = regex.exec(W.location.hash);
 
     return (results === null) ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));

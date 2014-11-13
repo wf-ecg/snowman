@@ -16,6 +16,10 @@
     box-shadow: 0 0 ($fuzz * 5) ($fuzz / 2) setTrans($icy_shok, 0.5);
     .lt-ie9 & { border: $fuzz solid $icy_deep; }
 }
+@mixin opacity($dec: 0.5) {
+    filter: alpha(opacity=($dec*100));
+    opacity: $dec;
+}
 @mixin overflow($x: visible, $y: visible) {
     overflow: $x;
     overflow-x: $x;
@@ -48,9 +52,11 @@ $red_hi: #c40000;   $red_lo: #990000;
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 @import "_base";
 @import "_buttons";
+@import "_snowmen";
+
 @import "_custom";
 @import "_etc";
 @import "_preview";
-@import "_snowmen";
+
 @import "_media";
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //

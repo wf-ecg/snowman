@@ -11,20 +11,16 @@
 }
 #Copy {
     float: left;
-    margin-left: 1em;
-    margin-top: 1em;
+    margin: 1em;
     min-width: 200px;
     width: $leftside;
-
-    & > div {
-    }
 }
 #Toy {
     @include coldHaze(3px);
     border: 3px solid white;
     box-sizing: content-box;
     float: right;
-    margin: 1em auto;
+    margin: 1em;
     overflow: hidden;
     width: $rightside;
 }

@@ -24,10 +24,15 @@ jQuery(function () {
 
     $('#Copy').find('.create, .shared, .charity').hide();
     // show sections
-    $('.greeting, .closing').show();
+    $('.greeting').show();
+
+    $('a.closeLink').first().click(function (e) {
+        Slides.closePreview();
+        e.preventDefault();
+    });
 
     if (mode > 0) {
-        $('.create').show();
+        $('.create, .closing').show();
         $('.shared').hide();
 
         if (mode === 2) {
@@ -37,5 +42,6 @@ jQuery(function () {
         $('.shared').show();
         $('.create, .arrow').remove();
     }
+    Page.reset();
 });
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -1222,9 +1222,9 @@ WF.Component.SocialShare = function () {
                             pageHeader.find("span").remove();
                             pageHeader = WF.Utils.removeHtmlTags(pageHeader.html()).replace(/[^\x20-\x7f-]/g, "").replace(/\s*-\s*$/, "");
                             if (WF.Browser.supports.isIE) {
-                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang] + pageHeader + "\n\n" + docUrl + "?ss=email";
+                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang] + pageHeader + "\n\n" + Slides.makeLink(); //docUrl + "?ss=email";
                             } else {
-                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang] + pageHeader + "\n" + descript + "\n\n" + docUrl + "?ss=email";
+                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang] + pageHeader + "\n" + descript + "\n\n" + Slides.makeLink(); //docUrl + "?ss=email";
                             }
                             emailSubject = "Wellsfargo.com: " + encodeURIComponent(pageHeader);
                             window.location.href = "mailto:?body=" + encodeURIComponent(emailBody) + "&subject=" + emailSubject;
@@ -4324,6 +4324,6 @@ $(document).ready(function () {
         });
     }
     if (window.location.hash && window.location.hash.length > 1) {
-        WF.Utils.setDelayedScrollTo(window.location.hash);
+        //WF.Utils.setDelayedScrollTo(window.location.hash);
     }
 });

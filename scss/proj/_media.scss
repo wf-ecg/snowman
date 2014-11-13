@@ -9,18 +9,15 @@ body {
         background: none;
         height: 100%;
     }
+    .NOPRINT, #Container, .mobile, .nav, .noprint {
+        display: none !important;
+    }
     #Clone {
         top: 0 !important;
-    }
-    #Container, .nav {
-        display: none;
     }
     #Preview {
         height: 100%;
         overflow: hidden;
-    }
-    .noprint {
-        display: none;
     }
 }
 
@@ -38,14 +35,17 @@ body {
         top: $headH;
         width: 100%;
     }
+    #Copy {
+        padding: 1em;
+    }
     #Preview {
         top: $headH * 1.2;
-        .splash { display: none; }
     }
     #Toy, #Copy {
         float: none;
+        margin: auto;
         text-align: center;
-        width: 93%;
+        width: auto;
     }
     .create {
         text-align: center;
@@ -60,9 +60,4 @@ body {
     .logo.desktop { display: none; }
     .logo.mobile { display: block; }
 }
-
-@media (min-width: 640px) {
-    #Clone {}
-}
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
