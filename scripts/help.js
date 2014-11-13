@@ -27,10 +27,17 @@ jQuery.fn.stikit = function (here, there) {
     var target = Help.middleOf(here);
     var tweak = Help.middleOff(this);
 
-    $(this).appendTo(there || here).animate({
+    $(this).appendTo(there || here) //
+    .css({
+        opacity: 0,
+        width: '1200px',
+    }) //
+    .animate({
         left: target.left + tweak.left,
+        opacity: 1,
         position: 'absolute',
         top: target.top + tweak.top,
+        width: '400px'
     }, 999);
 };
 
