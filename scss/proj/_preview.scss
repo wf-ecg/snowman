@@ -18,6 +18,7 @@
         @include centify();
         background-color: white;
         border: 1px solid $edge_hi;
+        .lt-ie9 & { border-color: $wf_red; }
         border-radius: 5px;
         box-shadow: 0 1px 3px gray;
         height: 30px;
@@ -26,20 +27,18 @@
         position: fixed;
         width: 250px;
         z-index: 100;
-        .lt-ie9 & { border-color: $wf_red; }
 
+        a:hover {
+            &, * {
+                @include opacity(0.6);
+            }
+        }
         .c52 {
             left: initial !important;
             position: fixed;
         }
         .close {
             float: right;
-        }
-        a:hover {
-            &, * {
-                filter: alpha(opacity=60);
-                opacity: 0.6;
-            }
         }
     }
 }
