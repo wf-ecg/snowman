@@ -9,18 +9,15 @@ body {
         background: none;
         height: 100%;
     }
+    .NOPRINT, #Container, .mobile, .nav, .noprint {
+        display: none !important;
+    }
     #Clone {
         top: 0 !important;
-    }
-    #Container, .nav {
-        display: none;
     }
     #Preview {
         height: 100%;
         overflow: hidden;
-    }
-    .noprint {
-        display: none;
     }
 }
 

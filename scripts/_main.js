@@ -26,6 +26,11 @@ jQuery(function () {
     // show sections
     $('.greeting, .closing').show();
 
+    $('a.closeLink').first().click(function (e) {
+        Slides.closePreview();
+        e.preventDefault();
+    });
+
     if (mode > 0) {
         $('.create').show();
         $('.shared').hide();

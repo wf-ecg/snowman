@@ -23,9 +23,9 @@
         box-shadow: 0 1px 3px gray;
         height: 30px;
         margin-top: 15px;
-        padding: 3px 9px;
+        padding: 3px 12px;
         position: fixed;
-        width: 250px;
+        width: 266px;
         z-index: 100;
 
         a:hover {
@@ -33,12 +33,19 @@
                 @include opacity(0.6);
             }
         }
-        .c52 {
+        .c52 { // modify placement of Share menu
             left: initial !important;
             position: fixed;
         }
-        .close {
-            float: right;
+        .closeLink {
+            background: url('../img/buttons/close.png') right 7px no-repeat;
+            background-size: 13px;
+            color: $wf_red;
+            padding: 5px 20px 4px 4px;
+            position: relative;
+            text-decoration: none;
+            top: 4px;
+            z-index: 40;
         }
     }
 }
