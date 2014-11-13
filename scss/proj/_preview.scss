@@ -24,7 +24,7 @@
         height: 30px;
         margin-top: 15px;
         padding: 3px 12px;
-        position: fixed;
+        position: absolute;
         width: 266px;
         z-index: 100;
 
@@ -54,7 +54,7 @@
 
 #Clone {
     @include middify();
-    position: fixed;
+    position: absolute;
     top: -3em;
 
     * {
