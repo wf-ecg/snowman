@@ -38,6 +38,10 @@ body {
         top: $headH;
         width: 100%;
     }
+    #Preview {
+        top: $headH * 1.2;
+        .splash { display: none; }
+    }
     #Toy, #Copy {
         float: none;
         text-align: center;

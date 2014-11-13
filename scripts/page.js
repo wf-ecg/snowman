@@ -17,7 +17,7 @@ Page.getMode = function () {
 };
 
 Page.reSource = function (eles) {
-    C.warn(eles);
+    //C.debug(eles);
     $(eles).each(function (i, e) {
         var me = $(e);
         me.attr('src', me.data('src'));
