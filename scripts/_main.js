@@ -37,5 +37,6 @@ jQuery(function () {
         $('.shared').show();
         $('.create, .arrow').remove();
     }
+    Page.reset();
 });
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

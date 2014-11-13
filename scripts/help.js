@@ -1,9 +1,7 @@
 /*jslint white:false */
 /*globals document, jQuery, window,
-    Help: true,
-    $JssorArrowNavigator$,
-    $JssorBulletNavigator$,
-    $JssorCaptionSlider$,
+    Help:true,
+    $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$,
  */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W, C, Help;

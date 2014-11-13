@@ -1,6 +1,7 @@
 /*jslint white:false */
 /*globals document, jQuery, window,
-    Help, $JssorEasing$, $JssorSlider$,
+    Help, Page, Slide:true,
+    $JssorEasing$, $JssorSlider$,
 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W, C, Slides;
@@ -112,7 +113,7 @@ Slides.init = function ($) {
 
     self.scramble = function () {
         var i;
-        W.scrollTo(1, 1);
+        Page.reset();
 
         function rando() {
             return (Math.random() * 9 + 1) | 0;
@@ -181,7 +182,7 @@ Slides.init = function ($) {
     }
 
     self.openPreview = function () {
-        W.scrollTo(1, 1);
+        Page.reset();
         //C.debug(self.makeLink(Page.getMode()));
 
         preview$.fadeIn();

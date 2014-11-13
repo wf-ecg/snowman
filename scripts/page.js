@@ -1,6 +1,7 @@
 /*jslint white:false */
 /*globals document, jQuery, window,
-    Help, $JssorEasing$, $JssorSlider$,
+    Help, Page:true,
+    $JssorEasing$, $JssorSlider$,
 */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 var W, C, Page;
@@ -9,11 +10,23 @@ W = W || window;
 C = C || W.console;
 Page = {
     getMode: Function,
+    reset: Function,
     reSource: Function,
 };
 
 Page.getMode = function () {
     return parseInt(Help.getParameterByName('m') || '-1', 10);
+};
+
+Page.reset = function () {
+    $('body').animate({
+        'scrollTop': 0,
+    }, 333);
+
+    W.setTimeout(function () {
+        W.scrollTo(0, 1);
+        W.scrollTo(0, 0);
+    }, 999);
 };
 
 Page.reSource = function (eles) {
