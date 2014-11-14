@@ -8,16 +8,14 @@ body {
     body {
         background: none;
         height: 100%;
+        overflow: hidden;
     }
     .NOPRINT, #Container, .mobile, .nav, .noprint {
         display: none !important;
     }
-    #Clone {
-        top: 0 !important;
-    }
     #Preview {
-        height: 100%;
-        overflow: hidden;
+        top: 0 !important;
+        position: absolute;
     }
 }
 

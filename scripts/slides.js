@@ -189,7 +189,7 @@ Slides.init = function ($) {
         preview$.fadeIn();
         _.delay(function () {
             makeClone();
-            $('#Preview .splash').stikit('#Preview');
+            $('#Preview .splash').stikit(1, 1.333);
         }, 333);
     };
 

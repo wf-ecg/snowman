@@ -23,20 +23,18 @@ jQuery.fn.idem = function () {
     return this;
 };
 
-jQuery.fn.stikit = function (here, there) {
-    var target = Help.middleOf(here);
-    var tweak = Help.middleOff(this);
+jQuery.fn.stikit = function (x, y) {
+    var middle = Help.middleOf(this[0].offsetParent);
+    var offset = Help.middleOf(this);
 
-    $(this).appendTo(there || here) //
-    .css({
+    $(this).css({
         opacity: 0,
         width: '1200px',
-    }) //
-    .animate({
-        left: target.left + tweak.left,
+    }).animate({
+        left: (middle.left - offset.left) * (x || 1),
         opacity: 1,
         position: 'absolute',
-        top: target.top + tweak.top,
+        top: (middle.top - offset.top) * (y || 1),
         width: '400px'
     }, 999);
 };
@@ -55,29 +53,18 @@ jQuery.fn.centerdot = function () {
 // Project Independant
 
 Help.middleOf = function (ele) {
-    var me, obj, span;
+    var obj, span;
 
-    me = $(ele);
-    obj = me.offset(); // augment
+    ele = $(ele)[0];
+    obj = {
+        left: 0,
+        top: 0,
+    };
 
-    span = me.width();
-    obj.left += (span / 2);
-    span = me.height();
-    obj.top += (span / 2);
-
-    return obj;
-};
-
-Help.middleOff = function (ele) {
-    var me, obj, span;
-
-    me = $(ele);
-    obj = {}; // simple assignments
-
-    span = me.width();
-    obj.left = -(span / 2);
-    span = me.height();
-    obj.top = -(span / 2);
+    span = ele.offsetWidth;
+    obj.left = (span / 2);
+    span = ele.offsetHeight;
+    obj.top = (span / 2);
 
     return obj;
 };

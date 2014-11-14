@@ -38,7 +38,7 @@
             position: fixed;
         }
         .closeLink {
-            background: url('../images/buttons/close.png') right 7px no-repeat;
+            background: url('../images/buttons/close.png') right 6px no-repeat;
             .lt-ie9 & { background-image: url('../images/buttons/close-lr.png'); }
             @include background-size( 13px );
             // -ms-behavior: url('./vendor/backgroundsize.htc'); only works if item is visible upon load
