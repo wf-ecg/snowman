@@ -23,7 +23,7 @@
         border: 1px solid $edge_hi;
         .lt-ie9 & { border-color: $wf_red; }
         border-radius: 5px;
-        box-shadow: 0 1px 3px gray;
+        box-shadow: $midi_shad;
         display: table;
         height: 30px;
         margin-top: 15px;

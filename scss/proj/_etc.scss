@@ -45,7 +45,7 @@
         background-size: 1px 100%;
         .wells & { background-image: url(../images/logos/wf_mobile_bg.png); }
         .wystar & { @include backGrad( white, $edge_hi); }
-        box-shadow: $light_shad;
+        box-shadow: $mini_shad;
         display: none;
         height: $headH;
         position: fixed;

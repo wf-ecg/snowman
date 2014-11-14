@@ -57,7 +57,7 @@
     font-weight: bold;
     padding: 6px 10px 5px 10px;
     text-decoration: none;
-    text-shadow: $light_shad;
+    text-shadow: $mini_shad;
 
     &.preview {   @include backGrad( $lime_hi, $lime_lo);
         &:hover { @include backGrad( $lime_hi, $lime_hi); }
