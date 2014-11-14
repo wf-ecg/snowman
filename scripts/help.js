@@ -16,7 +16,7 @@ Help = {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 // EXTEND jquery
-jQuery.fn.idem = function () {
+jQuery.fn.randId = function () {
     this.each(function (i, e) {
         e.id = 'Random_' + (Math.random() * 1e9 | 0); // force an ID on it
     });

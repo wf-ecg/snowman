@@ -37,7 +37,7 @@ Slides.init = function ($) {
         }
     });
 
-    self.$ = $(self.$).idem();
+    self.$ = $(self.$).randId();
     self.ia = parseInt(Help.getParameterByName('a') || '0', 10);
     self.ib = parseInt(Help.getParameterByName('b') || '0', 10);
     self.ic = parseInt(Help.getParameterByName('c') || '0', 10);
@@ -170,11 +170,13 @@ Slides.init = function ($) {
             clone = self.div.clone(); // duplicate snowman
 
             clone.attr('id', 'Clone') //
+            .find('[id]').randId().end() //
             .css({ // hack to match container
                 height: self.$.height() * 3 - 3,
                 width: self.$.width(),
             }).append($('.corners, .splash').clone()) //
             ;
+
             clone.find('.splash') //
             .css('position', 'absolute') //
             .attr('title', 'Drag to position / Click to fade') //
