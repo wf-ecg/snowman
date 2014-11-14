@@ -19,7 +19,7 @@ body {
     }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 768px) {
     body {
         overflow: auto;
     }
@@ -29,7 +29,8 @@ body {
         margin: 0px;
         min-width: 300px;
         overflow: hidden;
-        padding: 0 0 3em 0;
+        padding: 0.5em;
+        padding-bottom: 3em;
         top: $headH;
         width: 100%;
     }

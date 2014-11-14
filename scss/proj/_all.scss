@@ -10,11 +10,11 @@
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#00000000, endColorstr=#00000000);
     -ms-filter: 'progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='+$clr1+', endColorstr='+$clr2+')';
 }
-@mixin coldHaze($fuzz: 2px) {
-    @include backGrad($haze3, $haze3);
+@mixin coldHaze($fuzz: 2px, $color: $haze3) {
+    @include backGrad($color, $color);
     border: 1px solid $icy_shok;
     box-shadow: 0 0 ($fuzz * 5) ($fuzz / 2) setTrans($icy_shok, 0.5);
-    .lt-ie9 & { border: $fuzz solid $icy_deep; }
+    .lt-ie9 & { border: $fuzz solid $color; }
 }
 @mixin opacity($dec: 0.5) {
     filter: alpha(opacity=($dec*100));
