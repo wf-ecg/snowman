@@ -11,20 +11,15 @@ C = C || W.console;
 
 jQuery(function () {
     var mode = Page.getMode();
-    mode = mode > 0 ? mode : 0;
-    $('body').addClass('mode' + mode);
 
     FastClick.attach(W.document.body);
     Page.reSource($('[data-src]'));
     Slides.init(W.jQuery);
-
-    $('.logo').click(function () {
-        $('body').toggleClass('wells wystar');
+    Page.reset(function () {
+        Slides.makeLink(false);
     });
 
-    $('#Copy').find('.create, .shared, .charity').hide();
-    // show sections
-    $('.greeting').show();
+    /// EVENTS
 
     $('a.closeLink').first().click(function (e) {
         Slides.closePreview();
@@ -37,19 +32,27 @@ jQuery(function () {
         }
     });
 
+    /// MODES
+
+    mode = mode > 0 ? mode : 0;
+    $('body').addClass('mode' + mode);
+    $('.greeting').show();
+
     if (mode > 0) {
         $('.create, .closing').show();
-        $('.shared').hide();
 
-        if (mode === 2) {
-            $('.charity').show();
+        switch (mode) {
+            case 0:
+                break;
+            case 2:
+                $('.charity').show();
+                break;
+            case 3:
+                $('body').toggleClass('wells wystar');
         }
     } else {
         $('.shared').show();
         $('.create, .arrow').remove();
     }
-    Page.reset(function () {
-        Slides.makeLink(false);
-    });
 });
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
