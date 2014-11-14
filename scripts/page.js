@@ -18,14 +18,17 @@ Page.getMode = function () {
     return parseInt(Help.getParameterByName('m') || '-1', 10);
 };
 
-Page.reset = function () {
+Page.reset = function (cb) {
     $('body').animate({
         'scrollTop': 0,
     }, 333);
 
     W.setTimeout(function () {
-        W.scrollTo(0, 1);
         W.scrollTo(0, 0);
+        if (cb) {
+            cb();
+        }
+        W.scrollTo(0, 1);
     }, 999);
 };
 

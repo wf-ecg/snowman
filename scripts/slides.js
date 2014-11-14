@@ -148,10 +148,16 @@ Slides.init = function ($) {
         currentIndexes.push('#a' + self.ia);
         currentIndexes.push('b' + self.ib);
         currentIndexes.push('c' + self.ic);
-
         stub = currentIndexes.join(toke);
+
         href += stub;
         $('#OG_url').attr('content', href);
+
+        if (mode === false) {
+            return href;
+        } else if (mode === true) {
+            mode = Page.getMode();
+        }
         W.location.hash = stub + (mode ? toke + 'm' + mode : '');
 
         return href;
@@ -165,8 +171,8 @@ Slides.init = function ($) {
 
             clone.attr('id', 'Clone') //
             .css({ // hack to match container
-                height: Slides.$.height() * 3 - 3,
-                width: Slides.$.width(),
+                height: self.$.height() * 3 - 3,
+                width: self.$.width(),
             }).append($('.corners, .splash').clone()) //
             ;
             clone.find('.splash') //
@@ -183,8 +189,9 @@ Slides.init = function ($) {
     }
 
     self.openPreview = function () {
-        Page.reset();
-        self.makeLink(Page.getMode());
+        Page.reset(function () {
+            self.makeLink(true);
+        });
 
         preview$.fadeIn();
         _.delay(function () {
