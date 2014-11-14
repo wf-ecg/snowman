@@ -6,7 +6,6 @@ body {
 
 @media print {
     body {
-        background: none;
         height: 100%;
         overflow: hidden;
     }
@@ -14,8 +13,9 @@ body {
         display: none !important;
     }
     #Preview {
-        top: 0 !important;
+        background: none;
         position: absolute;
+        top: 0 !important;
     }
 }
 
