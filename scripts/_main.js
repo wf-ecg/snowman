@@ -30,6 +30,12 @@ jQuery(function () {
         Slides.closePreview();
         e.preventDefault();
     });
+    $('body').on('keydown', function (evt) {
+        //C.debug('keydown', evt.keyCode);
+        if (evt.keyCode === 27) {
+            Slides.closePreview();
+        }
+    });
 
     if (mode > 0) {
         $('.create, .closing').show();
