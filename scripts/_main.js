@@ -13,9 +13,9 @@ jQuery(function () {
     var mode = Page.getMode();
 
     FastClick.attach(W.document.body);
-    Page.reSource($('[data-src]'));
-    Slides.init(W.jQuery);
     Page.reset(function () {
+        Page.reSource($('[data-src]'));
+        Slides.init(W.jQuery);
         Slides.makeLink(false);
     });
 

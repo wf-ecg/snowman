@@ -24,10 +24,10 @@ Page.reset = function (cb) {
     }, 333);
 
     W.setTimeout(function () {
-        W.scrollTo(0, 0);
         if (cb) {
             cb();
         }
+        W.scrollTo(0, 0);
         W.scrollTo(0, 1);
     }, 999);
 };
