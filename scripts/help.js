@@ -24,18 +24,20 @@ jQuery.fn.randId = function () {
 };
 
 jQuery.fn.stikit = function (x, y) {
-    var middle = Help.middleOf(this[0].offsetParent);
-    var offset = Help.middleOf(this);
+    var me = $(this);
+    var middle = Help.middleOf(me[0].offsetParent);
+    var offset = Help.middleOf(me);
+    var width = me.width();
 
-    $(this).css({
+    me.css({
         opacity: 0,
-        width: '1200px',
+        width: width * 10,
     }).animate({
         left: (middle.left - offset.left) * (x || 1),
         opacity: 1,
         position: 'absolute',
         top: (middle.top - offset.top) * (y || 1),
-        width: '400px'
+        width: width,
     }, 999);
 };
 

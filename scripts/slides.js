@@ -166,6 +166,9 @@ Slides.init = function ($) {
     function makeClone() {
         var clone = $('#Clone');
 
+        self.div.parent().width(555);
+        self.scale();
+
         if (!clone.length) {
             clone = self.div.clone(); // duplicate snowman
 
@@ -187,6 +190,8 @@ Slides.init = function ($) {
                 });//remove();
             });
         }
+        self.div.parent().width('');
+        self.scale();
         preview$.append(clone);
     }
 
@@ -206,5 +211,6 @@ Slides.init = function ($) {
         $('#Clone, #Preview .splash').remove();
         preview$.fadeOut();
     };
+    self.scale = scaleSlider;
 };
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
