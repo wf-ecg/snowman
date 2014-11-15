@@ -8,6 +8,7 @@
     margin: 1em; @include centify(); position: relative;
     padding: 1em;
     width: 90%; min-width: 800px; max-width: 1234px;
+    .lt-ie9 & { max-width: 1111px; }
 }
 #Copy {
     float: left;
@@ -21,6 +22,7 @@
     box-sizing: content-box;
     float: right;
     margin: 1em;
+    max-width: $slideW;
     overflow: hidden;
     width: $rightside;
 }

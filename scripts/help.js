@@ -16,28 +16,28 @@ Help = {
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 // EXTEND jquery
-jQuery.fn.idem = function () {
+jQuery.fn.randId = function () {
     this.each(function (i, e) {
         e.id = 'Random_' + (Math.random() * 1e9 | 0); // force an ID on it
     });
     return this;
 };
 
-jQuery.fn.stikit = function (here, there) {
-    var target = Help.middleOf(here);
-    var tweak = Help.middleOff(this);
+jQuery.fn.stikit = function (x, y) {
+    var me = $(this);
+    var middle = Help.middleOf(me[0].offsetParent);
+    var offset = Help.middleOf(me);
+    var width = me.width();
 
-    $(this).appendTo(there || here) //
-    .css({
+    me.css({
         opacity: 0,
-        width: '1200px',
-    }) //
-    .animate({
-        left: target.left + tweak.left,
+        width: width * 10,
+    }).animate({
+        left: (middle.left - offset.left) * (x || 1),
         opacity: 1,
         position: 'absolute',
-        top: target.top + tweak.top,
-        width: '400px'
+        top: (middle.top - offset.top) * (y || 1),
+        width: width,
     }, 999);
 };
 
@@ -55,29 +55,18 @@ jQuery.fn.centerdot = function () {
 // Project Independant
 
 Help.middleOf = function (ele) {
-    var me, obj, span;
+    var obj, span;
 
-    me = $(ele);
-    obj = me.offset(); // augment
+    ele = $(ele)[0];
+    obj = {
+        left: 0,
+        top: 0,
+    };
 
-    span = me.width();
-    obj.left += (span / 2);
-    span = me.height();
-    obj.top += (span / 2);
-
-    return obj;
-};
-
-Help.middleOff = function (ele) {
-    var me, obj, span;
-
-    me = $(ele);
-    obj = {}; // simple assignments
-
-    span = me.width();
-    obj.left = -(span / 2);
-    span = me.height();
-    obj.top = -(span / 2);
+    span = ele.offsetWidth;
+    obj.left = (span / 2);
+    span = ele.offsetHeight;
+    obj.top = (span / 2);
 
     return obj;
 };

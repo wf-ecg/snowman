@@ -1,6 +1,6 @@
 /* PROJ / etc */
 
-.charity, .create, .shared, .closing {
+.charity, .closing, .create, .shared {
     display: none;
     margin: 3em 0;
 }
@@ -21,6 +21,9 @@
     font-size: 0.6em;
     padding: 1em;
     position: absolute;
+}
+.freeze {
+    overflow: hidden !important;
 }
 .logo {
     img {
@@ -45,7 +48,7 @@
         background-size: 1px 100%;
         .wells & { background-image: url(../images/logos/wf_mobile_bg.png); }
         .wystar & { @include backGrad( white, $edge_hi); }
-        box-shadow: $light_shad;
+        box-shadow: $mini_shad;
         display: none;
         height: $headH;
         position: fixed;
@@ -57,9 +60,5 @@
 .splash {
     margin: -15px -10px 0 -10px;
     img { width: 100%; }
-}
-.ui-draggable * {
-    cursor: help;
-    &:active { cursor: move; }
 }
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

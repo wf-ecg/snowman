@@ -37,7 +37,7 @@ Slides.init = function ($) {
         }
     });
 
-    self.$ = $(self.$).idem();
+    self.$ = $(self.$).randId();
     self.ia = parseInt(Help.getParameterByName('a') || '0', 10);
     self.ib = parseInt(Help.getParameterByName('b') || '0', 10);
     self.ic = parseInt(Help.getParameterByName('c') || '0', 10);
@@ -148,10 +148,16 @@ Slides.init = function ($) {
         currentIndexes.push('#a' + self.ia);
         currentIndexes.push('b' + self.ib);
         currentIndexes.push('c' + self.ic);
-
         stub = currentIndexes.join(toke);
+
         href += stub;
         $('#OG_url').attr('content', href);
+
+        if (mode === false) {
+            return href;
+        } else if (mode === true) {
+            mode = Page.getMode();
+        }
         W.location.hash = stub + (mode ? toke + 'm' + mode : '');
 
         return href;
@@ -164,11 +170,13 @@ Slides.init = function ($) {
             clone = self.div.clone(); // duplicate snowman
 
             clone.attr('id', 'Clone') //
+            .find('[id]').randId().end() //
             .css({ // hack to match container
-                height: Slides.$.height() * 3 - 3,
-                width: Slides.$.width(),
+                height: self.$.height() * 3 - 3,
+                width: self.$.width(),
             }).append($('.corners, .splash').clone()) //
             ;
+
             clone.find('.splash') //
             .css('position', 'absolute') //
             .attr('title', 'Drag to position / Click to fade') //
@@ -183,19 +191,21 @@ Slides.init = function ($) {
     }
 
     self.openPreview = function () {
-        Page.reset();
-        self.makeLink(Page.getMode());
+        $('html, body').addClass('freeze');
+        self.makeLink(true);
 
         preview$.fadeIn();
         _.delay(function () {
             makeClone();
-            $('#Preview .splash').stikit('#Preview');
+            $('#Preview .splash').stikit(1.11, 2.5);
         }, 333);
     };
 
     self.closePreview = function () {
+        $('html, body').removeClass('freeze');
         $('#Clone, #Preview .splash').remove();
         preview$.fadeOut();
     };
+    self.scale = scaleSlider;
 };
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */

@@ -6,22 +6,20 @@ body {
 
 @media print {
     body {
-        background: none;
         height: 100%;
+        overflow: hidden;
     }
     .NOPRINT, #Container, .mobile, .nav, .noprint {
         display: none !important;
     }
-    #Clone {
-        top: 0 !important;
-    }
     #Preview {
-        height: 100%;
-        overflow: hidden;
+        background: none;
+        position: absolute;
+        top: 0 !important;
     }
 }
 
-@media (max-width: 639px) {
+@media (max-width: 768px) {
     body {
         overflow: auto;
     }
@@ -31,7 +29,8 @@ body {
         margin: 0px;
         min-width: 300px;
         overflow: hidden;
-        padding: 0 0 3em 0;
+        padding: 0.5em;
+        padding-bottom: 3em;
         top: $headH;
         width: 100%;
     }
