@@ -191,9 +191,8 @@ Slides.init = function ($) {
     }
 
     self.openPreview = function () {
-        Page.reset(function () {
-            self.makeLink(true);
-        });
+        $('html, body').addClass('freeze');
+        self.makeLink(true);
 
         preview$.fadeIn();
         _.delay(function () {
@@ -203,6 +202,7 @@ Slides.init = function ($) {
     };
 
     self.closePreview = function () {
+        $('html, body').removeClass('freeze');
         $('#Clone, #Preview .splash').remove();
         preview$.fadeOut();
     };
