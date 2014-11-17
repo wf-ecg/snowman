@@ -39,7 +39,7 @@ jQuery(function () {
     $('.greeting').show();
 
     if (mode > 0) {
-        $('.create, .closing').show();
+        $('.create').show();
 
         switch (mode) {
             case 0:
