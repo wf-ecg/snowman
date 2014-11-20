@@ -48,7 +48,7 @@ jQuery(function () {
                 $('.charity').show();
                 break;
             case 3:
-                $('body').toggleClass('wells wystar');
+                //$('body').toggleClass('wells wystar');
         }
     } else {
         $('.shared').show();

@@ -27,15 +27,8 @@
 }
 .logo {
     img {
-        display: none;
+        display: inline-block;
         max-height: 100%;
-    }
-    .wells & img.wells {
-        display: inline-block;
-    }
-    .wystar & img.wystar {
-        display: inline-block;
-        margin-top: 3px;
     }
     &.desktop {
         height: 50px;
