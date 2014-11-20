@@ -7,6 +7,11 @@
     min-width: $slideW / 2;
     width: 100%;
 
+    .mode0 &, #Preview & {
+        * {
+            @include nosel();
+        }
+    }
     div[u="slides"] {
         cursor: col-resize; cursor: ew-resize;
         height: $slideH;

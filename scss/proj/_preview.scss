@@ -8,9 +8,6 @@
     position: absolute;
     width: 100%; height: 100%;
 
-    * {
-        @include nosel();
-    }
     .splash {
         //max-width: 100%;
         position: relative; left: 184px; top: 333px;
