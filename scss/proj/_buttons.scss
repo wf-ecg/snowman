@@ -59,6 +59,10 @@
     text-decoration: none;
     text-shadow: $mini_shad;
 
+    @include backGrad( $icy_shok, $icy_deep);
+    &:hover { @include backGrad( $icy_shok, $icy_shok); }
+    &:active{ @include backGrad( $icy_deep, $icy_deep); }
+
     &.preview {   @include backGrad( $lime_hi, $lime_lo);
         &:hover { @include backGrad( $lime_hi, $lime_hi); }
         &:active{ @include backGrad( $lime_lo, $lime_lo); }
