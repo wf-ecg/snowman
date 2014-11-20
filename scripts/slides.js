@@ -139,6 +139,7 @@ Slides.init = function ($) {
     }
 
     self.makeLink = function (mode, msg) {
+        msg = 'share_via_' + (msg || 'load');
         var currentIndexes = []; // generate link based of current slides positions
         var href = W.location.href.replace(/\#.*/, ''); // clear query
         var stub = '';
@@ -154,9 +155,10 @@ Slides.init = function ($) {
         $('#OG_url').attr('content', href);
 
         if (mode === false) {
-            W.ga('send', 'event', 'SNOWMAN', msg, {
+            if (W.ga) W.ga('send', 'event', 'SNOWMAN', msg + stub, {
                 'nonInteraction': true
             });
+            C.warn('send', 'event', 'SNOWMAN', msg + stub);
             return href;
         } else if (mode === true) {
             mode = Page.getMode();

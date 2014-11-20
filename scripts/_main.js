@@ -16,7 +16,7 @@ jQuery(function () {
     Page.reset(function () {
         Page.reSource($('[data-src]'));
         Slides.init(W.jQuery);
-        Slides.makeLink(false);
+        //Slides.makeLink(false); <--- needed?
     });
 
     /// EVENTS
