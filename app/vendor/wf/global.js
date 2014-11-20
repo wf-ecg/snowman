@@ -90,7 +90,7 @@ WF.Strings = {
                 "en": "Share",
                 "es": "Comparta"
             },
-            "Disclosure": {
+            "Disclosure": { // drt
                 "en": '<span class="hide" tabindex="0">Begin popup</span><h2>Share this page</h2>' //
                 + '<ul><li><a href="#facebook" class="c52fb">Facebook</a></li>' //
                 + '<li><a href="#twitter" class="c52twitter">Twitter</a></li>' //
@@ -108,7 +108,7 @@ WF.Strings = {
                 + "Wells Fargo no avala ni se hace responsable por el contenido, los enlaces electr&oacute;nicos, las pol&iacute;ticas de privacidad o las pol&iacute;ticas de seguridad de esos " //
                 + 'sitios de Internet.</p><span class="hide" lang="en">End popup</span>'
             },
-            "EmailInsert": {
+            "EmailInsert": { // drt
                 "en": "Hey, check out what I found: \n\n",
             }
         }
@@ -581,7 +581,7 @@ WF.Utils = {
         }
         delete trackInfo.suppressAsync;
         $.ajax({
-            url: "./vendor/wf/s.gif",
+            url: "./vendor/wf/s.gif", // drt
             type: "GET",
             async: asyncMode,
             data: trackInfo,
@@ -1146,7 +1146,7 @@ WF.Component.SocialShare = function () {
         }
     };
 
-    this.share = function (e) {
+    this.share = function (e) { // drt
         var shareSite = this.shareLinkClicked.href.slice(this.shareLinkClicked.href.indexOf("#") + 1),
         shareUrl = "",
         docUrl = location.href,
@@ -1222,9 +1222,9 @@ WF.Component.SocialShare = function () {
                             pageHeader.find("span").remove();
                             pageHeader = WF.Utils.removeHtmlTags(pageHeader.html()).replace(/[^\x20-\x7f-]/g, "").replace(/\s*-\s*$/, "");
                             if (WF.Browser.supports.isIE) {
-                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang] + pageHeader + "\n\n" + Slides.makeLink(); //docUrl + "?ss=email";
+                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang] + pageHeader + "\n\n" + Slides.makeLink(); //docUrl + "?ss=email"; // drt
                             } else {
-                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang] + pageHeader + "\n" + descript + "\n\n" + Slides.makeLink(); //docUrl + "?ss=email";
+                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang] + pageHeader + "\n" + descript + "\n\n" + Slides.makeLink(); //docUrl + "?ss=email"; // drt
                             }
                             emailSubject = "Wellsfargo.com: " + encodeURIComponent(pageHeader);
                             window.location.href = "mailto:?body=" + encodeURIComponent(emailBody) + "&subject=" + emailSubject;
@@ -1268,8 +1268,8 @@ WF.OnLoads.setupSocialShare = function (root) {
     if (typeof root == "undefined") {
         root = $("body");
     }
-    $(root).find(".sideUtility ul li a.printLink").parent().after('<li><span>&nbsp;</span><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>");
-    $(root).find(".sideUtility ul li.noPrintLink").append('<li><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>");
+    $(root).find(".sideUtility ul li a.printLink").parent().after('<li><span>&nbsp;</span><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>"); // drt
+    $(root).find(".sideUtility ul li.noPrintLink").append('<li><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>"); // drt
     $(root).find(".c52").append(disclosure);
     if ($(root).find(".c52").length > 0) {
         share = new WF.Component.SocialShare();
@@ -4324,6 +4324,6 @@ $(document).ready(function () {
         });
     }
     if (window.location.hash && window.location.hash.length > 1) {
-        //WF.Utils.setDelayedScrollTo(window.location.hash);
+        //WF.Utils.setDelayedScrollTo(window.location.hash); // drt
     }
 });
