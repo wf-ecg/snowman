@@ -138,7 +138,7 @@ Slides.init = function ($) {
         self.ic = self.C.$CurrentIndex();
     }
 
-    self.makeLink = function (mode) {
+    self.makeLink = function (mode, msg) {
         var currentIndexes = []; // generate link based of current slides positions
         var href = W.location.href.replace(/\#.*/, ''); // clear query
         var stub = '';
@@ -154,6 +154,9 @@ Slides.init = function ($) {
         $('#OG_url').attr('content', href);
 
         if (mode === false) {
+            W.ga('send', 'event', 'SNOWMAN', msg, {
+                'nonInteraction': true
+            });
             return href;
         } else if (mode === true) {
             mode = Page.getMode();

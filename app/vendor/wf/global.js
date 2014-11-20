@@ -637,7 +637,7 @@ WF.Component.SocialShare = function () {
                 break;
             default:
         }
-        window.location.href = shareUrl + encodeURIComponent(Slides.makeLink(false)); // HAAAACCK!
+        window.location.href = shareUrl + encodeURIComponent(Slides.makeLink(false, shareSite)); // HAAAACCK!
         this.hide();
     };
 
@@ -673,12 +673,12 @@ WF.Component.SocialShare = function () {
                             pageHeader = WF.Utils.removeHtmlTags(pageHeader.html()).replace(/[^\x20-\x7f-]/g, "").replace(/\s*-\s*$/, "");
                             if (WF.Browser.supports.isIE) {
                                 emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang]
-                                + pageHeader + "\n\n" + Slides.makeLink(false); // drt
+                                + pageHeader + "\n\n" + Slides.makeLink(false, 'email'); // drt
                             } else {
                                 emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang]
-                                + pageHeader + "\n" + descript + "\n\n" + Slides.makeLink(false); // drt
+                                + pageHeader + "\n" + descript + "\n\n" + Slides.makeLink(false, 'email'); // drt
                             }
-                            emailSubject = "Wellsfargo.com: " + encodeURIComponent(pageHeader);
+                            emailSubject = "" + encodeURIComponent(pageHeader);
                             window.location.href = "mailto:?body=" + encodeURIComponent(emailBody) + "&subject=" + emailSubject;
                             if (evt.type == "keypress") {}
                             evt.preventDefault();
