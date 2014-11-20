@@ -624,27 +624,20 @@ WF.Component.SocialShare = function () {
         }
         switch (shareSite) {
             case "facebook":
-                shareUrl = "http://www.facebook.com/sharer.php?u=" //
-//                    + encodeURIComponent(docUrl + "?ss=fb") + "&t="
-//                    + encodeURIComponent(header);
+                shareUrl = "http://www.facebook.com/sharer.php?u=";
                 break;
             case "linkedin":
-                shareUrl = "http://www.linkedin.com/shareArticle?mini=true&ro=false&url=" //
-//                    + encodeURIComponent(docUrl + "?ss=ln]") + "&summary=" //
-//                    + encodeURIComponent(document.title) + "&title=" //
-//                    + encodeURIComponent(document.title) + "&source=";
+                shareUrl = "http://www.linkedin.com/shareArticle?mini=true&ro=false&url=";
                 break;
             case "googleplus":
-                shareUrl = "https://plus.google.com/share?url=" //
-//                    + encodeURIComponent(docUrl + "?ss=gp");
+                shareUrl = "https://plus.google.com/share?url=";
                 break;
             case "twitter":
-                shareUrl = "http://twitter.com/share?url=" //
-//                    + encodeURIComponent(docUrl + "?ss=tw");
+                shareUrl = "http://twitter.com/share?url=";
                 break;
             default:
         }
-        window.location.href = shareUrl + encodeURIComponent(Slides.makeLink()); // HAAAACCK!
+        window.location.href = shareUrl + encodeURIComponent(Slides.makeLink(false)); // HAAAACCK!
         this.hide();
     };
 
@@ -679,15 +672,16 @@ WF.Component.SocialShare = function () {
                             pageHeader.find("span").remove();
                             pageHeader = WF.Utils.removeHtmlTags(pageHeader.html()).replace(/[^\x20-\x7f-]/g, "").replace(/\s*-\s*$/, "");
                             if (WF.Browser.supports.isIE) {
-                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang] + pageHeader + "\n\n" + Slides.makeLink(); //docUrl + "?ss=email"; // drt
+                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang]
+                                + pageHeader + "\n\n" + Slides.makeLink(false); // drt
                             } else {
-                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang] + pageHeader + "\n" + descript + "\n\n" + Slides.makeLink(); //docUrl + "?ss=email"; // drt
+                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang]
+                                + pageHeader + "\n" + descript + "\n\n" + Slides.makeLink(false); // drt
                             }
                             emailSubject = "Wellsfargo.com: " + encodeURIComponent(pageHeader);
                             window.location.href = "mailto:?body=" + encodeURIComponent(emailBody) + "&subject=" + emailSubject;
-                            if (evt.type == "keypress") {
-                                evt.preventDefault();
-                            }
+                            if (evt.type == "keypress") {}
+                            evt.preventDefault();
                         } catch (e) {
                             //WF.Utils.ajaxLog(e);
                         }
@@ -719,8 +713,10 @@ WF.OnLoads.setupSocialShare = function (root) {
     if (typeof root == "undefined") {
         root = $("body");
     }
-    $(root).find(".sideUtility ul li a.printLink").parent().after('<li><span>&nbsp;</span><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>"); // drt
-    $(root).find(".sideUtility ul li.noPrintLink").append('<li><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>"); // drt
+    $(root).find(".sideUtility ul li a.printLink").parent() //
+    .after('<li><span>&nbsp;</span><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>"); // drt
+    $(root).find(".sideUtility ul li.noPrintLink") //
+    .append('<li><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>"); // drt
     $(root).find(".c52").append(disclosure);
     if ($(root).find(".c52").length > 0) {
         share = new WF.Component.SocialShare();
