@@ -8,13 +8,10 @@
     position: absolute;
     width: 100%; height: 100%;
 
-    * {
-        @include nosel();
-    }
     .splash {
         //max-width: 100%;
-        position: relative; left: 99px; top: 333px;
-        width: 366px;
+        position: relative; left: 184px; top: 333px;
+        width: 300px;
         z-index: 10;
     }
     .nav {
@@ -25,7 +22,7 @@
         border-radius: 5px;
         box-shadow: $midi_shad;
         display: table;
-        margin-top: 25px;
+        margin-top: $headH;
         padding: 3px 12px;
         position: relative;
         z-index: 100;
@@ -39,16 +36,25 @@
             left: initial !important;
             position: fixed;
         }
-        .closeLink {
+        a.closeLink {
             background: url('../images/buttons/close.png') right 6px no-repeat;
             .lt-ie9 & { background-image: url('../images/buttons/close-lr.png'); }
             @include background-size( 13px );
             // -ms-behavior: url('./vendor/backgroundsize.htc'); only works if item is visible upon load
             color: $wf_red;
-            padding: 5px 20px 4px 4px;
+            display: inline-block;
+            padding: 4px 20px 4px 1px;
             position: relative;
             text-decoration: none;
-            top: 4px;
+            z-index: 40;
+        }
+        a.emailOnly {
+            background-position: 0 7px;
+            color: #434343;
+            display: inline-block;
+            padding: 4px 1px 4px 24px;
+            position: relative;
+            text-decoration: none;
             z-index: 40;
         }
         .sideUtility {

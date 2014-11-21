@@ -14,8 +14,8 @@ body {
     }
     #Preview {
         background: none;
+        overflow: hidden;
         position: absolute;
-        top: 0 !important;
     }
 }
 
@@ -38,7 +38,7 @@ body {
         padding: 1em;
     }
     #Preview {
-        top: $headH * 1.2;
+        top: $headH;
     }
     #Toy, #Copy {
         float: none;

@@ -138,7 +138,8 @@ Slides.init = function ($) {
         self.ic = self.C.$CurrentIndex();
     }
 
-    self.makeLink = function (mode) {
+    self.makeLink = function (mode, msg) {
+        msg = 'share_via_' + (msg || 'load');
         var currentIndexes = []; // generate link based of current slides positions
         var href = W.location.href.replace(/\#.*/, ''); // clear query
         var stub = '';
@@ -154,6 +155,10 @@ Slides.init = function ($) {
         $('#OG_url').attr('content', href);
 
         if (mode === false) {
+            if (W.ga) W.ga('send', 'event', 'SNOWMAN', msg + stub, {
+                'nonInteraction': true
+            });
+            C.warn('send', 'event', 'SNOWMAN', msg + stub);
             return href;
         } else if (mode === true) {
             mode = Page.getMode();
@@ -180,10 +185,10 @@ Slides.init = function ($) {
             clone.find('.splash') //
             .css('position', 'absolute') //
             .attr('title', 'Drag to position / Click to fade') //
-            .draggable() // { containment: clone.find('.corners') }
+            .draggable({ containment: '#Preview' }) //
             .click(function () {
                 $(this).animate({
-                    opacity: '-=0.1'
+                    opacity: '-=0.2'
                 });//remove();
             });
         }
@@ -197,7 +202,7 @@ Slides.init = function ($) {
         preview$.fadeIn();
         _.delay(function () {
             makeClone();
-            $('#Preview .splash').stikit(1.11, 2.5);
+            $('#Preview .splash').stikit(1.11, 2.3);
         }, 333);
     };
 

@@ -15,8 +15,9 @@ jQuery(function () {
     FastClick.attach(W.document.body);
     Page.reset(function () {
         Page.reSource($('[data-src]'));
+        $('.loader').fadeOut(999);
         Slides.init(W.jQuery);
-        Slides.makeLink(false);
+        //Slides.makeLink(false); <--- needed?
     });
 
     /// EVENTS
@@ -39,7 +40,7 @@ jQuery(function () {
     $('.greeting').show();
 
     if (mode > 0) {
-        $('.create, .closing').show();
+        $('.create').show();
 
         switch (mode) {
             case 0:
@@ -48,7 +49,7 @@ jQuery(function () {
                 $('.charity').show();
                 break;
             case 3:
-                $('body').toggleClass('wells wystar');
+                //$('body').toggleClass('wells wystar');
         }
     } else {
         $('.shared').show();
