@@ -25,6 +25,18 @@
 .freeze {
     overflow: hidden !important;
 }
+.loader {
+    background-color: white;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    img {
+        @include middify();
+        position: absolute;
+    }
+}
 .logo {
     img {
         display: inline-block;

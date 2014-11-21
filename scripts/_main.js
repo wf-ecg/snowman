@@ -15,6 +15,7 @@ jQuery(function () {
     FastClick.attach(W.document.body);
     Page.reset(function () {
         Page.reSource($('[data-src]'));
+        $('.loader').fadeOut(999);
         Slides.init(W.jQuery);
         //Slides.makeLink(false); <--- needed?
     });

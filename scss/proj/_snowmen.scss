@@ -5,6 +5,7 @@
     background-color: white;
     max-width: $slideW;
     min-width: $slideW / 2;
+    position: relative;
     width: 100%;
 
     .mode0 &, #Preview & {
