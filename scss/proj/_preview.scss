@@ -36,16 +36,25 @@
             left: initial !important;
             position: fixed;
         }
-        .closeLink {
+        a.closeLink {
             background: url('../images/buttons/close.png') right 6px no-repeat;
             .lt-ie9 & { background-image: url('../images/buttons/close-lr.png'); }
             @include background-size( 13px );
             // -ms-behavior: url('./vendor/backgroundsize.htc'); only works if item is visible upon load
             color: $wf_red;
-            padding: 5px 20px 4px 4px;
+            display: inline-block;
+            padding: 4px 20px 4px 1px;
             position: relative;
             text-decoration: none;
-            top: 4px;
+            z-index: 40;
+        }
+        a.emailOnly {
+            background-position: 0 7px;
+            color: #434343;
+            display: inline-block;
+            padding: 4px 1px 4px 24px;
+            position: relative;
+            text-decoration: none;
             z-index: 40;
         }
         .sideUtility {

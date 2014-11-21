@@ -706,24 +706,27 @@ WF.Component.SocialShare = function () {
     });
 };
 
-WF.OnLoads.setupSocialShare = function (root) {
+WF.OnLoads.setupSocialShare = function (root) { // drt
     var disclosure = WF.Strings.Components.SocialShare.Disclosure[WF.Page.lang],
     shareText = WF.Strings.Components.SocialShare.Share[WF.Page.lang],
-    share;
+        share, menu, link;
     if (typeof root == "undefined") {
         root = $("body");
     }
     $(root).find(".sideUtility ul li a.printLink").parent() //
-    .after('<li><span>&nbsp;</span><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>"); // drt
+    .after('<li><span>&nbsp;</span><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>");
     $(root).find(".sideUtility ul li.noPrintLink") //
-    .append('<li><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>"); // drt
-    $(root).find(".c52").append(disclosure);
-    if ($(root).find(".c52").length > 0) {
-        share = new WF.Component.SocialShare();
-    }
-    $(root).find(".c52Link").bind("click keypress", function (evt) {
+    .append('<li><a href="#" class="c52Link" aria-haspopup="true">' + shareText + "</a></li>");
+    menu = $(root).find(".c52");
+
+    if (!menu.length > 0) return;
+    menu.append(disclosure);
+    share = new WF.Component.SocialShare();
+    link = $(root).find('.c52Link');
+
+    link.bind("click keypress", function (evt) {
         if (evt.type == "keypress" && evt.keyCode != 13) {
-            return;
+            return false;
         }
         if (WF.Browser.supports.IE7mode) {
             var curScroll = $(document).scrollTop(),
@@ -741,7 +744,7 @@ WF.OnLoads.setupSocialShare = function (root) {
         }
         evt.preventDefault();
         if (!$(this).hasClass("active")) {
-            $(".c52Link").each(function () {
+            link.each(function () {
                 if ($(this).hasClass("active")) {
                     $(this).removeClass("active");
                     $(share.container).addClass("hide");
@@ -753,6 +756,12 @@ WF.OnLoads.setupSocialShare = function (root) {
         }
         return false;
     });
+    if (menu.is('.emailOnly')) {
+        share.show(link); // force an update for emailOnly
+        menu.find('a').last().addClass('emailOnly') //
+        .insertBefore(link.hide());
+        share.hide();
+    }
 };
 
 
