@@ -665,7 +665,7 @@ WF.Component.SocialShare = function () {
                             if (W.isWystar) {
                                 descript = 'I just made a snowman. Check out my snowman and create your own with the WySTAR Global Retirement Solutions holiday Snowman Scramble.'; //<Link to play the card>
                             } else {
-                                descript = 'I just made a snowman. Check out my snowman and create your own with Wells Fargo’s holiday Snowman Scramble.'; //<Link to play the card>
+                                descript = 'I just made a snowman. Check out my snowman and create your own with Wells Fargo\'s holiday Snowman Scramble.'; //<Link to play the card>
                             }
 
                             docUrl = location.href;
@@ -689,7 +689,7 @@ WF.Component.SocialShare = function () {
                                 emailBody = descript + " " + Slides.makeLink(false, 'email'); // drt
                             }
                             if (!W.isWystar) {
-                                emailBody += '\n\nWatch Wells Fargo’s “Stagecoach and Snowmen” commercial for more holiday cheer. http://stories.wellsfargobank.com/holiday-warmth-snowmen-come-to-life/';
+                                emailBody += '\n\nWatch Wells Fargo\'s "Stagecoach and Snowmen" commercial for more holiday cheer. http://stories.wellsfargobank.com/holiday-warmth-snowmen-come-to-life/';
                             }
 
                             emailSubject = "" + encodeURIComponent(pageHeader);
