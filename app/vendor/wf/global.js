@@ -37,7 +37,7 @@ WF.Strings = {
                 + 'sitios de Internet.</p><span class="hide" lang="en">End popup</span>'
             },
             "EmailInsert": { // drt
-                "en": "Hey, check out what I found: \n\n",
+                "en": "",
             }
         }
     },
@@ -660,7 +660,14 @@ WF.Component.SocialShare = function () {
                     if (this.href.indexOf("#email") != - 1 || this.href.indexOf("mailto") != - 1) {
                         try {
                             _this.hide();
-                            descript = $("meta[name=description]").attr("content");
+
+                            //descript = $("meta[name=description]").attr("content");
+                            if (W.isWystar) {
+                                descript = 'I just made a snowman. Check out my snowman and create your own with the WySTAR Global Retirement Solutions holiday Snowman Scramble.'; //<Link to play the card>
+                            } else {
+                                descript = 'I just made a snowman. Check out my snowman and create your own with Wells Fargo’s holiday Snowman Scramble.'; //<Link to play the card>
+                            }
+
                             docUrl = location.href;
                             if (docUrl.indexOf("?") != - 1) {
                                 docUrl = docUrl.slice(0, docUrl.indexOf("?"));
@@ -668,16 +675,23 @@ WF.Component.SocialShare = function () {
                             if (docUrl.indexOf("#") != - 1) {
                                 docUrl = docUrl.slice(0, docUrl.indexOf("#"));
                             }
-                            pageHeader = $("h1:first").clone();
-                            pageHeader.find("span").remove();
-                            pageHeader = WF.Utils.removeHtmlTags(pageHeader.html()).replace(/[^\x20-\x7f-]/g, "").replace(/\s*-\s*$/, "");
-                            if (WF.Browser.supports.isIE) {
-                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang]
-                                + pageHeader + "\n\n" + Slides.makeLink(false, 'email'); // drt
+                            //pageHeader = $("h1:first").clone();
+                            //pageHeader.find("span").remove();
+                            //pageHeader = WF.Utils.removeHtmlTags(pageHeader.html()).replace(/[^\x20-\x7f-]/g, "").replace(/\s*-\s*$/, "");
+                            if (W.isWystar) {
+                                pageHeader = 'Happy Holidays from WySTAR Global Retirement Solutions: Play the Snowman Scramble';
                             } else {
-                                emailBody = WF.Strings.Components.SocialShare.EmailInsert[WF.Page.lang]
-                                + pageHeader + "\n" + descript + "\n\n" + Slides.makeLink(false, 'email'); // drt
+                                pageHeader = 'Happy Holidays from Wells Fargo: Play the Snowman Scramble';
                             }
+                            if (WF.Browser.supports.isIE) {
+                                emailBody = descript + " " + Slides.makeLink(false, 'email'); // drt
+                            } else {
+                                emailBody = descript + " " + Slides.makeLink(false, 'email'); // drt
+                            }
+                            if (!W.isWystar) {
+                                emailBody += '\n\nWatch Wells Fargo’s “Stagecoach and Snowmen” commercial for more holiday cheer. http://stories.wellsfargobank.com/holiday-warmth-snowmen-come-to-life/';
+                            }
+
                             emailSubject = "" + encodeURIComponent(pageHeader);
                             window.location.href = "mailto:?body=" + encodeURIComponent(emailBody) + "&subject=" + emailSubject;
                             if (evt.type == "keypress") {}
