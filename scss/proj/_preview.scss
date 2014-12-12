@@ -36,6 +36,9 @@
             left: initial !important;
             position: fixed;
         }
+        a.printLink {
+            .lt-ie9 & { display: none; }
+        }
         a.closeLink {
             background: url('../images/buttons/close.png') right 6px no-repeat;
             .lt-ie9 & { background-image: url('../images/buttons/close-lr.png'); }
