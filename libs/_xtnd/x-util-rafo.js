@@ -1,11 +1,10 @@
 /*jslint white:false */
-/*globals _, C, W, Util */
+/*globals W, Util */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-/// POLYFILLS
 //
 // RequestAnimationFrame
 //
-W.Util && (Util.rafo = function (fnObj) {
+window.W && W.Util && (Util.rafo = function (fnObj) {
     fnObj = fnObj || {};
 
     var rAF = 'equestAnimationFrame',
@@ -30,15 +29,9 @@ W.Util && (Util.rafo = function (fnObj) {
         }
 
         timer = W.setTimeout(function () {
-            if (U.debug(1)) {
-                C.debug(timer, name);
-            }
             timer = 'paused';
 
             rAF(function () {
-                if (U.debug(1)) {
-                    C.debug(runs, 'running');
-                }
                 runs += 1;
                 timer = !rAF(again);
 

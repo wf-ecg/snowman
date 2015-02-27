@@ -100,17 +100,17 @@ var $JssorDebug$ = new function () {
     };
 
     this.$C_AbstractMethod = function () {
-        ///	<summary>
-        ///		Tells compiler the method is abstract, it should be implemented by subclass.
-        ///	</summary>
+        /// <summary>
+        ///     Tells compiler the method is abstract, it should be implemented by subclass.
+        /// </summary>
 
         throw new Error("The method is abstract, it should be implemented by subclass.");
     };
 
     function C_AbstractClass (instance) {
-        ///	<summary>
-        ///		Tells compiler the class is abstract, it should be implemented by subclass.
-        ///	</summary>
+        /// <summary>
+        ///     Tells compiler the class is abstract, it should be implemented by subclass.
+        /// </summary>
 
         if(instance.constructor === C_AbstractClass.caller)
             throw new Error("Cannot create instance of an abstract class.");
@@ -557,8 +557,8 @@ var $Jssor$ = window.$Jssor$ = new function () {
         try {
             // Not own constructor property must be Object
             if (obj.constructor &&
-				!hasOwn.call(obj, "constructor") &&
-				!hasOwn.call(obj.constructor.prototype, "isPrototypeOf")) {
+                !hasOwn.call(obj, "constructor") &&
+                !hasOwn.call(obj.constructor.prototype, "isPrototypeOf")) {
                 return false;
             }
         } catch (e) {
@@ -856,20 +856,20 @@ var $Jssor$ = window.$Jssor$ = new function () {
     //};
 
     function Css(elmt, name, value) {
-        ///	<summary>
-        ///		access css
+        /// <summary>
+        ///     access css
         ///     $Jssor$.$Css(elmt, name);         //get css value
         ///     $Jssor$.$Css(elmt, name, value);  //set css value
-        ///	</summary>
-        ///	<param name="elmt" type="HTMLElement">
-        ///		the element to access css
-        ///	</param>
-        ///	<param name="name" type="String">
-        ///		the name of css property
-        ///	</param>
-        ///	<param name="value" optional="true">
-        ///		the value to set
-        ///	</param>
+        /// </summary>
+        /// <param name="elmt" type="HTMLElement">
+        ///     the element to access css
+        /// </param>
+        /// <param name="name" type="String">
+        ///     the name of css property
+        /// </param>
+        /// <param name="value" optional="true">
+        ///     the value to set
+        /// </param>
         if (value != undefined) {
             elmt.style[name] = value;
         }
@@ -888,20 +888,20 @@ var $Jssor$ = window.$Jssor$ = new function () {
     }
 
     function CssN(elmt, name, value, isDimensional) {
-        ///	<summary>
-        ///		access css as numeric
+        /// <summary>
+        ///     access css as numeric
         ///     $Jssor$.$CssN(elmt, name);         //get css value
         ///     $Jssor$.$CssN(elmt, name, value);  //set css value
-        ///	</summary>
-        ///	<param name="elmt" type="HTMLElement">
-        ///		the element to access css
-        ///	</param>
-        ///	<param name="name" type="String">
-        ///		the name of css property
-        ///	</param>
-        ///	<param name="value" type="Number" optional="true">
-        ///		the value to set
-        ///	</param>
+        /// </summary>
+        /// <param name="elmt" type="HTMLElement">
+        ///     the element to access css
+        /// </param>
+        /// <param name="name" type="String">
+        ///     the name of css property
+        /// </param>
+        /// <param name="value" type="Number" optional="true">
+        ///     the value to set
+        /// </param>
         if (value != undefined) {
             isDimensional && (value += "px");
             Css(elmt, name, value);
@@ -912,33 +912,33 @@ var $Jssor$ = window.$Jssor$ = new function () {
     }
 
     function CssP(elmt, name, value) {
-        ///	<summary>
-        ///		access css in pixel as numeric, like 'top', 'left', 'width', 'height'
+        /// <summary>
+        ///     access css in pixel as numeric, like 'top', 'left', 'width', 'height'
         ///     $Jssor$.$CssP(elmt, name);         //get css value
         ///     $Jssor$.$CssP(elmt, name, value);  //set css value
-        ///	</summary>
-        ///	<param name="elmt" type="HTMLElement">
-        ///		the element to access css
-        ///	</param>
-        ///	<param name="name" type="String">
-        ///		the name of css property
-        ///	</param>
-        ///	<param name="value" type="Number" optional="true">
-        ///		the value to set
-        ///	</param>
+        /// </summary>
+        /// <param name="elmt" type="HTMLElement">
+        ///     the element to access css
+        /// </param>
+        /// <param name="name" type="String">
+        ///     the name of css property
+        /// </param>
+        /// <param name="value" type="Number" optional="true">
+        ///     the value to set
+        /// </param>
         return CssN(elmt, name, value, true);
     }
 
     function CssProxy(name, numericOrDimension) {
-        ///	<summary>
-        ///		create proxy to access css, CssProxy(name[, numericOrDimension]);
-        ///	</summary>
-        ///	<param name="elmt" type="HTMLElement">
-        ///		the element to access css
-        ///	</param>
-        ///	<param name="numericOrDimension" type="Number" optional="true">
-        ///		not set: access original css, 1: access css as numeric, 2: access css in pixel as numeric
-        ///	</param>
+        /// <summary>
+        ///     create proxy to access css, CssProxy(name[, numericOrDimension]);
+        /// </summary>
+        /// <param name="elmt" type="HTMLElement">
+        ///     the element to access css
+        /// </param>
+        /// <param name="numericOrDimension" type="Number" optional="true">
+        ///     not set: access original css, 1: access css as numeric, 2: access css in pixel as numeric
+        /// </param>
         var isDimensional = numericOrDimension & 2;
         var cssAccessor = numericOrDimension ? CssN : Css;
         return function (elmt, value) {
@@ -1132,9 +1132,9 @@ var $Jssor$ = window.$Jssor$ = new function () {
     };
 
     _This.$MouseOverOutFilter = function (handler, target) {
-        ///	<param name="target" type="HTMLDomElement">
-        ///		The target element to detect mouse over/out events. (for ie < 9 compatibility)
-        ///	</param>
+        /// <param name="target" type="HTMLDomElement">
+        ///     The target element to detect mouse over/out events. (for ie < 9 compatibility)
+        /// </param>
 
         $JssorDebug$.$Execute(function () {
             if (!target) {
@@ -1591,12 +1591,12 @@ var $Jssor$ = window.$Jssor$ = new function () {
     _This.$ToHash = ToHash;
 
     function Join(separator, strings) {
-        ///	<param name="separator" type="String">
-        ///		The element to show the dialog around
-        ///	</param>
-        ///	<param name="strings" type="Array" value="['1']">
-        ///		The element to show the dialog around
-        ///	</param>
+        /// <param name="separator" type="String">
+        ///     The element to show the dialog around
+        /// </param>
+        /// <param name="strings" type="Array" value="['1']">
+        ///     The element to show the dialog around
+        /// </param>
 
         var joined = "";
 
@@ -1762,9 +1762,9 @@ var $Jssor$ = window.$Jssor$ = new function () {
     }
 
     _This.$TranslateTransitions = function (transitions) {
-        ///	<summary>
-        ///		For backward compatibility only.
-        ///	</summary>
+        /// <summary>
+        ///     For backward compatibility only.
+        /// </summary>
         if (transitions) {
             for (var i = 0; i < transitions.length; i++) {
                 TranslateTransition(transitions[i]);
@@ -1946,10 +1946,10 @@ var $Jssor$ = window.$Jssor$ = new function () {
         }
 
         _Self.$MouseUp = function () {
-            ///	<summary>
-            ///		Internal member function, do not use it.
-            ///	</summary>
-            ///	<private />
+            /// <summary>
+            ///     Internal member function, do not use it.
+            /// </summary>
+            /// <private />
 
             _IsMouseDown = false;
 
@@ -2512,16 +2512,16 @@ $JssorAnimator$ = function (delay, duration, options, elmt, fromStyles, toStyles
     }
 
     function Join(animator, combineMode) {
-        ///	<summary>
-        ///		Combine another animator as nested animator
-        ///	</summary>
-        ///	<param name="animator" type="$JssorAnimator$">
-        ///		An instance of $JssorAnimator$
-        ///	</param>
-        ///	<param name="combineMode" type="int">
-        ///		0: parallel - place the animator parallel to this animator.
-        ///		1: chain - chain the animator at the _Position_InnerEnd of this animator.
-        ///	</param>
+        /// <summary>
+        ///     Combine another animator as nested animator
+        /// </summary>
+        /// <param name="animator" type="$JssorAnimator$">
+        ///     An instance of $JssorAnimator$
+        /// </param>
+        /// <param name="combineMode" type="int">
+        ///     0: parallel - place the animator parallel to this animator.
+        ///     1: chain - chain the animator at the _Position_InnerEnd of this animator.
+        /// </param>
         $JssorDebug$.$Execute(function () {
             if (combineMode !== 0 && combineMode !== 1)
                 $JssorDebug$.$Fail("Argument out of range, the value of 'combineMode' should be either 0 or 1.");
@@ -2667,58 +2667,58 @@ $JssorAnimator$ = function (delay, duration, options, elmt, fromStyles, toStyles
     _ThisAnimator.$Join = Join;
 
     _ThisAnimator.$Combine = function (animator) {
-        ///	<summary>
-        ///		Combine another animator parallel to this animator
-        ///	</summary>
-        ///	<param name="animator" type="$JssorAnimator$">
-        ///		An instance of $JssorAnimator$
-        ///	</param>
+        /// <summary>
+        ///     Combine another animator parallel to this animator
+        /// </summary>
+        /// <param name="animator" type="$JssorAnimator$">
+        ///     An instance of $JssorAnimator$
+        /// </param>
         Join(animator, 0);
     };
 
     _ThisAnimator.$Chain = function (animator) {
-        ///	<summary>
-        ///		Chain another animator at the _Position_InnerEnd of this animator
-        ///	</summary>
-        ///	<param name="animator" type="$JssorAnimator$">
-        ///		An instance of $JssorAnimator$
-        ///	</param>
+        /// <summary>
+        ///     Chain another animator at the _Position_InnerEnd of this animator
+        /// </summary>
+        /// <param name="animator" type="$JssorAnimator$">
+        ///     An instance of $JssorAnimator$
+        /// </param>
         Join(animator, 1);
     };
 
     _ThisAnimator.$GetPosition_InnerBegin = function () {
-        ///	<summary>
-        ///		Internal member function, do not use it.
-        ///	</summary>
-        ///	<private />
-        ///	<returns type="int" />
+        /// <summary>
+        ///     Internal member function, do not use it.
+        /// </summary>
+        /// <private />
+        /// <returns type="int" />
         return _Position_InnerBegin;
     };
 
     _ThisAnimator.$GetPosition_InnerEnd = function () {
-        ///	<summary>
-        ///		Internal member function, do not use it.
-        ///	</summary>
-        ///	<private />
-        ///	<returns type="int" />
+        /// <summary>
+        ///     Internal member function, do not use it.
+        /// </summary>
+        /// <private />
+        /// <returns type="int" />
         return _Position_InnerEnd;
     };
 
     _ThisAnimator.$GetPosition_OuterBegin = function () {
-        ///	<summary>
-        ///		Internal member function, do not use it.
-        ///	</summary>
-        ///	<private />
-        ///	<returns type="int" />
+        /// <summary>
+        ///     Internal member function, do not use it.
+        /// </summary>
+        /// <private />
+        /// <returns type="int" />
         return _Position_OuterBegin;
     };
 
     _ThisAnimator.$GetPosition_OuterEnd = function () {
-        ///	<summary>
-        ///		Internal member function, do not use it.
-        ///	</summary>
-        ///	<private />
-        ///	<returns type="int" />
+        /// <summary>
+        ///     Internal member function, do not use it.
+        /// </summary>
+        /// <private />
+        /// <returns type="int" />
         return _Position_OuterEnd;
     };
 

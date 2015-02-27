@@ -1,6 +1,6 @@
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
 /* CORE / mixins */
-@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+//@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
 @mixin clearfix(){
     &:after {
@@ -19,6 +19,8 @@
     @include user-select(none);
     // cursor: move;
 }
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+// UNITS
 @mixin rex($prop, $rem){
     #{$prop}: $rem * $remx;
     //#{$prop}: $rem * 1rem;
@@ -31,6 +33,8 @@
     @include rex('width', $w);
     @include rex('height', $h);
 }
+// - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+// ??
 @mixin textshadow() {
     text-shadow: 1px 1px 1px black;
 }
@@ -67,6 +71,7 @@
     background-color: setTrans($color, $opacity);
 }
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
+// FONTS
 @mixin font-archer() {
     //font-family: 'Archer A', 'Archer B', Georgia, serif;
     font-family: 'Archer SSm A', 'Archer SSm B', Archer, Georgia, serif;
@@ -119,21 +124,5 @@
     @include perspective( 1000px );
     @include transform( scale(1) translate3d(0,0,0) rotate(0deg) );
     @include transform-style( preserve-3d );
-}
-@mixin dotwhite(){
-    color: white;
-    border-bottom: 1px dotted white;
-    text-decoration: none;
-
-    &:hover {
-        border-bottom: 1px solid white;
-    }
-}
-@mixin columny($w: 16em){
-    -webkit-columns: $w;
-    -webkit-column-width: $w;
-    -webkit-column-count: auto;
-    -moz-columns: $w;
-    columns: $w;
 }
 // - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - - + - //
