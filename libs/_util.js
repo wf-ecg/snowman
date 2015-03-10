@@ -167,7 +167,7 @@ var Util = (function ($) { /// IIFE
 
     U.query = function (nom) {
         var A = W.location.search.slice(1).split('&'),
-            O = {};
+        O = {};
 
         $.each(A, function (i, e) {
             var x = e.split('=');
@@ -186,26 +186,27 @@ var Util = (function ($) { /// IIFE
         return path.split('.').shift(); // remove any extension
     };
 
+    U.pageId = function () {
+        var str = $('body').attr('id');
+        return (str || this.pathId()).toLowerCase();
+    };
+
+    U.time = function () {
+        var arr = $.now().toString().match(/\d{6,7}/g);
+        return {
+            all: arr.join(''),
+            big: arr[0],
+            lil: arr[1],
+        };
+    };
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-    function _fixIE() {
-        $('body').on('mouseover', '*', function (evt) {
-            evt.stopPropagation();
-            $(this).addClass('hover');
-        }).on('mouseout', '*', function (evt) {
-            evt.stopPropagation();
-            $(this).removeClass('hover');
-        });
-    }
-
-    void(W.isIE && _fixIE());
 
     $.extend(self, {
         flatten: U.flatcat,
         isDef: U.defined,
         I: U.reflect,
         testrict: "eval('var x=0'),(typeof(x)!=='number'?'':'non-')+'strict'",
-        fixIE: _fixIE,
     }, U);
 
     return self;
