@@ -17,52 +17,52 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick'], function
 
 //  INIT
     $(function () {
-    C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
-    var mode = Page.getMode();
+        C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
+        var mode = Page.getMode();
 
-    FastClick.attach(W.document.body);
-    Page.reset(function () {
-        Page.reSource($('[data-src]'));
-        $('.loader').fadeOut(999);
-        Slides.init(W.jQuery);
-        //Slides.makeLink(false); <--- needed?
-    });
+        FastClick.attach(W.document.body);
+        Page.reset(function () {
+            Page.reSource($('[data-src]'));
+            $('.loader').fadeOut(999);
+            Slides.init(W.jQuery);
+            //Slides.makeLink(false); <--- needed?
+        });
 
-    /// EVENTS
+        /// EVENTS
 
-    $('a.closeLink').first().click(function (e) {
-        Slides.closePreview();
-        e.preventDefault();
-    });
-
-    $('body').on('keydown', function (evt) {
-        if (evt.keyCode === 27) {
+        $('a.closeLink').first().click(function (e) {
             Slides.closePreview();
+            e.preventDefault();
+        });
+
+        $('body').on('keydown', function (evt) {
+            if (evt.keyCode === 27) {
+                Slides.closePreview();
+            }
+        });
+
+        /// MODES
+
+        mode = mode > 0 ? mode : 0;
+        $('body').addClass('mode' + mode);
+        $('.greeting').show();
+
+        if (mode > 0) {
+            $('.create').show();
+
+            switch (mode) {
+                case 0:
+                    break;
+                case 2:
+                    $('.charity').show();
+                    break;
+                case 3:
+                    //$('body').toggleClass('wells wystar');
+            }
+        } else {
+            $('.shared').show();
+            $('.create, .arrow').remove();
         }
-    });
-
-    /// MODES
-
-    mode = mode > 0 ? mode : 0;
-    $('body').addClass('mode' + mode);
-    $('.greeting').show();
-
-    if (mode > 0) {
-        $('.create').show();
-
-        switch (mode) {
-            case 0:
-                break;
-            case 2:
-                $('.charity').show();
-                break;
-            case 3:
-                //$('body').toggleClass('wells wystar');
-        }
-    } else {
-        $('.shared').show();
-        $('.create, .arrow').remove();
-    }
     });
 });
 
