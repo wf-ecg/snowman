@@ -1,15 +1,23 @@
 /*jslint white:false */
-/*globals document, jQuery, window,
-    Help, Page, Slides
-    $JssorEasing$, $JssorSlider$,
-*/
+/*global window,  window, */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var W, C;
+define(['jquery', 'lodash', 'page', 'slides', 'fastclick'], function
+    MAIN($, _, Page, Slides, FastClick) {
+    'use strict';
 
-W = W || window;
-C = C || W.console;
+    var Nom = 'Main';
+    var Main = {};
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
-jQuery(function () {
+//EXTEND
+    $.ajaxSetup({// disable caching
+        cache: false,
+    });
+
+//  INIT
+    $(function () {
+    C.info(Nom, 'init @', new Date(), 'debug:', W.debug);
     var mode = Page.getMode();
 
     FastClick.attach(W.document.body);
@@ -26,8 +34,8 @@ jQuery(function () {
         Slides.closePreview();
         e.preventDefault();
     });
+
     $('body').on('keydown', function (evt) {
-        //C.debug('keydown', evt.keyCode);
         if (evt.keyCode === 27) {
             Slides.closePreview();
         }
@@ -55,5 +63,12 @@ jQuery(function () {
         $('.shared').show();
         $('.create, .arrow').remove();
     }
+    });
 });
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+/*
+
+
+
+
+ */

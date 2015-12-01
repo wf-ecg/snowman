@@ -1,13 +1,12 @@
-/*jslint white:false */
-/*globals document, jQuery, window,
-    Help, Page, Slide:true,
-    $JssorEasing$, $JssorSlider$,
-*/
+/*jslint  white:false */
+/*global define, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-var W, C, Slides;
+define(['lodash', 'help', 'page'], function (_, Help, Page) {
+var W, C;
 
 W = W || window;
 C = C || W.console;
+
 Slides = {
     $: '.slider',
     A: null,
@@ -155,9 +154,10 @@ Slides.init = function ($) {
         $('#OG_url').attr('content', href);
 
         if (mode === false) {
-            if (W.ga) W.ga('send', 'event', 'SNOWMAN', msg + stub, {
-                'nonInteraction': true
-            });
+            if (W.ga)
+                W.ga('send', 'event', 'SNOWMAN', msg + stub, {
+                    'nonInteraction': true
+                });
             C.warn('send', 'event', 'SNOWMAN', msg + stub);
             return href;
         } else if (mode === true) {
@@ -213,4 +213,6 @@ Slides.init = function ($) {
     };
     self.scale = scaleSlider;
 };
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+return Slides;
+});

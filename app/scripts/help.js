@@ -1,29 +1,27 @@
-/*jslint white:false */
-/*globals document, jQuery, window,
-    Help:true,
-    $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$,
- */
+/*jslint  white:false */
+/*global define, window, $JssorArrowNavigator$, $JssorBulletNavigator$, $JssorCaptionSlider$ */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+define(['jquery', 'jssor', 'jssors'], function ($) {
 var W, C, Help;
 
 W = W || window;
 C = C || W.console;
 Help = {
-    getParameterByName: Function,
+    getParameterByName: new Function,
     defaults: {},
-    makeOptions: Function,
+    makeOptions: new Function,
 };
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 // EXTEND jquery
-jQuery.fn.randId = function () {
+
+$.fn.randId = function () {
     this.each(function (i, e) {
         e.id = 'Random_' + (Math.random() * 1e9 | 0); // force an ID on it
     });
     return this;
 };
 
-jQuery.fn.stikit = function (x, y) {
+$.fn.stikit = function (x, y) {
     var me = $(this);
     var middle = Help.middleOf(me[0].offsetParent);
     var offset = Help.middleOf(me);
@@ -41,7 +39,7 @@ jQuery.fn.stikit = function (x, y) {
     }, 999);
 };
 
-jQuery.fn.centerdot = function () {
+$.fn.centerdot = function () {
     var me = $(this);
     var cite = $('<cite class="dot">');
 
@@ -114,6 +112,8 @@ Help.defaults = {
 };
 
 Help.makeOptions = function (x) {
-    return jQuery.extend(Help.defaults, x || {});
+    return $.extend(Help.defaults, x || {});
 };
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+return Help;
+});

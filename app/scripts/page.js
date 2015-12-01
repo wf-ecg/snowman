@@ -1,13 +1,12 @@
-/*jslint white:false */
-/*globals document, jQuery, window,
-    Help, Page:true,
-    $JssorEasing$, $JssorSlider$,
-*/
+/*jslint  white:false */
+/*global define, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+define(['jquery', 'help'], function ($, Help) {
 var W, C, Page;
 
 W = W || window;
 C = C || W.console;
+
 Page = {
     getMode: Function,
     reset: Function,
@@ -40,4 +39,5 @@ Page.reSource = function (eles) {
     });
 };
 
-/* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
+return Page;
+});
