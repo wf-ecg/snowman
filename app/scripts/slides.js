@@ -1,13 +1,11 @@
 /*jslint  white:false */
 /*global define, window */
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-define(['lodash', 'help', 'page'], function (_, Help, Page) {
-    var W, C;
+define(['jquery', 'lodash', 'help', 'page', 'jqui'], function ($, _, Help, Page) {
+    var W = (W && W.window || window),
+        C = (W.C || W.console || {});
 
-    W = W || window;
-    C = C || W.console;
-
-    Slides = {
+    var Slides = {
         $: '.slider',
         A: null,
         B: null,

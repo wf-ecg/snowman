@@ -11,8 +11,7 @@ require.config({
     baseUrl: 'scripts',
     paths: {
         lr: 'http://localhost:7325/livereload.js?snipver=1',
-        jquery: '/lib/jquery/1.11.3/jquery',
-        jqmobi: '/lib/jquery/mobile/custom/jquery.mobile',
+        jquery: '/lib/jquery/1.8.2/jquery',
         lodash: '/lib/underscore/js-1.4.4/lodash.underscore',
         modern: '/lib/modernizr/2.6.2/modernizr',
         //
@@ -53,7 +52,7 @@ require(['modern', 'console', 'lodash', 'utils'], function () {
     require(['jssor', 'jssors', '_main'], function () {
 
         _.delay(function () {
-            if (W.debug < 2) {
+            if (W.debug < 0) {
                 require(['stats'], function (stats) {
                     stats.init('HOLI-SNOW');
                 });

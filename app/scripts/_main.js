@@ -11,6 +11,7 @@ define(['jquery', 'lodash', 'page', 'slides', 'fastclick'], function
         C = (W.C || W.console || {});
 
 //EXTEND
+    W.Slides = Slides;
     $.ajaxSetup({// disable caching
         cache: false,
     });
