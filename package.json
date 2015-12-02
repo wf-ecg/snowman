@@ -5,8 +5,7 @@
         "url": "https://github.com/wf-ecg/snowman.git"
     },
     "version": "0.1.0",
-    "devDependencies": {
-    },
+    "devDependencies": {},
     "dependencies": {
         "glob": "~3.2.8",
         "grunt": "~0.4.1",
@@ -21,7 +20,11 @@
         "grunt-sync": "^0.1.1",
         "load-grunt-tasks": "~0.2.0"
     },
-    "bases": ["app", ".", "../.."],
+    "bases": [
+        "app",
+        ".",
+        "../.."
+    ],
     "group": "docs/wf-ecg/snowman/0",
     "port0": 7017,
     "port1": 8017,
